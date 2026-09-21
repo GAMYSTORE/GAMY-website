@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>منتجات | GAMY STORE</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            color: #111;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: white;
+            padding: 20px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid #eee;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #111;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #777;
+        }
+
+        .cart {
+            text-decoration: none;
+            color: #111;
+            font-size: 23px;
+        }
+
+        /* ================= PAGE TITLE ================= */
+
+        .page-title {
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+
+        .page-title h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .page-title p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products-container {
+            width: 86%;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+
+            padding-bottom: 80px;
+        }
+
+        .product {
+            background: white;
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 19px;
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 19px;
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        /* ================= OPTIONS ================= */
+
+        .option {
+            margin-bottom: 15px;
+        }
+
+        .option label {
+            display: block;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+        select {
+            width: 100%;
+
+            padding: 10px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 5px;
+
+            background: white;
+
+            font-size: 14px;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .add-cart {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            background: #111;
+            color: white;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #333;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: white;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #bbb;
+        }
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 1100px) {
+
+            .products-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .products-container {
+                grid-template-columns: repeat(2, 1fr);
+
+                width: 92%;
+
+                gap: 15px;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+        }
+
+        /* ================= SMALL MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                order: 3;
+
+                width: 100%;
+
+                justify-content: center;
+            }
+
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        GAMY STORE
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="products.html">
+            المنتجات
+        </a>
+
+        <a href="index.html#about">
+            من نحن
+        </a>
+
+        <a href="index.html#contact">
+            تواصل معنا
+        </a>
+
+    </nav>
+
+    <a href="cart.html" class="cart">
+        🛒
+    </a>
+
+</header>
+
+
+<!-- ================= TITLE ================= -->
+
+<section class="page-title">
+
+    <h1>
+        منتجات GAMY STORE
+    </h1>
+
+    <p>
+        اختار المنتج والمقاس واللون المناسب لك
+    </p>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-container">
+
+
+    <!-- PRODUCT 1 -->
+
+    <div class="product">
+
+        <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+            alt="تيشيرت أبيض"
+        >
+
+        <div class="product-info">
+
+            <div class="product-name">
+                تيشيرت أبيض كلاسيك
+            </div>
+
+            <div class="price">
+                450 جنيه
+            </div>
+
+            <div class="option">
+
+                <label>
+                    المقاس
+                </label>
+
+                <select>
+
+                    <option>اختر المقاس</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label>
+                    اللون
+                </label>
+
+                <select>
+
+                    <option>اختر اللون</option>
+                    <option>أبيض</option>
+                    <option>أسود</option>
+                    <option>رمادي</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('تيشيرت أبيض كلاسيك', 450)"
+            >
+                🛒 أضف للسلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT 2 -->
+
+    <div class="product">
+
+        <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1542272604-787c3835535d"
+            alt="جينز"
+        >
+
+        <div class="product-info">
+
+            <div class="product-name">
+                بنطلون جينز كلاسيك
+            </div>
+
+            <div class="price">
+                750 جنيه
+            </div>
+
+            <div class="option">
+
+                <label>
+                    المقاس
+                </label>
+
+                <select>
+
+                    <option>اختر المقاس</option>
+                    <option>28</option>
+                    <option>30</option>
+                    <option>32</option>
+                    <option>34</option>
+                    <option>36</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label>
+                    اللون
+                </label>
+
+                <select>
+
+                    <option>اختر اللون</option>
+                    <option>أزرق</option>
+                    <option>أسود</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('بنطلون جينز كلاسيك', 750)"
+            >
+                🛒 أضف للسلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT 3 -->
+
+    <div class="product">
+
+        <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3"
+            alt="هودي"
+        >
+
+        <div class="product-info">
+
+            <div class="product-name">
+                هودي شتوي
+            </div>
+
+            <div class="price">
+                850 جنيه
+            </div>
+
+            <div class="option">
+
+                <label>
+                    المقاس
+                </label>
+
+                <select>
+
+                    <option>اختر المقاس</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label>
+                    اللون
+                </label>
+
+                <select>
+
+                    <option>اختر اللون</option>
+                    <option>أسود</option>
+                    <option>بيج</option>
+                    <option>رمادي</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('هودي شتوي', 850)"
+            >
+                🛒 أضف للسلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT 4 -->
+
+    <div class="product">
+
+        <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+            alt="حذاء رياضي"
+        >
+
+        <div class="product-info">
+
+            <div class="product-name">
+                حذاء رياضي
+            </div>
+
+            <div class="price">
+                1200 جنيه
+            </div>
+
+            <div class="option">
+
+                <label>
+                    المقاس
+                </label>
+
+                <select>
+
+                    <option>اختر المقاس</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label>
+                    اللون
+                </label>
+
+                <select>
+
+                    <option>اختر اللون</option>
+                    <option>أبيض</option>
+                    <option>أسود</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('حذاء رياضي', 1200)"
+            >
+                🛒 أضف للسلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT 5 -->
+
+    <div class="product">
+
+        <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1"
+            alt="فستان"
+        >
+
+        <div class="product-info">
+
+            <div class="product-name">
+                فستان أنيق
+            </div>
+
+            <div class="price">
+                950 جنيه
+            </div>
+
+            <div class="option">
+
+                <label>
+                    المقاس
+                </label>
+
+                <select>
+
+                    <option>اختر المقاس</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label>
+                    اللون
+                </label>
+
+                <select>
+
+                    <option>اختر اللون</option>
+                    <option>أسود</option>
+                    <option>أحمر</option>
+                    <option>بيج</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('فستان أنيق', 950)"
+            >
+                🛒 أضف للسلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT 6 -->
+
+    <div class="product">
+
+        <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378"
+            alt="جاكيت"
+        >
+
+        <div class="product-info">
+
+            <div class="product-name">
+                جاكيت عصري
+            </div>
+
+            <div class="price">
+                1100 جنيه
+            </div>
+
+            <div class="option">
+
+                <label>
+                    المقاس
+                </label>
+
+                <select>
+
+                    <option>اختر المقاس</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label>
+                    اللون
+                </label>
+
+                <select>
+
+                    <option>اختر اللون</option>
+                    <option>أسود</option>
+                    <option>بني</option>
+                    <option>بيج</option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="add-cart"
+                onclick="addToCart('جاكيت عصري', 1100)"
+            >
+                🛒 أضف للسلة
+            </button>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        GAMY STORE
+    </h2>
+
+    <p>
+        Fashion that defines you.
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 GAMY STORE
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    function addToCart(productName, price) {
+
+        alert(
+            "تم إضافة " +
+            productName +
+            " إلى السلة 🛒\n\n" +
+            "السعر: " +
+            price +
+            " جنيه"
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
