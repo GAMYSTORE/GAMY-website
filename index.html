@@ -1,164 +1,493 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAMY STORE - Clothes without excess</title>
-    <style>
-        /* --- الأساسيات --- */
-        :root {
-            --primary-color: #111;
-            --text-color: #333;
-            --bg-color: #fff;
-            --overlay-color: rgba(0, 0, 0, 0.4);
-            --box-bg: rgba(255, 255, 255, 0.85);
-        }
 
+    <title>GAMY STORE</title>
+
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #111;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
+        /* ================= HEADER ================= */
 
-        /* --- الهيدر (Header) --- */
         header {
+            width: 100%;
+            padding: 20px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background-color: var(--bg-color);
+            background: #fff;
             border-bottom: 1px solid #eee;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 1000;
-        }
-
-        .cart-icon {
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: #888;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
-        /* --- قسم البانر الرئيسي (Hero Section) --- */
-        .hero {
-            height: 100vh;
-            margin-top: 70px; /* للتعويض عن الهيدر الثابت */
-            position: relative;
-            background-color: #f4f4f4; /* لون خلفية احتياطي */
-        }
-
-        /* خلفية الصورة - مدمجة نصياً */
-        .hero-image-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* هنا تم دمج الصورة نصياً (Base64) */
-            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCALHAtoDAREAAhEBAxEB/8QAHQAAAQUBAQEBAAAAAAAAAAAAAAECAwQFBgcICf/EAGMQAAIBAwIDBAcEAwsJCgsNDQECEQADIRIxBCJBUQUTYXEGMoGRobHBByNC0RQzUgkVYnKCkqKywvDxCBYXNDVDU5OzwtLxGUNTWIOTpMPSChklNkdWZZSjRVWUtLXS1eLx/8QAHAEAAgMBAQEBAAAAAAAAAAAAAAECAwQFBgcI/8QAPhEAAgEDAgQEBAMGBQMFAAAAAAECAwQREiExBRNBUQYiMnFhkaHwFCOCQYKSscHRM0NisvEHFTSS0iRTc//aAAwأهلاً بك،
-
-إليك الكود الكامل للصفحة كما طلبت. لقد قمت بتحويل الصورة إلى صيغة نصية (Base64) ودمجها مباشرة في الكود، مما يعني أنك لست بحاجة إلى ملف صورة خارجي، فقط قم بنسخ الكود أدناه وحفظه بصيغة `.html` وسيظهر الموقع بالكامل مع الصورة كما في المثال.
-
-```html
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAMY STORE - Clothes without excess</title>
-    <style>
-        /* --- الأساسيات --- */
-        :root {
-            --primary-color: #111;
-            --text-color: #333;
-            --bg-color: #fff;
-            --overlay-color: rgba(0, 0, 0, 0.4);
-            --box-bg: rgba(255, 255, 255, 0.85);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
-
-        /* --- الهيدر (Header) --- */
-        header {
+        nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background-color: var(--bg-color);
-            border-bottom: 1px solid #eee;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .cart-icon {
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav a {
-            font-size: 15px;
-            font-weight: 500;
+            color: #111;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #
+            color: #777;
+        }
+
+        .cart {
+            font-size: 23px;
+            text-decoration: none;
+            color: #111;
+            transition: 0.3s;
+        }
+
+        .cart:hover {
+            transform: scale(1.1);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 80vh;
+
+            /* تم تحديث رابط الصورة هنا وزيادة غمقان الطبقة الشفافة إلى 0.6 لوضوح النص */
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)
+                ),
+                url("https://images.unsplash.com/photo-1542291026-7eec264c27ff")
+                center/cover;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 35px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: white;
+            color: #111;
+            padding: 16px 45px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #111;
+            color: white;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .categories {
+            padding: 90px 7%;
+            text-align: center;
+        }
+
+        .categories h2 {
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .category {
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px; /* إضافة انحناء بسيط للزوايا */
+        }
+
+        .category::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            transition: 0.3s;
+        }
+
+        .category:hover::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .category a {
+            position: relative;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 2;
+            transition: 0.3s;
+        }
+
+        .category:hover a {
+            transform: scale(1.08);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            padding: 90px 10%;
+            background: #f6f6f6;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 2;
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        footer h2 {
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        footer p {
+            color: #ccc;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .cart {
+                font-size: 20px;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+                letter-spacing: 3px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .hero-btn {
+                padding: 14px 30px;
+            }
+
+            .categories {
+                padding: 60px 5%;
+            }
+
+            .categories h2 {
+                font-size: 30px;
+            }
+
+            .category-container {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                height: 280px;
+            }
+
+            .about {
+                padding: 60px 7%;
+            }
+
+            .about h2 {
+                font-size: 30px;
+            }
+        }
+
+        /* ================= SMALL MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            GAMY STORE
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                الرئيسية
+            </a>
+
+            <a href="products.html">
+                المنتجات
+            </a>
+
+            <a href="#about">
+                من نحن
+            </a>
+
+            <a href="#contact">
+                تواصل معنا
+            </a>
+
+        </nav>
+
+        <a href="cart.html" class="cart">
+            🛒
+        </a>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                GAMY STORE
+            </h1>
+
+            <p>
+                اكتشف أحدث صيحات الموضة
+                واختار ستايلك الخاص
+            </p>
+
+            <a href="products.html" class="hero-btn">
+                اكتشف المنتجات
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="categories">
+
+        <h2>
+            تسوق حسب الفئة
+        </h2>
+
+        <div class="category-container">
+
+
+            <!-- WOMEN -->
+
+            <div
+                class="category"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b');
+                "
+            >
+
+                <a href="products.html">
+                    ملابس نسائية
+                </a>
+
+            </div>
+
+
+            <!-- MEN -->
+
+            <div
+                class="category"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1617137968427-85924c800a22');
+                "
+            >
+
+                <a href="products.html">
+                    ملابس رجالية
+                </a>
+
+            </div>
+
+
+            <!-- SHOES -->
+
+            <div
+                class="category"
+                style="
+                background-image:
+                url('https://images.unsplash.com/photo-1542291026-7eec264c27ff');
+                "
+            >
+
+                <a href="products.html">
+                    أحذية
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <h2>
+            عن GAMY STORE
+        </h2>
+
+        <p>
+
+            GAMY STORE هو متجر أزياء أونلاين
+            يقدم أحدث تصميمات الملابس والأحذية
+            بأسلوب عصري ومميز.
+
+            <br><br>
+
+            هدفنا إننا نوفر لك
+            منتجات عصرية بجودة مميزة
+            وتجربة تسوق سهلة وسريعة.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <h2>
+            GAMY STORE
+        </h2>
+
+        <p>
+            Fashion that defines you.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 GAMY STORE
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
