@@ -5,72 +5,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>موقعي الشخصي</title>
+    <title>متجر الأزياء</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f2f2f2;
+            background: #f5f5f5;
             color: #222;
         }
 
         header {
-            background: #222;
+            background: #111;
             color: white;
-            text-align: center;
-            padding: 30px;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav {
-            background: #333;
-            text-align: center;
-            padding: 15px;
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 15px;
+            margin: 0 10px;
         }
 
-        nav a:hover {
-            color: #00bfff;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
+        .hero {
+            background: #ddd;
+            padding: 80px 20px;
             text-align: center;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px #ccc;
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
         }
 
-        button {
-            background: #007bff;
+        .hero p {
+            font-size: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .products {
+            padding: 50px 7%;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px #ddd;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 15px 0 5px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .buy {
+            background: #111;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #0056b3;
-        }
-
         footer {
-            background: #222;
+            background: #111;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 800px) {
+            .product-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -78,71 +148,139 @@
 <body>
 
     <header>
-        <h1>أهلاً بيك في موقعي</h1>
-        <p>ده أول ويب سايت خاص بيا 🚀</p>
+
+        <div class="logo">
+            Fashion Store
+        </div>
+
+        <nav>
+            <a href="#">الرئيسية</a>
+            <a href="#products">المنتجات</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
+
     </header>
 
-    <nav>
-        <a href="#home">الرئيسية</a>
-        <a href="#about">من أنا</a>
-        <a href="#contact">تواصل معي</a>
-    </nav>
 
-    <div class="container" id="home">
+    <section class="hero">
 
-        <div class="card">
+        <h1>أحدث صيحات الموضة 👕</h1>
 
-            <h2>مرحباً 👋</h2>
+        <p>
+            اكتشف تشكيلتنا الجديدة من الملابس
+        </p>
 
-            <p>
-                أنا بتعلم برمجة وتصميم المواقع،
-                ودي أول صفحة ويب خاصة بيا.
-            </p>
+        <a href="#products" class="btn">
+            تسوق الآن
+        </a>
 
-            <button onclick="sayHello()">
-                اضغط هنا
-            </button>
+    </section>
+
+
+    <section class="products" id="products">
+
+        <h2>أحدث المنتجات</h2>
+
+        <div class="product-container">
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+
+                <h3>تيشيرت أبيض</h3>
+
+                <div class="price">
+                    450 جنيه
+                </div>
+
+                <button class="buy" onclick="buyProduct('تيشيرت أبيض')">
+                    أضف للسلة
+                </button>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3">
+
+                <h3>جاكيت</h3>
+
+                <div class="price">
+                    1200 جنيه
+                </div>
+
+                <button class="buy" onclick="buyProduct('جاكيت')">
+                    أضف للسلة
+                </button>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+                <h3>حذاء رياضي</h3>
+
+                <div class="price">
+                    1500 جنيه
+                </div>
+
+                <button class="buy" onclick="buyProduct('حذاء رياضي')">
+                    أضف للسلة
+                </button>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f37f4678">
+
+                <h3>تيشيرت أسود</h3>
+
+                <div class="price">
+                    500 جنيه
+                </div>
+
+                <button class="buy" onclick="buyProduct('تيشيرت أسود')">
+                    أضف للسلة
+                </button>
+
+            </div>
 
         </div>
 
-        <br>
+    </section>
 
-        <div class="card" id="about">
 
-            <h2>من أنا؟</h2>
+    <footer id="contact">
 
-            <p>
-                اكتب هنا معلومات عنك وعن الموقع بتاعك.
-            </p>
+        <h3>Fashion Store</h3>
 
-        </div>
+        <p>
+            تواصل معنا عبر الهاتف أو واتساب
+        </p>
 
-        <br>
+        <p>
+            © 2026 جميع الحقوق محفوظة
+        </p>
 
-        <div class="card" id="contact">
-
-            <h2>تواصل معي</h2>
-
-            <p>
-                Email: example@email.com
-            </p>
-
-            <a href="https://www.google.com">
-                رابط خارجي
-            </a>
-
-        </div>
-
-    </div>
-
-    <footer>
-        جميع الحقوق محفوظة © 2026
     </footer>
 
+
     <script>
-        function sayHello() {
-            alert("أهلاً بيك في موقعي! 🎉");
+
+        function buyProduct(product) {
+
+            alert(
+                "تم إضافة " + product + " إلى السلة 🛒"
+            );
+
         }
+
     </script>
 
 </body>
