@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>موقعي الشخصي</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background: #333;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #ccc;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>أهلاً بيك في موقعي</h1>
+        <p>ده أول ويب سايت خاص بيا 🚀</p>
+    </header>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#about">من أنا</a>
+        <a href="#contact">تواصل معي</a>
+    </nav>
+
+    <div class="container" id="home">
+
+        <div class="card">
+
+            <h2>مرحباً 👋</h2>
+
+            <p>
+                أنا بتعلم برمجة وتصميم المواقع،
+                ودي أول صفحة ويب خاصة بيا.
+            </p>
+
+            <button onclick="sayHello()">
+                اضغط هنا
+            </button>
+
+        </div>
+
+        <br>
+
+        <div class="card" id="about">
+
+            <h2>من أنا؟</h2>
+
+            <p>
+                اكتب هنا معلومات عنك وعن الموقع بتاعك.
+            </p>
+
+        </div>
+
+        <br>
+
+        <div class="card" id="contact">
+
+            <h2>تواصل معي</h2>
+
+            <p>
+                Email: example@email.com
+            </p>
+
+            <a href="https://www.google.com">
+                رابط خارجي
+            </a>
+
+        </div>
+
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة © 2026
+    </footer>
+
+    <script>
+        function sayHello() {
+            alert("أهلاً بيك في موقعي! 🎉");
+        }
+    </script>
+
+</body>
+
+</html>
