@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>متجر الأزياء</title>
+    <title>GAMY Store | متجر ملابس</title>
 
     <style>
         * {
@@ -19,6 +20,7 @@
             color: #222;
         }
 
+        /* الشريط العلوي */
         header {
             background: #111;
             color: white;
@@ -39,15 +41,16 @@
             margin: 0 10px;
         }
 
+        /* الواجهة الرئيسية */
         .hero {
             background: #ddd;
-            padding: 80px 20px;
+            padding: 90px 20px;
             text-align: center;
         }
 
         .hero h1 {
             font-size: 45px;
-            margin-bottom: 10px;
+            margin: 0 0 15px;
         }
 
         .hero p {
@@ -64,6 +67,7 @@
             margin-top: 15px;
         }
 
+        /* المنتجات */
         .products {
             padding: 50px 7%;
         }
@@ -114,6 +118,11 @@
             cursor: pointer;
         }
 
+        .buy:hover {
+            background: #444;
+        }
+
+        /* الفوتر */
         footer {
             background: #111;
             color: white;
@@ -122,6 +131,7 @@
             margin-top: 40px;
         }
 
+        /* الموبايل */
         @media (max-width: 800px) {
             .product-container {
                 grid-template-columns: repeat(2, 1fr);
@@ -150,11 +160,11 @@
     <header>
 
         <div class="logo">
-            Fashion Store
+            GAMY STORE
         </div>
 
         <nav>
-            <a href="#">الرئيسية</a>
+            <a href="#home">الرئيسية</a>
             <a href="#products">المنتجات</a>
             <a href="#contact">تواصل معنا</a>
         </nav>
@@ -162,12 +172,12 @@
     </header>
 
 
-    <section class="hero">
+    <section class="hero" id="home">
 
-        <h1>أحدث صيحات الموضة 👕</h1>
+        <h1>GAMY STORE 👕</h1>
 
         <p>
-            اكتشف تشكيلتنا الجديدة من الملابس
+            أحدث الملابس بأسعار مميزة
         </p>
 
         <a href="#products" class="btn">
@@ -179,7 +189,7 @@
 
     <section class="products" id="products">
 
-        <h2>أحدث المنتجات</h2>
+        <h2>منتجاتنا</h2>
 
         <div class="product-container">
 
@@ -194,8 +204,8 @@
                     450 جنيه
                 </div>
 
-                <button class="buy" onclick="buyProduct('تيشيرت أبيض')">
-                    أضف للسلة
+                <button class="buy" onclick="addToCart('تيشيرت أبيض')">
+                    أضف للسلة 🛒
                 </button>
 
             </div>
@@ -211,8 +221,8 @@
                     1200 جنيه
                 </div>
 
-                <button class="buy" onclick="buyProduct('جاكيت')">
-                    أضف للسلة
+                <button class="buy" onclick="addToCart('جاكيت')">
+                    أضف للسلة 🛒
                 </button>
 
             </div>
@@ -228,8 +238,8 @@
                     1500 جنيه
                 </div>
 
-                <button class="buy" onclick="buyProduct('حذاء رياضي')">
-                    أضف للسلة
+                <button class="buy" onclick="addToCart('حذاء رياضي')">
+                    أضف للسلة 🛒
                 </button>
 
             </div>
@@ -245,11 +255,12 @@
                     500 جنيه
                 </div>
 
-                <button class="buy" onclick="buyProduct('تيشيرت أسود')">
-                    أضف للسلة
+                <button class="buy" onclick="addToCart('تيشيرت أسود')">
+                    أضف للسلة 🛒
                 </button>
 
             </div>
+
 
         </div>
 
@@ -258,14 +269,18 @@
 
     <footer id="contact">
 
-        <h3>Fashion Store</h3>
+        <h3>GAMY STORE</h3>
 
         <p>
-            تواصل معنا عبر الهاتف أو واتساب
+            متجر ملابس أونلاين
         </p>
 
         <p>
-            © 2026 جميع الحقوق محفوظة
+            تواصل معنا: example@email.com
+        </p>
+
+        <p>
+            © 2026 GAMY STORE
         </p>
 
     </footer>
@@ -273,7 +288,7 @@
 
     <script>
 
-        function buyProduct(product) {
+        function addToCart(product) {
 
             alert(
                 "تم إضافة " + product + " إلى السلة 🛒"
@@ -286,3 +301,4 @@
 </body>
 
 </html>
+```
