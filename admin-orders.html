@@ -543,6 +543,645 @@ header {
 
 }
 
+
+/* ==================================================
+   GAMY STORE PREMIUM UI EFFECTS
+   ================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Subtle animated background */
+.dashboard {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 8% 10%, rgba(17,17,17,.035), transparent 28%),
+        radial-gradient(circle at 92% 18%, rgba(17,17,17,.025), transparent 30%),
+        #f5f5f5;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 28px rgba(0,0,0,.10);
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.logo {
+    transition: transform .3s ease, letter-spacing .3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+    letter-spacing: 3px;
+}
+
+/* Header buttons */
+.header-actions button {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+}
+
+.header-actions button::after,
+.login-button::after,
+.call-button::after,
+.delete-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left .55s ease;
+}
+
+.header-actions button:hover::after,
+.login-button:hover::after,
+.call-button:hover::after,
+.delete-button:hover::after {
+    left: 140%;
+}
+
+.header-actions button:hover {
+    transform: translateY(-2px);
+    background: #303030;
+    border-color: #777;
+    box-shadow: 0 7px 18px rgba(0,0,0,.18);
+}
+
+.header-actions button:active,
+.login-button:active,
+.call-button:active,
+.delete-button:active {
+    transform: translateY(0) scale(.97);
+}
+
+.header-actions button:disabled {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Realtime */
+.realtime-status {
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.realtime-status:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+.realtime-dot.online {
+    animation: realtimePulse 1.8s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(53,199,89,.45);
+}
+
+.realtime-dot.offline {
+    animation: offlinePulse 1.4s ease-in-out infinite;
+}
+
+@keyframes realtimePulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(53,199,89,.45); }
+    50% { box-shadow: 0 0 0 7px rgba(53,199,89,0); }
+}
+
+@keyframes offlinePulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: .45; }
+}
+
+/* Login screen */
+.login-screen {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,0,0,.06), transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(0,0,0,.05), transparent 25%),
+        #f5f5f5;
+}
+
+.login-screen::before,
+.login-screen::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.login-screen::before {
+    width: 420px;
+    height: 420px;
+    top: -180px;
+    right: -150px;
+    animation: floatingCircle 8s ease-in-out infinite;
+}
+
+.login-screen::after {
+    width: 320px;
+    height: 320px;
+    bottom: -160px;
+    left: -100px;
+    animation: floatingCircle 10s ease-in-out infinite reverse;
+}
+
+.login-box {
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(0,0,0,.05);
+    animation: loginEnter .65s cubic-bezier(.2,.8,.2,1) both;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.login-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(0,0,0,.12);
+}
+
+.login-box h1 {
+    letter-spacing: 1px;
+    transition: letter-spacing .3s ease, transform .3s ease;
+}
+
+.login-box:hover h1 {
+    letter-spacing: 3px;
+    transform: translateY(-1px);
+}
+
+@keyframes loginEnter {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatingCircle {
+    0%,100% { transform: translate3d(0,0,0); }
+    50% { transform: translate3d(0,20px,0); }
+}
+
+/* Inputs */
+.form-group input,
+.search-box input,
+.filter-box select {
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease,
+        background .25s ease;
+}
+
+.form-group input:hover,
+.search-box input:hover,
+.filter-box select:hover {
+    border-color: #aaa;
+}
+
+.form-group input:focus,
+.search-box input:focus,
+.filter-box select:focus {
+    border-color: #111;
+    box-shadow: 0 0 0 4px rgba(17,17,17,.07);
+    transform: translateY(-1px);
+    background: #fff;
+}
+
+/* Login button */
+.login-button {
+    position: relative;
+    overflow: hidden;
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.login-button:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(0,0,0,.2);
+}
+
+.login-button:disabled {
+    transform: none;
+}
+
+/* Error animation */
+.error-message {
+    animation: errorIn .3s ease both;
+}
+
+@keyframes errorIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page title */
+.page-title {
+    animation: contentIn .55s ease both;
+}
+
+.page-title h1 {
+    transition: transform .25s ease;
+}
+
+.page-title h1:hover {
+    transform: translateX(-4px);
+}
+
+@keyframes contentIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stats */
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.035);
+    transition:
+        transform .28s cubic-bezier(.2,.8,.2,1),
+        box-shadow .28s ease,
+        border-color .28s ease;
+    animation: statIn .55s ease both;
+}
+
+.stat-card:nth-child(1) { animation-delay: .04s; }
+.stat-card:nth-child(2) { animation-delay: .08s; }
+.stat-card:nth-child(3) { animation-delay: .12s; }
+.stat-card:nth-child(4) { animation-delay: .16s; }
+.stat-card:nth-child(5) { animation-delay: .20s; }
+.stat-card:nth-child(6) { animation-delay: .24s; }
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        115deg,
+        transparent 35%,
+        rgba(0,0,0,.035) 50%,
+        transparent 65%
+    );
+    transform: translateX(-120%);
+    transition: transform .65s ease;
+    pointer-events: none;
+}
+
+.stat-card:hover::before {
+    transform: translateX(120%);
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 13px 30px rgba(0,0,0,.10);
+    border-color: rgba(0,0,0,.10);
+}
+
+.stat-card strong {
+    display: inline-block;
+    transition: transform .25s ease;
+}
+
+.stat-card:hover strong {
+    transform: scale(1.04);
+}
+
+@keyframes statIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Filters */
+.filters {
+    border: 1px solid rgba(0,0,0,.035);
+    transition: box-shadow .3s ease, transform .3s ease;
+    animation: contentIn .6s ease both;
+}
+
+.filters:hover {
+    box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+
+/* Orders */
+.orders-list {
+    perspective: 1200px;
+}
+
+.order-card {
+    border: 2px solid transparent;
+    transform-origin: center;
+    animation: orderIn .48s cubic-bezier(.2,.8,.2,1) both;
+    transition:
+        transform .28s cubic-bezier(.2,.8,.2,1),
+        box-shadow .28s ease,
+        border-color .28s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 34px rgba(0,0,0,.10);
+    border-color: #ddd;
+}
+
+.order-card.new-order {
+    animation:
+        orderIn .48s cubic-bezier(.2,.8,.2,1) both,
+        newOrderGlow 2.4s ease-in-out infinite;
+}
+
+.order-card.new-order:hover {
+    border-color: #111;
+}
+
+@keyframes orderIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.985);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes newOrderGlow {
+    0%,100% {
+        box-shadow: 0 3px 12px rgba(0,0,0,.05);
+    }
+    50% {
+        box-shadow: 0 8px 28px rgba(0,0,0,.14);
+    }
+}
+
+.new-badge {
+    animation: badgePulse 1.8s ease-in-out infinite;
+    box-shadow: 0 3px 10px rgba(0,0,0,.12);
+}
+
+@keyframes badgePulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+/* Order header */
+.order-number {
+    transition: transform .25s ease, letter-spacing .25s ease;
+}
+
+.order-card:hover .order-number {
+    transform: translateX(-3px);
+    letter-spacing: .3px;
+}
+
+.order-date {
+    transition: color .25s ease;
+}
+
+.order-card:hover .order-date {
+    color: #444;
+}
+
+/* Status select */
+.status-select {
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+}
+
+.status-select:hover {
+    border-color: #999;
+    transform: translateY(-1px);
+}
+
+.status-select:focus {
+    border-color: #111;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(17,17,17,.06);
+}
+
+/* Info sections */
+.info-section h3,
+.products-section h3 {
+    transition: transform .25s ease;
+}
+
+.order-card:hover .info-section h3,
+.order-card:hover .products-section h3 {
+    transform: translateX(-3px);
+}
+
+.info-row {
+    transition: transform .2s ease, color .2s ease;
+}
+
+.info-row:hover {
+    transform: translateX(-3px);
+    color: #333;
+}
+
+/* Product items */
+.product-item {
+    transition:
+        transform .24s ease,
+        box-shadow .24s ease,
+        border-color .24s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-2px);
+    border-color: #ccc;
+    box-shadow: 0 7px 18px rgba(0,0,0,.06);
+}
+
+.product-item h4 {
+    transition: transform .2s ease;
+}
+
+.product-item:hover h4 {
+    transform: translateX(-2px);
+}
+
+/* Footer / total */
+.order-footer {
+    transition: border-color .25s ease;
+}
+
+.order-card:hover .order-footer {
+    border-color: #000;
+}
+
+.total {
+    transition: transform .25s ease;
+}
+
+.order-card:hover .total {
+    transform: scale(1.02);
+}
+
+/* Action buttons */
+.order-actions button,
+.order-actions a {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .22s ease;
+}
+
+.call-button {
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.call-button:hover {
+    background: #222;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 20px rgba(0,0,0,.16);
+}
+
+.delete-button:hover {
+    background: #ffd0d0;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 20px rgba(176,0,0,.10);
+}
+
+/* Loading */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,0,0,.045),
+        transparent
+    );
+    transform: translateX(-100%);
+    animation: loadingSweep 1.25s ease-in-out infinite;
+}
+
+@keyframes loadingSweep {
+    to { transform: translateX(100%); }
+}
+
+/* Empty state */
+.empty-orders {
+    animation: contentIn .45s ease both;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.empty-orders:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.07);
+}
+
+/* Toast */
+.toast {
+    opacity: 0;
+    transform: translateY(20px) scale(.96);
+    transition:
+        opacity .3s ease,
+        transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+.toast[style*="display: block"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.toast.new {
+    animation: toastNew .45s cubic-bezier(.2,.8,.2,1) both;
+    box-shadow: 0 12px 35px rgba(0,0,0,.22);
+}
+
+@keyframes toastNew {
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(.92);
+    }
+    70% {
+        transform: translateY(-4px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Refresh button spinning state */
+#refreshButton.is-refreshing {
+    animation: refreshSpin .8s linear infinite;
+}
+
+@keyframes refreshSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Accessibility / reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Touch devices: avoid sticky hover feeling */
+@media (hover: none) {
+    .stat-card:hover,
+    .order-card:hover,
+    .login-box:hover,
+    .filters:hover {
+        transform: none;
+    }
+
+    .info-row:hover {
+        transform: none;
+    }
+}
+
 </style>
 
 </head>
@@ -1388,11 +2027,15 @@ function renderOrders() {
     }
 
     orders.forEach(
-        function(order) {
+        function(order, index) {
 
-            ordersList.appendChild(
-                createOrderCard(order)
-            );
+            const orderCard =
+                createOrderCard(order);
+
+            orderCard.style.animationDelay =
+                Math.min(index * 45, 450) + "ms";
+
+            ordersList.appendChild(orderCard);
 
         }
     );
@@ -2041,6 +2684,8 @@ refreshButton.addEventListener(
         refreshButton.disabled =
             true;
 
+        refreshButton.classList.add("is-refreshing");
+
         refreshButton.textContent =
             "جاري التحديث...";
 
@@ -2048,6 +2693,8 @@ refreshButton.addEventListener(
 
         refreshButton.disabled =
             false;
+
+        refreshButton.classList.remove("is-refreshing");
 
         refreshButton.textContent =
             "🔄 تحديث";
