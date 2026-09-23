@@ -3,11 +3,8 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>إدارة الطلبات | GAMY STORE</title>
 
 <style>
@@ -46,6 +43,7 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .header-actions button {
@@ -59,6 +57,32 @@ header {
 
 .header-actions button:hover {
     background: #333;
+}
+
+.realtime-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #222;
+    border: 1px solid #444;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.realtime-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #999;
+}
+
+.realtime-dot.online {
+    background: #35c759;
+}
+
+.realtime-dot.offline {
+    background: #ff3b30;
 }
 
 /* ================= LOGIN ================= */
@@ -179,26 +203,26 @@ header {
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
     margin-bottom: 25px;
 }
 
 .stat-card {
     background: #fff;
     border-radius: 10px;
-    padding: 22px;
+    padding: 20px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.05);
 }
 
 .stat-card h3 {
-    font-size: 15px;
+    font-size: 14px;
     color: #777;
     margin-bottom: 12px;
 }
 
 .stat-card strong {
-    font-size: 28px;
+    font-size: 25px;
 }
 
 /* ================= FILTERS ================= */
@@ -235,10 +259,26 @@ header {
 }
 
 .order-card {
+    position: relative;
     background: #fff;
     border-radius: 12px;
     padding: 22px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    border: 2px solid transparent;
+}
+
+.order-card.new-order {
+    border-color: #111;
+}
+
+.new-badge {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: 8px;
 }
 
 .order-header {
@@ -340,6 +380,8 @@ header {
     border-radius: 6px;
     cursor: pointer;
     font-size: 14px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .call-button {
@@ -391,16 +433,31 @@ header {
     position: fixed;
     bottom: 25px;
     left: 25px;
+    max-width: 380px;
     background: #111;
     color: #fff;
-    padding: 14px 20px;
+    padding: 15px 20px;
     border-radius: 8px;
     display: none;
     z-index: 10000;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    line-height: 1.6;
+}
+
+.toast.new {
+    padding: 18px 22px;
+    font-weight: bold;
 }
 
 /* ================= MOBILE ================= */
+
+@media (max-width: 1100px) {
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
 
 @media (max-width: 900px) {
 
@@ -426,10 +483,19 @@ header {
 
     header {
         padding: 15px 5%;
+        align-items: flex-start;
     }
 
     .logo {
         font-size: 20px;
+    }
+
+    .header-actions {
+        justify-content: flex-end;
+    }
+
+    .realtime-status {
+        display: none;
     }
 
     .stats {
@@ -468,6 +534,13 @@ header {
         flex: 1;
     }
 
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+
 }
 
 </style>
@@ -485,73 +558,68 @@ header {
     id="loginScreen"
 >
 
+```
 <div class="login-box">
 
-<h1>
-    GAMY STORE
-</h1>
+    <h1>
+        GAMY STORE
+    </h1>
 
-<p>
-    تسجيل دخول لوحة الإدارة
-</p>
+    <p>
+        تسجيل دخول لوحة الإدارة
+    </p>
 
-<div
-    id="loginError"
-    class="error-message"
-></div>
+    <div
+        id="loginError"
+        class="error-message"
+    ></div>
 
-<form id="loginForm">
+    <form id="loginForm">
 
-<div class="form-group">
+        <div class="form-group">
 
-<label for="email">
-    البريد الإلكتروني
-</label>
+            <label for="email">
+                البريد الإلكتروني
+            </label>
 
-<input
-type="email"
-id="email"
-autocomplete="email"
-placeholder="البريد الإلكتروني"
-required
+            <input
+                type="email"
+                id="email"
+                autocomplete="email"
+                placeholder="البريد الإلكتروني"
+                required
+            >
 
->
+        </div>
+
+        <div class="form-group">
+
+            <label for="password">
+                كلمة المرور
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                autocomplete="current-password"
+                placeholder="كلمة المرور"
+                required
+            >
+
+        </div>
+
+        <button
+            type="submit"
+            class="login-button"
+            id="loginButton"
+        >
+            تسجيل الدخول
+        </button>
+
+    </form>
 
 </div>
-
-<div class="form-group">
-
-<label for="password">
-    كلمة المرور
-</label>
-
-<input
-type="password"
-id="password"
-autocomplete="current-password"
-placeholder="كلمة المرور"
-required
-
->
-
-</div>
-
-<button
-type="submit"
-class="login-button"
-id="loginButton"
-
->
-
 ```
-تسجيل الدخول
-```
-
-</button>
-
-</form>
-
-</div>
 
 </section>
 
@@ -564,179 +632,216 @@ id="loginButton"
     id="dashboard"
 >
 
+```
 <header>
 
-<div class="logo">
-    GAMY STORE
-</div>
+    <div class="logo">
+        GAMY STORE
+    </div>
 
-<div class="header-actions">
+    <div class="header-actions">
 
-<button
-type="button"
-id="refreshButton"
+        <div class="realtime-status">
 
->
+            <span
+                class="realtime-dot"
+                id="realtimeDot"
+            ></span>
 
-```
-🔄 تحديث
-```
+            <span id="realtimeText">
+                جاري الاتصال...
+            </span>
 
-</button>
+        </div>
 
-<button
-type="button"
-id="logoutButton"
+        <button
+            type="button"
+            id="refreshButton"
+        >
+            🔄 تحديث
+        </button>
 
->
+        <button
+            type="button"
+            id="logoutButton"
+        >
+            تسجيل الخروج
+        </button>
 
-```
-تسجيل الخروج
-```
-
-</button>
-
-</div>
+    </div>
 
 </header>
 
+
 <div class="container">
 
-<div class="page-title">
+    <div class="page-title">
 
-<h1>
-    📦 إدارة الطلبات
-</h1>
+        <h1>
+            📦 إدارة الطلبات
+        </h1>
 
-<p>
-    جميع طلبات العملاء المسجلة في المتجر
-</p>
+        <p>
+            جميع طلبات العملاء المسجلة في المتجر
+        </p>
+
+    </div>
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <h3>
+                إجمالي الطلبات
+            </h3>
+
+            <strong id="totalOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                الطلبات الجديدة
+            </h3>
+
+            <strong id="newOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                قيد التجهيز
+            </h3>
+
+            <strong id="processingOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                تم الشحن
+            </h3>
+
+            <strong id="shippedOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                المكتملة
+            </h3>
+
+            <strong id="completedOrders">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3>
+                إجمالي المبيعات
+            </h3>
+
+            <strong>
+                <span id="totalRevenue">0</span>
+                جنيه
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= FILTERS ================= -->
+
+    <div class="filters">
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="ابحث برقم الطلب أو الاسم أو رقم الهاتف..."
+            >
+
+        </div>
+
+        <div class="filter-box">
+
+            <select id="statusFilter">
+
+                <option value="all">
+                    كل الحالات
+                </option>
+
+                <option value="جديد">
+                    جديد
+                </option>
+
+                <option value="قيد التجهيز">
+                    قيد التجهيز
+                </option>
+
+                <option value="تم الشحن">
+                    تم الشحن
+                </option>
+
+                <option value="مكتمل">
+                    مكتمل
+                </option>
+
+                <option value="ملغي">
+                    ملغي
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ORDERS ================= -->
+
+    <div class="orders-container">
+
+        <div
+            id="loadingOrders"
+            class="loading"
+        >
+            جاري تحميل الطلبات...
+        </div>
+
+        <div
+            id="ordersList"
+            class="orders-list"
+        ></div>
+
+    </div>
 
 </div>
-
-<!-- ================= STATS ================= -->
-
-<div class="stats">
-
-<div class="stat-card">
-
-<h3>
-    إجمالي الطلبات
-</h3>
-
-<strong id="totalOrders">
-    0
-</strong>
-
-</div>
-
-<div class="stat-card">
-
-<h3>
-    الطلبات الجديدة
-</h3>
-
-<strong id="newOrders">
-    0
-</strong>
-
-</div>
-
-<div class="stat-card">
-
-<h3>
-    الطلبات المكتملة
-</h3>
-
-<strong id="completedOrders">
-    0
-</strong>
-
-</div>
-
-<div class="stat-card">
-
-<h3>
-    إجمالي المبيعات
-</h3>
-
-<strong>
-    <span id="totalRevenue">0</span>
-    جنيه
-</strong>
-
-</div>
-
-</div>
-
-<!-- ================= FILTERS ================= -->
-
-<div class="filters">
-
-<div class="search-box">
-
-<input
-type="search"
-id="searchInput"
-placeholder="ابحث برقم الطلب أو الاسم أو رقم الهاتف..."
-
->
-
-</div>
-
-<div class="filter-box">
-
-<select id="statusFilter">
-
-<option value="all">
-    كل الحالات
-</option>
-
-<option value="جديد">
-    جديد
-</option>
-
-<option value="قيد التجهيز">
-    قيد التجهيز
-</option>
-
-<option value="تم الشحن">
-    تم الشحن
-</option>
-
-<option value="مكتمل">
-    مكتمل
-</option>
-
-<option value="ملغي">
-    ملغي
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-<!-- ================= ORDERS ================= -->
-
-<div class="orders-container">
-
-<div
-    id="loadingOrders"
-    class="loading"
->
-    جاري تحميل الطلبات...
-</div>
-
-<div
-    id="ordersList"
-    class="orders-list"
-></div>
-
-</div>
-
-</div>
+```
 
 </section>
 
@@ -763,6 +868,9 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable__xgO8Q6nUxvL5AI2VklEbw_66DnEEf9";
 
+const ADMIN_USER_ID =
+    "06fb694b-c5d5-4923-b2d2-66b3bde456bf";
+
 const supabaseClient =
     window.supabase.createClient(
         SUPABASE_URL,
@@ -775,8 +883,9 @@ const supabaseClient =
 ================================================== */
 
 let allOrders = [];
-
 let realtimeChannel = null;
+let isDashboardVisible = false;
+let toastTimer = null;
 
 
 /* ==================================================
@@ -822,6 +931,12 @@ const totalOrders =
 const newOrders =
     document.getElementById("newOrders");
 
+const processingOrders =
+    document.getElementById("processingOrders");
+
+const shippedOrders =
+    document.getElementById("shippedOrders");
+
 const completedOrders =
     document.getElementById("completedOrders");
 
@@ -830,6 +945,12 @@ const totalRevenue =
 
 const toast =
     document.getElementById("toast");
+
+const realtimeDot =
+    document.getElementById("realtimeDot");
+
+const realtimeText =
+    document.getElementById("realtimeText");
 
 
 /* ==================================================
@@ -843,6 +964,7 @@ function showLoginError(message) {
 
     loginError.style.display =
         "block";
+
 }
 
 
@@ -853,6 +975,7 @@ function hideLoginError() {
 
     loginError.style.display =
         "none";
+
 }
 
 
@@ -860,12 +983,15 @@ function hideLoginError() {
    TOAST
 ================================================== */
 
-let toastTimer = null;
-
-function showToast(message) {
+function showToast(message, isNew = false) {
 
     toast.textContent =
         message;
+
+    toast.classList.toggle(
+        "new",
+        isNew
+    );
 
     toast.style.display =
         "block";
@@ -878,7 +1004,10 @@ function showToast(message) {
             toast.style.display =
                 "none";
 
-        }, 3000);
+            toast.classList.remove("new");
+
+        }, isNew ? 7000 : 3000);
+
 }
 
 
@@ -889,16 +1018,12 @@ function showToast(message) {
 function escapeHTML(value) {
 
     return String(value ?? "")
-
         .replace(/&/g, "&amp;")
-
         .replace(/</g, "&lt;")
-
         .replace(/>/g, "&gt;")
-
         .replace(/"/g, "&quot;")
-
         .replace(/'/g, "&#039;");
+
 }
 
 
@@ -914,6 +1039,7 @@ function numberValue(value) {
     return Number.isFinite(number)
         ? number
         : 0;
+
 }
 
 
@@ -941,6 +1067,32 @@ function formatDate(dateValue) {
             timeStyle: "short"
         }
     );
+
+}
+
+
+/* ==================================================
+   CHECK ADMIN
+================================================== */
+
+async function checkAdminAccess() {
+
+    const result =
+        await supabaseClient.auth.getUser();
+
+    if (result.error) {
+        throw result.error;
+    }
+
+    const user =
+        result.data.user;
+
+    if (!user) {
+        return false;
+    }
+
+    return user.id === ADMIN_USER_ID;
+
 }
 
 
@@ -962,38 +1114,41 @@ loginForm.addEventListener(
         loginButton.textContent =
             "جاري تسجيل الدخول...";
 
-
         const email =
             document
                 .getElementById("email")
                 .value
                 .trim();
 
-
         const password =
             document
                 .getElementById("password")
                 .value;
 
-
         try {
 
             const result =
                 await supabaseClient.auth.signInWithPassword({
-
-                    email:
-                        email,
-
-                    password:
-                        password
-
+                    email,
+                    password
                 });
-
 
             if (result.error) {
                 throw result.error;
             }
 
+            const isAdmin =
+                await checkAdminAccess();
+
+            if (!isAdmin) {
+
+                await supabaseClient.auth.signOut();
+
+                throw new Error(
+                    "هذا الحساب ليس لديه صلاحية الدخول إلى لوحة الإدارة."
+                );
+
+            }
 
             showDashboard();
 
@@ -1016,6 +1171,7 @@ loginForm.addEventListener(
 
             loginButton.textContent =
                 "تسجيل الدخول";
+
         }
 
     }
@@ -1028,6 +1184,13 @@ loginForm.addEventListener(
 
 function showDashboard() {
 
+    if (isDashboardVisible) {
+        return;
+    }
+
+    isDashboardVisible =
+        true;
+
     loginScreen.style.display =
         "none";
 
@@ -1037,6 +1200,9 @@ function showDashboard() {
     loadOrders();
 
     startRealtime();
+
+    requestNotificationPermission();
+
 }
 
 
@@ -1046,11 +1212,15 @@ function showDashboard() {
 
 function showLogin() {
 
+    isDashboardVisible =
+        false;
+
     dashboard.style.display =
         "none";
 
     loginScreen.style.display =
         "flex";
+
 }
 
 
@@ -1066,7 +1236,6 @@ async function loadOrders() {
     ordersList.innerHTML =
         "";
 
-
     try {
 
         const result =
@@ -1080,26 +1249,21 @@ async function loadOrders() {
                     }
                 );
 
-
         if (result.error) {
             throw result.error;
         }
-
 
         allOrders =
             Array.isArray(result.data)
                 ? result.data
                 : [];
 
-
         loadingOrders.style.display =
             "none";
-
 
         renderOrders();
 
         updateStats();
-
 
     } catch (error) {
 
@@ -1110,7 +1274,6 @@ async function loadOrders() {
 
         loadingOrders.style.display =
             "none";
-
 
         ordersList.innerHTML = `
 
@@ -1147,14 +1310,11 @@ function getFilteredOrders() {
             .trim()
             .toLowerCase();
 
-
     const status =
         statusFilter.value;
 
-
     return allOrders.filter(
         function(order) {
-
 
             const searchText = (
 
@@ -1176,16 +1336,13 @@ function getFilteredOrders() {
 
             ).toLowerCase();
 
-
             const matchesSearch =
                 !search ||
                 searchText.includes(search);
 
-
             const matchesStatus =
                 status === "all" ||
                 order.status === status;
-
 
             return (
                 matchesSearch &&
@@ -1207,10 +1364,8 @@ function renderOrders() {
     const orders =
         getFilteredOrders();
 
-
     ordersList.innerHTML =
         "";
-
 
     if (orders.length === 0) {
 
@@ -1232,7 +1387,6 @@ function renderOrders() {
 
         return;
     }
-
 
     orders.forEach(
         function(order) {
@@ -1259,16 +1413,17 @@ function createOrderCard(order) {
     card.className =
         "order-card";
 
+    if (order.status === "جديد") {
+        card.classList.add("new-order");
+    }
 
     const items =
         Array.isArray(order.items)
             ? order.items
             : [];
 
-
     let productsHTML =
         "";
-
 
     if (items.length === 0) {
 
@@ -1302,7 +1457,6 @@ function createOrderCard(order) {
                             item.total
                         ) ||
                         price * quantity;
-
 
                     return `
 
@@ -1351,20 +1505,23 @@ function createOrderCard(order) {
 
                 }
             ).join("");
-    }
 
+    }
 
     const phone =
         String(
             order.customer_phone || ""
         );
 
-
     const encodedPhone =
         encodeURIComponent(
             phone
         );
 
+    const newBadge =
+        order.status === "جديد"
+            ? `<span class="new-badge">طلب جديد</span>`
+            : "";
 
     card.innerHTML = `
 
@@ -1373,23 +1530,20 @@ function createOrderCard(order) {
             <div>
 
                 <div class="order-number">
-
                     ${escapeHTML(
                         order.order_number || "بدون رقم"
                     )}
-
                 </div>
 
                 <div class="order-date">
-
                     ${formatDate(
                         order.created_at
                     )}
-
                 </div>
 
-            </div>
+                ${newBadge}
 
+            </div>
 
             <select
                 class="status-select"
@@ -1428,7 +1582,6 @@ function createOrderCard(order) {
 
         <div class="order-body">
 
-
             <div class="info-section">
 
                 <h3>
@@ -1447,7 +1600,6 @@ function createOrderCard(order) {
 
                 </div>
 
-
                 <div class="info-row">
 
                     <strong>
@@ -1459,7 +1611,6 @@ function createOrderCard(order) {
                     )}
 
                 </div>
-
 
                 <div class="info-row">
 
@@ -1473,7 +1624,6 @@ function createOrderCard(order) {
 
                 </div>
 
-
                 <div class="info-row">
 
                     <strong>
@@ -1485,7 +1635,6 @@ function createOrderCard(order) {
                     )}
 
                 </div>
-
 
                 <div class="info-row">
 
@@ -1518,7 +1667,6 @@ function createOrderCard(order) {
 
                 </div>
 
-
                 <div class="info-row">
 
                     <strong>
@@ -1530,7 +1678,6 @@ function createOrderCard(order) {
                     )}
 
                 </div>
-
 
                 <div class="info-row">
 
@@ -1557,7 +1704,6 @@ function createOrderCard(order) {
 
             </div>
 
-
         </div>
 
 
@@ -1573,7 +1719,6 @@ function createOrderCard(order) {
 
             </div>
 
-
             <div class="order-actions">
 
                 <a
@@ -1586,7 +1731,6 @@ function createOrderCard(order) {
                 <button
                     type="button"
                     class="delete-button"
-                    data-delete-id="${order.id}"
                 >
                     🗑️ حذف
                 </button>
@@ -1597,12 +1741,10 @@ function createOrderCard(order) {
 
     `;
 
-
     const statusSelect =
         card.querySelector(
             ".status-select"
         );
-
 
     statusSelect.addEventListener(
         "change",
@@ -1616,12 +1758,10 @@ function createOrderCard(order) {
         }
     );
 
-
     const deleteButton =
         card.querySelector(
             ".delete-button"
         );
-
 
     deleteButton.addEventListener(
         "click",
@@ -1634,8 +1774,8 @@ function createOrderCard(order) {
         }
     );
 
-
     return card;
+
 }
 
 
@@ -1648,7 +1788,6 @@ function updateStats() {
     const total =
         allOrders.length;
 
-
     const newCount =
         allOrders.filter(
             function(order) {
@@ -1656,6 +1795,19 @@ function updateStats() {
             }
         ).length;
 
+    const processingCount =
+        allOrders.filter(
+            function(order) {
+                return order.status === "قيد التجهيز";
+            }
+        ).length;
+
+    const shippedCount =
+        allOrders.filter(
+            function(order) {
+                return order.status === "تم الشحن";
+            }
+        ).length;
 
     const completedCount =
         allOrders.filter(
@@ -1663,7 +1815,6 @@ function updateStats() {
                 return order.status === "مكتمل";
             }
         ).length;
-
 
     const revenue =
         allOrders.reduce(
@@ -1678,18 +1829,20 @@ function updateStats() {
             0
         );
 
-
     totalOrders.textContent =
         total.toLocaleString("ar-EG");
-
 
     newOrders.textContent =
         newCount.toLocaleString("ar-EG");
 
+    processingOrders.textContent =
+        processingCount.toLocaleString("ar-EG");
+
+    shippedOrders.textContent =
+        shippedCount.toLocaleString("ar-EG");
 
     completedOrders.textContent =
         completedCount.toLocaleString("ar-EG");
-
 
     totalRevenue.textContent =
         revenue.toLocaleString("ar-EG");
@@ -1725,11 +1878,9 @@ async function updateOrderStatus(
                     orderId
                 );
 
-
         if (result.error) {
             throw result.error;
         }
-
 
         const order =
             allOrders.find(
@@ -1738,12 +1889,10 @@ async function updateOrderStatus(
                 }
             );
 
-
         if (order) {
             order.status =
                 newStatus;
         }
-
 
         updateStats();
 
@@ -1753,14 +1902,12 @@ async function updateOrderStatus(
             "تم تحديث حالة الطلب بنجاح ✓"
         );
 
-
     } catch (error) {
 
         console.error(
             "Update Status Error:",
             error
         );
-
 
         alert(
             "تعذر تحديث حالة الطلب:\n\n" +
@@ -1770,8 +1917,8 @@ async function updateOrderStatus(
             )
         );
 
-
         await loadOrders();
+
     }
 
 }
@@ -1790,12 +1937,10 @@ async function deleteOrder(orderId) {
             }
         );
 
-
     const orderNumber =
         order
             ? order.order_number
             : "هذا الطلب";
-
 
     const confirmed =
         confirm(
@@ -1804,11 +1949,9 @@ async function deleteOrder(orderId) {
             "\n\nلا يمكن التراجع عن هذا الإجراء."
         );
 
-
     if (!confirmed) {
         return;
     }
-
 
     try {
 
@@ -1821,11 +1964,9 @@ async function deleteOrder(orderId) {
                     orderId
                 );
 
-
         if (result.error) {
             throw result.error;
         }
-
 
         allOrders =
             allOrders.filter(
@@ -1833,7 +1974,6 @@ async function deleteOrder(orderId) {
                     return item.id !== orderId;
                 }
             );
-
 
         updateStats();
 
@@ -1843,14 +1983,12 @@ async function deleteOrder(orderId) {
             "تم حذف الطلب بنجاح"
         );
 
-
     } catch (error) {
 
         console.error(
             "Delete Order Error:",
             error
         );
-
 
         alert(
             "تعذر حذف الطلب:\n\n" +
@@ -1859,6 +1997,7 @@ async function deleteOrder(orderId) {
                 "حدث خطأ غير معروف."
             )
         );
+
     }
 
 }
@@ -1906,9 +2045,7 @@ refreshButton.addEventListener(
         refreshButton.textContent =
             "جاري التحديث...";
 
-
         await loadOrders();
-
 
         refreshButton.disabled =
             false;
@@ -1930,6 +2067,8 @@ logoutButton.addEventListener(
 
         try {
 
+            stopRealtime();
+
             await supabaseClient.auth.signOut();
 
         } catch (error) {
@@ -1941,9 +2080,6 @@ logoutButton.addEventListener(
 
         }
 
-
-        stopRealtime();
-
         allOrders = [];
 
         showLogin();
@@ -1953,13 +2089,119 @@ logoutButton.addEventListener(
 
 
 /* ==================================================
+   NOTIFICATIONS
+================================================== */
+
+async function requestNotificationPermission() {
+
+    if (!("Notification" in window)) {
+        return;
+    }
+
+    if (Notification.permission === "default") {
+
+        try {
+
+            await Notification.requestPermission();
+
+        } catch (error) {
+
+            console.log(
+                "Notification permission error:",
+                error
+            );
+
+        }
+
+    }
+
+}
+
+
+function notifyNewOrder(order) {
+
+    const orderNumber =
+        order.order_number ||
+        "طلب جديد";
+
+    const customerName =
+        order.customer_name ||
+        "عميل";
+
+    const total =
+        numberValue(
+            order.total
+        ).toLocaleString("ar-EG");
+
+    const message =
+        `طلب جديد ${orderNumber} من ${customerName} - الإجمالي ${total} جنيه`;
+
+    showToast(
+        "🔔 " + message,
+        true
+    );
+
+    if (
+        "Notification" in window &&
+        Notification.permission === "granted"
+    ) {
+
+        try {
+
+            new Notification(
+                "GAMY STORE - طلب جديد",
+                {
+                    body: message
+                }
+            );
+
+        } catch (error) {
+
+            console.log(
+                "Browser notification error:",
+                error
+            );
+
+        }
+
+    }
+
+}
+
+
+/* ==================================================
    REALTIME
 ================================================== */
+
+function setRealtimeStatus(
+    online,
+    text
+) {
+
+    realtimeDot.classList.toggle(
+        "online",
+        online
+    );
+
+    realtimeDot.classList.toggle(
+        "offline",
+        !online
+    );
+
+    realtimeText.textContent =
+        text;
+
+}
+
 
 function startRealtime() {
 
     stopRealtime();
 
+    setRealtimeStatus(
+        false,
+        "جاري الاتصال..."
+    );
 
     realtimeChannel =
         supabaseClient
@@ -1969,17 +2211,70 @@ function startRealtime() {
             .on(
                 "postgres_changes",
                 {
-                    event: "*",
+                    event: "INSERT",
                     schema: "public",
                     table: "orders"
                 },
                 function(payload) {
 
                     console.log(
-                        "Order realtime event:",
+                        "New order:",
                         payload
                     );
 
+                    const newOrder =
+                        payload.new;
+
+                    const alreadyExists =
+                        allOrders.some(
+                            function(order) {
+                                return order.id === newOrder.id;
+                            }
+                        );
+
+                    if (!alreadyExists) {
+
+                        notifyNewOrder(
+                            newOrder
+                        );
+
+                    }
+
+                    loadOrders();
+
+                }
+            )
+            .on(
+                "postgres_changes",
+                {
+                    event: "UPDATE",
+                    schema: "public",
+                    table: "orders"
+                },
+                function(payload) {
+
+                    console.log(
+                        "Order updated:",
+                        payload
+                    );
+
+                    loadOrders();
+
+                }
+            )
+            .on(
+                "postgres_changes",
+                {
+                    event: "DELETE",
+                    schema: "public",
+                    table: "orders"
+                },
+                function(payload) {
+
+                    console.log(
+                        "Order deleted:",
+                        payload
+                    );
 
                     loadOrders();
 
@@ -1992,6 +2287,27 @@ function startRealtime() {
                         "Realtime status:",
                         status
                     );
+
+                    if (
+                        status === "SUBSCRIBED"
+                    ) {
+
+                        setRealtimeStatus(
+                            true,
+                            "متصل لحظيًا"
+                        );
+
+                    } else if (
+                        status === "CHANNEL_ERROR" ||
+                        status === "TIMED_OUT"
+                    ) {
+
+                        setRealtimeStatus(
+                            false,
+                            "Realtime غير متصل"
+                        );
+
+                    }
 
                 }
             );
@@ -2009,14 +2325,17 @@ function stopRealtime() {
         return;
     }
 
-
     supabaseClient.removeChannel(
         realtimeChannel
     );
 
-
     realtimeChannel =
         null;
+
+    setRealtimeStatus(
+        false,
+        "غير متصل"
+    );
 
 }
 
@@ -2032,20 +2351,35 @@ async function checkSession() {
         const result =
             await supabaseClient.auth.getSession();
 
-
         const session =
             result.data.session;
 
-
-        if (session) {
-
-            showDashboard();
-
-        } else {
+        if (!session) {
 
             showLogin();
 
+            return;
+
         }
+
+        const isAdmin =
+            await checkAdminAccess();
+
+        if (!isAdmin) {
+
+            await supabaseClient.auth.signOut();
+
+            showLogin();
+
+            showLoginError(
+                "هذا الحساب ليس لديه صلاحية الدخول إلى لوحة الإدارة."
+            );
+
+            return;
+
+        }
+
+        showDashboard();
 
     } catch (error) {
 
@@ -2066,21 +2400,42 @@ async function checkSession() {
 ================================================== */
 
 supabaseClient.auth.onAuthStateChange(
-    function(event, session) {
+    async function(event, session) {
 
         console.log(
             "Auth event:",
             event
         );
 
+        if (
+            session &&
+            event !== "SIGNED_OUT"
+        ) {
 
-        if (session) {
+            const isAdmin =
+                await checkAdminAccess();
 
-            showDashboard();
+            if (isAdmin) {
+
+                showDashboard();
+
+            } else {
+
+                await supabaseClient.auth.signOut();
+
+                showLogin();
+
+                showLoginError(
+                    "هذا الحساب ليس لديه صلاحية الدخول إلى لوحة الإدارة."
+                );
+
+            }
 
         } else {
 
             stopRealtime();
+
+            allOrders = [];
 
             showLogin();
 
