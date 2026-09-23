@@ -1,1158 +1,1023 @@
 <!DOCTYPE html>
 
 <html lang="ar" dir="rtl">
-
 <head>
-
-```
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>GAMY STORE</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>GAMY STORE | Premium Fashion</title>
 
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /* ================= RESET ================= */
+html {
+    scroll-behavior: smooth;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 78px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.logo {
+    color: #111;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.55;
+}
+
+.cart-link {
+    border: 1px solid #111;
+    padding: 10px 18px;
+    border-radius: 30px;
+}
+
+.cart-link:hover {
+    background: #111;
+    color: #fff;
+    opacity: 1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    height: 82vh;
+    min-height: 600px;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* YouTube video */
+
+.hero-youtube {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    background: #000;
+}
+
+.hero-youtube iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-width: 177.78vh;
+    min-height: 100vh;
+    transform: translate(-50%, -50%) scale(1.08);
+    border: 0;
+    pointer-events: none;
+}
+
+/* Dark cinematic overlay */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.68),
+            rgba(0,0,0,0.22),
+            rgba(0,0,0,0.68)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,0.72),
+            transparent 50%,
+            rgba(0,0,0,0.30)
+        );
+    z-index: 1;
+}
+
+/* Hero content */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    padding: 30px;
+}
+
+.hero-small {
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+    opacity: 0.9;
+}
+
+.hero-content h1 {
+    font-size: clamp(50px, 9vw, 125px);
+    line-height: 0.9;
+    letter-spacing: -4px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.hero-content h2 {
+    font-size: clamp(20px, 3vw, 36px);
+    letter-spacing: 7px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.85);
+}
+
+.hero-btn {
+    display: inline-block;
+    background: #fff;
+    color: #111;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 800;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    background: #111;
+    color: #fff;
+}
+
+/* =========================
+   SOUND BUTTON
+========================= */
+
+.sound-btn {
+    position: absolute;
+    z-index: 10;
+    left: 30px;
+    bottom: 75px;
+
+    width: 54px;
+    height: 54px;
+
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+
+    color: #fff;
+    font-size: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.sound-btn:hover {
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.15);
+    border-color: #fff;
+}
+
+.sound-btn:active {
+    transform: scale(0.94);
+}
+
+.sound-btn.sound-on {
+    background: rgba(255,255,255,0.18);
+    border-color: #fff;
+}
+
+/* Tooltip */
+
+.sound-btn::after {
+    content: "تشغيل الصوت";
+    position: absolute;
+    right: 65px;
+    white-space: nowrap;
+
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+
+    font-size: 11px;
+    padding: 8px 12px;
+    border-radius: 20px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateX(5px);
+    transition: 0.25s ease;
+}
+
+.sound-btn:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sound-btn.sound-on::after {
+    content: "كتم الصوت";
+}
+
+/* =========================
+   TICKER
+========================= */
+
+.ticker {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 48px;
+    background: #fff;
+    color: #111;
+    z-index: 5;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: tickerMove 25s linear infinite;
+}
+
+.ticker span {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 0 35px;
+    white-space: nowrap;
+}
+
+@keyframes tickerMove {
+    from {
+        transform: translateX(0);
     }
 
-    html {
-        scroll-behavior: smooth;
+    to {
+        transform: translateX(50%);
     }
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #fff;
-        color: #111;
-        overflow-x: hidden;
-    }
+/* =========================
+   CATEGORIES
+========================= */
 
+.categories {
+    padding: 100px 6%;
+    background: #fff;
+}
 
-    /* ================= HEADER ================= */
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #777;
+}
+
+.section-title h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    margin-top: 10px;
+    letter-spacing: -2px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.category-card {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #eee;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.07);
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.72),
+        transparent 60%
+    );
+
+    display: flex;
+    align-items: flex-end;
+    padding: 35px;
+}
+
+.category-overlay div {
+    color: #fff;
+}
+
+.category-overlay span {
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.category-overlay h3 {
+    font-size: 30px;
+    margin-top: 7px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #111;
+    color: #fff;
+    padding: 120px 8%;
+    text-align: center;
+}
+
+.about span {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #aaa;
+}
+
+.about h2 {
+    font-size: clamp(40px, 6vw, 80px);
+    margin: 20px 0 30px;
+    letter-spacing: -3px;
+}
+
+.about p {
+    max-width: 750px;
+    margin: auto;
+    color: #bbb;
+    line-height: 2;
+    font-size: 16px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #000;
+    color: #fff;
+    padding: 50px 6%;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: #777;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
 
     header {
-        width: 100%;
-        padding: 20px 7%;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background: #fff;
-
-        border-bottom: 1px solid #eee;
-
-        position: sticky;
-        top: 0;
-
-        z-index: 1000;
+        height: 68px;
+        padding: 0 5%;
     }
-
 
     .logo {
-        font-size: 28px;
-        font-weight: bold;
-
-        letter-spacing: 2px;
-
-        white-space: nowrap;
+        font-size: 20px;
     }
-
 
     nav {
-        display: flex;
-        gap: 30px;
+        gap: 12px;
     }
-
 
     nav a {
-        color: #111;
-
-        text-decoration: none;
-
-        font-size: 16px;
-
-        transition: 0.3s;
+        font-size: 11px;
     }
 
-
-    nav a:hover {
-        color: #777;
+    nav a:nth-child(2),
+    nav a:nth-child(3),
+    nav a:nth-child(4) {
+        display: none;
     }
 
-
-    .cart {
-        font-size: 23px;
-
-        text-decoration: none;
-
-        color: #111;
-
-        transition: 0.3s;
+    .cart-link {
+        padding: 8px 13px;
     }
-
-
-    .cart:hover {
-        transform: scale(1.1);
-    }
-
-
-
-    /* ================= PREMIUM HERO ================= */
 
     .hero {
-        position: relative;
-
-        width: 100%;
-
-        height: 82vh;
-
-        min-height: 600px;
-
-        overflow: hidden;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        text-align: center;
-
-        color: #fff;
-
-        background: #000;
+        min-height: 650px;
+        height: 88vh;
     }
-
-
-
-    /* ================= YOUTUBE VIDEO ================= */
-
-    .hero-youtube {
-        position: absolute;
-
-        inset: 0;
-
-        width: 100%;
-
-        height: 100%;
-
-        overflow: hidden;
-
-        z-index: 0;
-
-        background: #000;
-    }
-
 
     .hero-youtube iframe {
-
-        position: absolute;
-
-        top: 50%;
-        left: 50%;
-
-        width: 100vw;
-
-        height: 56.25vw;
-
-        min-width: 177.78vh;
-
-        min-height: 100vh;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.08);
-
-        border: 0;
-
-        pointer-events: none;
+        transform: translate(-50%, -50%) scale(1.35);
     }
-
-
-
-    /* ================= HERO OVERLAY ================= */
-
-    .hero-overlay {
-
-        position: absolute;
-
-        inset: 0;
-
-        background:
-
-            linear-gradient(
-
-                180deg,
-
-                rgba(0, 0, 0, 0.25) 0%,
-
-                rgba(0, 0, 0, 0.18) 35%,
-
-                rgba(0, 0, 0, 0.52) 72%,
-
-                rgba(0, 0, 0, 0.86) 100%
-
-            );
-
-        z-index: 1;
-
-        pointer-events: none;
-    }
-
-
-
-    /* ================= DARK EDGE ================= */
-
-    .hero::after {
-
-        content: "";
-
-        position: absolute;
-
-        inset: 0;
-
-        background:
-
-            radial-gradient(
-
-                circle at center,
-
-                transparent 18%,
-
-                rgba(0, 0, 0, 0.38) 100%
-
-            );
-
-        pointer-events: none;
-
-        z-index: 1;
-    }
-
-
-
-    /* ================= HERO CONTENT ================= */
 
     .hero-content {
-
-        position: relative;
-
-        z-index: 3;
-
-        width: 100%;
-
-        max-width: 900px;
-
-        padding: 30px;
-
-        animation:
-            heroReveal 1.3s ease forwards;
+        padding: 20px;
     }
 
-
-    .hero-small-title {
-
-        display: block;
-
-        margin-bottom: 22px;
-
-        font-size: 13px;
-
-        font-weight: 600;
-
-        letter-spacing: 7px;
-
-        text-transform: uppercase;
-
-        color:
-            rgba(255,255,255,0.92);
+    .hero-content h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
     }
 
-
-    .hero h1 {
-
-        margin-bottom: 22px;
-
-        font-size:
-            clamp(48px, 8vw, 95px);
-
-        font-weight: 800;
-
-        letter-spacing: 8px;
-
-        line-height: 1;
-
-        text-shadow:
-            0 5px 30px rgba(0,0,0,0.65);
+    .hero-content h2 {
+        font-size: 18px;
+        letter-spacing: 4px;
     }
 
-
-    .hero p {
-
-        margin:
-            0 auto 38px;
-
-        max-width: 650px;
-
-        font-size: 21px;
-
-        line-height: 1.8;
-
-        color:
-            rgba(255,255,255,0.95);
-
-        text-shadow:
-            0 2px 15px rgba(0,0,0,0.6);
+    .hero-content p {
+        font-size: 14px;
     }
 
-
-
-    /* ================= CTA BUTTON ================= */
-
-    .hero-btn {
-
-        display: inline-flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        min-width: 220px;
-
-        padding: 17px 42px;
-
-        background: #fff;
-
-        color: #111;
-
-        text-decoration: none;
-
-        font-size: 15px;
-
-        font-weight: bold;
-
-        letter-spacing: 1px;
-
-        border: 1px solid #fff;
-
-        transition:
-            all 0.35s ease;
+    .sound-btn {
+        left: 18px;
+        bottom: 68px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
     }
 
-
-    .hero-btn:hover {
-
-        background: transparent;
-
-        color: #fff;
-
-        transform:
-            translateY(-4px);
-
-        box-shadow:
-            0 15px 45px
-            rgba(0,0,0,0.35);
+    .sound-btn::after {
+        display: none;
     }
 
-
-
-    /* ================= HERO ANIMATION ================= */
-
-    @keyframes heroReveal {
-
-        from {
-
-            opacity: 0;
-
-            transform:
-                translateY(35px);
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
+    .category-grid {
+        grid-template-columns: 1fr;
     }
 
-
-
-    /* ================= HERO BOTTOM BAR ================= */
-
-    .hero-bar {
-
-        position: absolute;
-
-        bottom: 0;
-
-        left: 0;
-
-        width: 100%;
-
-        z-index: 4;
-
-        padding: 13px 0;
-
-        background:
-            rgba(0,0,0,0.58);
-
-        backdrop-filter:
-            blur(8px);
-
-        overflow: hidden;
-
-        border-top:
-            1px solid
-            rgba(255,255,255,0.12);
+    .category-card {
+        height: 430px;
     }
-
-
-    .hero-bar-track {
-
-        display: flex;
-
-        width: max-content;
-
-        animation:
-            ticker 25s linear infinite;
-    }
-
-
-    .hero-bar span {
-
-        display: inline-block;
-
-        padding:
-            0 35px;
-
-        font-size: 11px;
-
-        letter-spacing: 3px;
-
-        color:
-            rgba(255,255,255,0.88);
-
-        white-space: nowrap;
-    }
-
-
-    @keyframes ticker {
-
-        from {
-            transform:
-                translateX(0);
-        }
-
-        to {
-            transform:
-                translateX(50%);
-        }
-
-    }
-
-
-
-    /* ================= CATEGORIES ================= */
 
     .categories {
-
-        padding:
-            100px 7%;
-
-        text-align: center;
-
-        background: #fff;
+        padding: 80px 5%;
     }
-
-
-    .categories h2 {
-
-        font-size: 38px;
-
-        margin-bottom: 50px;
-    }
-
-
-    .category-container {
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        gap: 25px;
-    }
-
-
-    .category {
-
-        height: 380px;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;
-
-        background-size: cover;
-
-        background-position: center;
-
-        position: relative;
-
-        overflow: hidden;
-
-        border-radius: 4px;
-
-        cursor: pointer;
-
-        transition:
-            transform 0.4s ease;
-    }
-
-
-    .category:hover {
-
-        transform:
-            translateY(-8px);
-    }
-
-
-    .category::before {
-
-        content: "";
-
-        position: absolute;
-
-        inset: 0;
-
-        background:
-            rgba(0,0,0,0.35);
-
-        transition:
-            0.4s ease;
-    }
-
-
-    .category:hover::before {
-
-        background:
-            rgba(0,0,0,0.55);
-    }
-
-
-    .category a {
-
-        position: relative;
-
-        z-index: 2;
-
-        color: #fff;
-
-        font-size: 30px;
-
-        font-weight: bold;
-
-        text-decoration: none;
-
-        transition:
-            0.4s ease;
-    }
-
-
-    .category:hover a {
-
-        transform:
-            scale(1.08);
-    }
-
-
-
-    /* ================= ABOUT ================= */
 
     .about {
+        padding: 90px 7%;
+    }
 
-        padding:
-            100px 10%;
-
-        background: #f6f6f6;
-
+    .footer-inner {
+        flex-direction: column;
         text-align: center;
     }
+}
 
+@media (max-width: 500px) {
 
-    .about h2 {
-
-        font-size: 38px;
-
-        margin-bottom: 25px;
+    .hero-content h1 {
+        font-size: 48px;
     }
 
-
-    .about p {
-
-        max-width: 750px;
-
-        margin: auto;
-
-        line-height: 2;
-
-        color: #555;
-
-        font-size: 17px;
+    .hero-content h2 {
+        font-size: 15px;
     }
 
-
-
-    /* ================= FOOTER ================= */
-
-    footer {
-
-        background: #111;
-
-        color: white;
-
-        text-align: center;
-
-        padding:
-            50px 20px;
+    .hero-content p {
+        font-size: 13px;
+        line-height: 1.8;
     }
 
-
-    footer h2 {
-
-        margin-bottom: 15px;
-
-        font-size: 28px;
+    .hero-btn {
+        padding: 13px 28px;
     }
 
-
-    footer p {
-
-        color: #ccc;
+    .ticker {
+        height: 42px;
     }
 
-
-
-    /* ================= MOBILE ================= */
-
-    @media (max-width: 800px) {
-
-        header {
-
-            padding:
-                15px 5%;
-        }
-
-
-        .logo {
-
-            font-size: 21px;
-        }
-
-
-        nav {
-
-            gap: 12px;
-        }
-
-
-        nav a {
-
-            font-size: 13px;
-        }
-
-
-        .cart {
-
-            font-size: 20px;
-        }
-
-
-        .hero {
-
-            height: 75vh;
-
-            min-height: 520px;
-        }
-
-
-        .hero-youtube iframe {
-
-            transform:
-                translate(-50%, -50%)
-                scale(1.35);
-        }
-
-
-        .hero-content {
-
-            padding:
-                25px 20px;
-        }
-
-
-        .hero-small-title {
-
-            font-size: 10px;
-
-            letter-spacing: 4px;
-
-            margin-bottom: 18px;
-        }
-
-
-        .hero h1 {
-
-            font-size: 43px;
-
-            letter-spacing: 4px;
-
-            line-height: 1.1;
-        }
-
-
-        .hero p {
-
-            font-size: 17px;
-
-            line-height: 1.7;
-
-            margin-bottom: 30px;
-        }
-
-
-        .hero-btn {
-
-            min-width: 190px;
-
-            padding:
-                15px 28px;
-        }
-
-
-        .hero-bar span {
-
-            font-size: 9px;
-
-            padding:
-                0 20px;
-        }
-
-
-        .categories {
-
-            padding:
-                65px 5%;
-        }
-
-
-        .categories h2 {
-
-            font-size: 30px;
-
-            margin-bottom: 35px;
-        }
-
-
-        .category-container {
-
-            grid-template-columns:
-                1fr;
-        }
-
-
-        .category {
-
-            height: 280px;
-        }
-
-
-        .about {
-
-            padding:
-                65px 7%;
-        }
-
-
-        .about h2 {
-
-            font-size: 30px;
-        }
-
+    .ticker span {
+        font-size: 10px;
+        padding: 0 22px;
     }
-
-
-
-    /* ================= SMALL MOBILE ================= */
-
-    @media (max-width: 500px) {
-
-        header {
-
-            flex-wrap: wrap;
-
-            gap: 15px;
-        }
-
-
-        nav {
-
-            order: 3;
-
-            width: 100%;
-
-            justify-content: center;
-        }
-
-
-        .hero {
-
-            height: 72vh;
-
-            min-height: 500px;
-        }
-
-
-        .hero h1 {
-
-            font-size: 35px;
-
-            letter-spacing: 3px;
-        }
-
-
-        .hero p {
-
-            font-size: 16px;
-        }
-
-
-        .hero-small-title {
-
-            font-size: 9px;
-
-            letter-spacing: 3px;
-        }
-
-
-        .hero-btn {
-
-            min-width: 175px;
-
-            padding:
-                14px 24px;
-        }
-
-    }
-
+}
 </style>
-```
 
 </head>
 
 <body>
 
-```
-<!-- ================= HEADER ================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
-    <div class="logo">
-        GAMY STORE
-    </div>
+```
+<a href="index.html" class="logo">
+    GAMY STORE
+</a>
 
-
-    <nav>
-
-        <a href="index.html">
-            الرئيسية
-        </a>
-
-        <a href="products.html">
-            المنتجات
-        </a>
-
-        <a href="#about">
-            من نحن
-        </a>
-
-        <a href="#contact">
-            تواصل معنا
-        </a>
-
-    </nav>
-
-
-    <a
-        href="cart.html"
-        class="cart"
-    >
-        🛒
-    </a>
+<nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+    <a href="#about">من نحن</a>
+    <a href="#contact">تواصل معنا</a>
+    <a href="cart.html" class="cart-link">السلة 🛒</a>
+</nav>
+```
 
 </header>
 
-
-
-<!-- ================= PREMIUM HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
+```
+<div class="hero-youtube">
+    <div id="youtubePlayer"></div>
+</div>
 
-    <!-- ================= YOUTUBE VIDEO ================= -->
+<div class="hero-overlay"></div>
 
-    <div class="hero-youtube">
+<div class="hero-content">
 
-        <iframe
-
-            src="https://www.youtube.com/embed/40FqZyCvMOU?autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0"
-
-            title="GAMY STORE"
-
-            frameborder="0"
-
-            allow="autoplay; encrypted-media"
-
-            allowfullscreen>
-
-        </iframe>
-
+    <div class="hero-small">
+        PREMIUM FASHION
     </div>
 
+    <h1>
+        GAMY
+    </h1>
+
+    <h2>
+        STORE
+    </h2>
+
+    <p>
+        اكتشف مجموعة مختارة من الأزياء العصرية
+        بتصميم يجمع بين الفخامة والستايل العصري.
+    </p>
+
+    <a href="products.html" class="hero-btn">
+        اكتشف المجموعة
+    </a>
+
+</div>
+
+<!-- SOUND BUTTON -->
+
+<button
+    class="sound-btn"
+    id="soundBtn"
+    type="button"
+    aria-label="تشغيل الصوت"
+    title="تشغيل الصوت">
+    🔇
+</button>
 
 
-    <!-- ================= OVERLAY ================= -->
+<!-- TICKER -->
 
-    <div class="hero-overlay"></div>
+<div class="ticker">
+    <div class="ticker-track">
 
-
-
-    <!-- ================= HERO CONTENT ================= -->
-
-    <div class="hero-content">
-
-        <span class="hero-small-title">
-            PREMIUM FASHION
-        </span>
-
-
-        <h1>
-            GAMY STORE
-        </h1>
-
-
-        <p>
-            اكتشف أحدث صيحات الموضة
-            واختار ستايلك الخاص
-        </p>
-
-
-        <a
-            href="products.html"
-            class="hero-btn"
-        >
-            اكتشف المنتجات
-        </a>
-
-    </div>
-
-
-
-    <!-- ================= MOVING BAR ================= -->
-
-    <div class="hero-bar">
-
-        <div class="hero-bar-track">
-
-            <span>
-                GAMY STORE
-            </span>
-
-            <span>
-                PREMIUM FASHION
-            </span>
-
-            <span>
-                NEW COLLECTION
-            </span>
-
-            <span>
-                DISCOVER YOUR STYLE
-            </span>
-
-            <span>
-                GAMY STORE
-            </span>
-
-            <span>
-                PREMIUM FASHION
-            </span>
-
-            <span>
-                NEW COLLECTION
-            </span>
-
-            <span>
-                DISCOVER YOUR STYLE
-            </span>
-
-        </div>
+        <span>GAMY STORE</span>
+        <span>PREMIUM FASHION</span>
+        <span>NEW COLLECTION</span>
+        <span>STREETWEAR</span>
+        <span>GAMY STORE</span>
+        <span>PREMIUM FASHION</span>
+        <span>NEW COLLECTION</span>
+        <span>STREETWEAR</span>
+        <span>GAMY STORE</span>
+        <span>PREMIUM FASHION</span>
 
     </div>
-
+</div>
+```
 
 </section>
 
-
-
-<!-- ================= CATEGORIES ================= -->
+<!-- =========================
+     CATEGORIES
+========================= -->
 
 <section class="categories">
 
+```
+<div class="section-title">
+
+    <span>
+        SHOP BY CATEGORY
+    </span>
+
     <h2>
-        تسوق حسب الفئة
+        اختار ستايلك
     </h2>
 
+</div>
 
-    <div class="category-container">
 
+<div class="category-grid">
 
-        <!-- WOMEN -->
+    <!-- WOMEN -->
 
-        <div
-            class="category"
+    <a
+        href="products.html?category=women"
+        class="category-card">
 
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b');
-            "
-        >
+        <img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
+            alt="Women Fashion">
 
-            <a href="products.html">
-                ملابس نسائية
-            </a>
+        <div class="category-overlay">
+
+            <div>
+
+                <span>
+                    COLLECTION
+                </span>
+
+                <h3>
+                    Women
+                </h3>
+
+            </div>
 
         </div>
 
+    </a>
 
 
-        <!-- MEN -->
+    <!-- MEN -->
 
-        <div
-            class="category"
+    <a
+        href="products.html?category=men"
+        class="category-card">
 
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1617137968427-85924c800a22');
-            "
-        >
+        <img
+            src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
+            alt="Men Fashion">
 
-            <a href="products.html">
-                ملابس رجالية
-            </a>
+        <div class="category-overlay">
 
-        </div>
+            <div>
 
+                <span>
+                    COLLECTION
+                </span>
 
+                <h3>
+                    Men
+                </h3>
 
-        <!-- SHOES -->
-
-        <div
-            class="category"
-
-            style="
-                background-image:
-                url('https://images.unsplash.com/photo-1542291026-7eec264c27ff');
-            "
-        >
-
-            <a href="products.html">
-                أحذية
-            </a>
+            </div>
 
         </div>
 
-
-    </div>
-
-</section>
+    </a>
 
 
+    <!-- SHOES -->
 
-<!-- ================= ABOUT ================= -->
+    <a
+        href="products.html?category=shoes"
+        class="category-card">
 
-<section
-    class="about"
-    id="about"
->
+        <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
+            alt="Shoes">
 
-    <h2>
-        عن GAMY STORE
-    </h2>
+        <div class="category-overlay">
 
+            <div>
 
-    <p>
+                <span>
+                    COLLECTION
+                </span>
 
-        GAMY STORE هو متجر أزياء أونلاين
+                <h3>
+                    Shoes
+                </h3>
 
-        يقدم أحدث تصميمات الملابس والأحذية
+            </div>
 
-        بأسلوب عصري ومميز.
+        </div>
 
-        <br>
-        <br>
+    </a>
 
-        هدفنا إننا نوفر لك
-
-        منتجات عصرية بجودة مميزة
-
-        وتجربة تسوق سهلة وسريعة.
-
-    </p>
-
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer
-    id="contact"
->
-
-    <h2>
-        GAMY STORE
-    </h2>
-
-
-    <p>
-        Fashion that defines you.
-    </p>
-
-
-    <br>
-
-
-    <p>
-        © 2026 GAMY STORE
-    </p>
-
-</footer>
+</div>
 ```
 
-</body>
+</section>
 
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+```
+<span>
+    ABOUT GAMY
+</span>
+
+<h2>
+    WEAR YOUR STYLE.
+</h2>
+
+<p>
+    في GAMY STORE بنقدم لك تجربة مختلفة في عالم الموضة.
+    اختيارات عصرية، تصميمات مميزة، وستايل يناسب شخصيتك.
+    هدفنا إن كل قطعة تلبسها تكون جزء من الـ identity بتاعتك.
+</p>
+```
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="contact">
+
+```
+<div class="footer-inner">
+
+    <div class="footer-logo">
+        GAMY STORE
+    </div>
+
+    <div class="footer-copy">
+        © 2026 GAMY STORE — All Rights Reserved
+    </div>
+
+</div>
+```
+
+</footer>
+
+<!-- =========================
+     YOUTUBE API
+========================= -->
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+
+let player;
+let isSoundOn = false;
+
+const soundBtn = document.getElementById("soundBtn");
+
+
+/*
+    YouTube Player
+*/
+
+function onYouTubeIframeAPIReady() {
+
+    player = new YT.Player("youtubePlayer", {
+
+        videoId: "40FqZyCvMOU",
+
+        playerVars: {
+
+            autoplay: 1,
+            mute: 1,
+            loop: 1,
+            playlist: "40FqZyCvMOU",
+
+            controls: 0,
+            playsinline: 1,
+            rel: 0,
+            modestbranding: 1,
+
+            disablekb: 1
+
+        },
+
+        events: {
+
+            onReady: function(event) {
+
+                event.target.mute();
+
+                event.target.playVideo();
+
+            },
+
+            onStateChange: function(event) {
+
+                /*
+                    إذا انتهى الفيديو نعيد تشغيله
+                */
+
+                if (event.data === YT.PlayerState.ENDED) {
+
+                    event.target.playVideo();
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/*
+    SOUND BUTTON
+*/
+
+soundBtn.addEventListener("click", function() {
+
+    if (!player) {
+        return;
+    }
+
+
+    if (!isSoundOn) {
+
+        /*
+            تشغيل الصوت
+        */
+
+        player.unMute();
+        player.setVolume(100);
+        player.playVideo();
+
+        isSoundOn = true;
+
+        soundBtn.innerHTML = "🔊";
+
+        soundBtn.classList.add("sound-on");
+
+        soundBtn.setAttribute(
+            "aria-label",
+            "كتم الصوت"
+        );
+
+        soundBtn.setAttribute(
+            "title",
+            "كتم الصوت"
+        );
+
+    } else {
+
+        /*
+            كتم الصوت
+        */
+
+        player.mute();
+
+        isSoundOn = false;
+
+        soundBtn.innerHTML = "🔇";
+
+        soundBtn.classList.remove("sound-on");
+
+        soundBtn.setAttribute(
+            "aria-label",
+            "تشغيل الصوت"
+        );
+
+        soundBtn.setAttribute(
+            "title",
+            "تشغيل الصوت"
+        );
+
+    }
+
+});
+
+
+/*
+    لو المتصفح منع autoplay،
+    نحاول تشغيل الفيديو عند أول تفاعل
+    مع الصفحة.
+*/
+
+function startVideoOnInteraction() {
+
+    if (!player) {
+        return;
+    }
+
+    try {
+
+        player.playVideo();
+
+    } catch (error) {
+
+        console.log("Video autoplay waiting for browser.");
+
+    }
+
+}
+
+
+/*
+    أول تفاعل مع الصفحة
+*/
+
+document.addEventListener(
+    "pointerdown",
+    startVideoOnInteraction,
+    {
+        once: true
+    }
+);
+
+</script>
+
+</body>
 </html>
