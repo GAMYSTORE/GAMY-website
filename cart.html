@@ -1,0 +1,492 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>سلة المشتريات | GAMY STORE</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #111;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+
+            padding: 20px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            color: #111;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+
+            text-decoration: none;
+
+            color: #111;
+        }
+
+        /* TITLE */
+
+        .title {
+            text-align: center;
+
+            padding: 55px 20px 30px;
+        }
+
+        .title h1 {
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        /* CART */
+
+        .cart-container {
+            width: 86%;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding-bottom: 80px;
+        }
+
+        .cart-item {
+            background: white;
+
+            margin-bottom: 15px;
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .item-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .item-info p {
+            color: #666;
+
+            margin: 5px 0;
+        }
+
+        .quantity {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .quantity button {
+            width: 32px;
+
+            height: 32px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+        .remove {
+            border: none;
+
+            background: #111;
+
+            color: white;
+
+            padding: 10px 16px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+        /* TOTAL */
+
+        .total {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 8px;
+
+            margin-top: 25px;
+
+            text-align: center;
+        }
+
+        .total h2 {
+            margin-bottom: 20px;
+        }
+
+        .checkout {
+            display: inline-block;
+
+            background: #111;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 15px 45px;
+
+            border-radius: 5px;
+        }
+
+        .empty {
+            background: white;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            border-radius: 8px;
+
+            color: #666;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 40px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+
+                align-items: stretch;
+
+                text-align: center;
+            }
+
+            .quantity {
+                justify-content: center;
+            }
+
+            .title h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        GAMY STORE
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="products.html">
+            المنتجات
+        </a>
+
+    </nav>
+
+    <a href="cart.html" class="cart-icon">
+        🛒
+    </a>
+
+</header>
+
+
+<section class="title">
+
+    <h1>
+        سلة المشتريات
+    </h1>
+
+    <p>
+        راجع المنتجات قبل إتمام الطلب
+    </p>
+
+</section>
+
+
+<div class="cart-container">
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+
+        <h2>
+            الإجمالي:
+            <span id="totalPrice">0</span>
+            جنيه
+        </h2>
+
+        <a href="#" class="checkout">
+            إتمام الطلب
+        </a>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <h2>
+        GAMY STORE
+    </h2>
+
+    <br>
+
+    <p>
+        Fashion that defines you.
+    </p>
+
+</footer>
+
+
+<script>
+
+    let cart = JSON.parse(
+        localStorage.getItem("gamyCart")
+    ) || [];
+
+
+    function displayCart() {
+
+        const container =
+            document.getElementById("cartItems");
+
+        const totalElement =
+            document.getElementById("totalPrice");
+
+
+        container.innerHTML = "";
+
+        let total = 0;
+
+
+        if (cart.length === 0) {
+
+            container.innerHTML = `
+                <div class="empty">
+
+                    <h2>
+                        السلة فارغة 🛒
+                    </h2>
+
+                    <br>
+
+                    <a href="products.html">
+                        اذهب للمنتجات
+                    </a>
+
+                </div>
+            `;
+
+            totalElement.innerText = "0";
+
+            return;
+        }
+
+
+        cart.forEach((item, index) => {
+
+            total += item.price * item.quantity;
+
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div class="item-info">
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+                        <p>
+                            المقاس: ${item.size}
+                        </p>
+
+                        <p>
+                            اللون: ${item.color}
+                        </p>
+
+                        <p>
+                            السعر: ${item.price} جنيه
+                        </p>
+
+                    </div>
+
+
+                    <div class="quantity">
+
+                        <button onclick="changeQuantity(${index}, -1)">
+                            -
+                        </button>
+
+                        <strong>
+                            ${item.quantity}
+                        </strong>
+
+                        <button onclick="changeQuantity(${index}, 1)">
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <button
+                        class="remove"
+                        onclick="removeItem(${index})"
+                    >
+                        حذف
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+
+        totalElement.innerText = total;
+
+    }
+
+
+    function changeQuantity(index, amount) {
+
+        cart[index].quantity += amount;
+
+
+        if (cart[index].quantity <= 0) {
+
+            cart.splice(index, 1);
+
+        }
+
+
+        saveCart();
+
+    }
+
+
+    function removeItem(index) {
+
+        cart.splice(index, 1);
+
+        saveCart();
+
+    }
+
+
+    function saveCart() {
+
+        localStorage.setItem(
+            "gamyCart",
+            JSON.stringify(cart)
+        );
+
+        displayCart();
+
+    }
+
+
+    displayCart();
+
+</script>
+
+
+</body>
+
+</html>
+```
