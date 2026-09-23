@@ -118,6 +118,10 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
+        .item-info {
+            flex: 1;
+        }
+
         .item-info h3 {
             margin-bottom: 8px;
         }
@@ -127,6 +131,8 @@
 
             margin: 5px 0;
         }
+
+        /* QUANTITY */
 
         .quantity {
             display: flex;
@@ -148,7 +154,27 @@
             cursor: pointer;
 
             font-size: 18px;
+
+            border-radius: 4px;
+
+            transition: 0.2s;
         }
+
+        .quantity button:hover {
+            background: #111;
+
+            color: white;
+        }
+
+        .quantity strong {
+            min-width: 25px;
+
+            text-align: center;
+
+            font-size: 16px;
+        }
+
+        /* REMOVE */
 
         .remove {
             border: none;
@@ -162,6 +188,12 @@
             border-radius: 5px;
 
             cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .remove:hover {
+            background: #333;
         }
 
         /* TOTAL */
@@ -176,6 +208,8 @@
             margin-top: 25px;
 
             text-align: center;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
         .total h2 {
@@ -194,7 +228,15 @@
             padding: 15px 45px;
 
             border-radius: 5px;
+
+            transition: 0.2s;
         }
+
+        .checkout:hover {
+            background: #333;
+        }
+
+        /* EMPTY */
 
         .empty {
             background: white;
@@ -206,6 +248,24 @@
             border-radius: 8px;
 
             color: #666;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .empty a {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            background: #111;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 25px;
+
+            border-radius: 5px;
         }
 
         /* FOOTER */
@@ -224,6 +284,14 @@
 
         @media (max-width: 700px) {
 
+            header {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
             nav {
                 gap: 10px;
             }
@@ -240,12 +308,28 @@
                 text-align: center;
             }
 
+            .item-info {
+                width: 100%;
+            }
+
             .quantity {
                 justify-content: center;
             }
 
+            .remove {
+                width: 100%;
+            }
+
+            .title {
+                padding-top: 40px;
+            }
+
             .title h1 {
                 font-size: 32px;
+            }
+
+            .checkout {
+                width: 100%;
             }
 
         }
@@ -264,6 +348,7 @@
         GAMY STORE
     </div>
 
+
     <nav>
 
         <a href="index.html">
@@ -275,6 +360,7 @@
         </a>
 
     </nav>
+
 
     <a href="cart.html" class="cart-icon">
         🛒
@@ -300,6 +386,7 @@
 
     <div id="cartItems"></div>
 
+
     <div class="total">
 
         <h2>
@@ -308,7 +395,12 @@
             جنيه
         </h2>
 
-        <a href="#" class="checkout">
+
+        <a
+            href="checkout.html"
+            class="checkout"
+            id="checkoutButton"
+        >
             إتمام الطلب
         </a>
 
@@ -334,10 +426,40 @@
 
 <script>
 
-    let cart = JSON.parse(
-        localStorage.getItem("gamyCart")
-    ) || [];
+    /* =========================
+       قراءة السلة
+    ========================= */
 
+    let cart = [];
+
+    try {
+
+        const savedCart =
+            localStorage.getItem("gamyCart");
+
+        cart = savedCart
+            ? JSON.parse(savedCart)
+            : [];
+
+        if (!Array.isArray(cart)) {
+            cart = [];
+        }
+
+    } catch (error) {
+
+        console.error(
+            "خطأ في قراءة السلة:",
+            error
+        );
+
+        cart = [];
+
+    }
+
+
+    /* =========================
+       عرض السلة
+    ========================= */
 
     function displayCart() {
 
@@ -348,14 +470,36 @@
             document.getElementById("totalPrice");
 
 
+        if (!container || !totalElement) {
+            return;
+        }
+
+
         container.innerHTML = "";
 
         let total = 0;
 
 
+        /* تنظيف البيانات غير الصحيحة */
+
+        cart = cart.filter(function(item) {
+
+            return (
+                item &&
+                item.name &&
+                Number(item.price) >= 0 &&
+                Number(item.quantity) > 0
+            );
+
+        });
+
+
+        /* السلة فارغة */
+
         if (cart.length === 0) {
 
             container.innerHTML = `
+
                 <div class="empty">
 
                     <h2>
@@ -364,11 +508,16 @@
 
                     <br>
 
+                    <p>
+                        لم تقم بإضافة أي منتجات إلى السلة بعد.
+                    </p>
+
                     <a href="products.html">
                         اذهب للمنتجات
                     </a>
 
                 </div>
+
             `;
 
             totalElement.innerText = "0";
@@ -377,9 +526,21 @@
         }
 
 
-        cart.forEach((item, index) => {
+        /* عرض المنتجات */
 
-            total += item.price * item.quantity;
+        cart.forEach(function(item, index) {
+
+            const price =
+                Number(item.price) || 0;
+
+            const quantity =
+                Number(item.quantity) || 1;
+
+            const itemTotal =
+                price * quantity;
+
+
+            total += itemTotal;
 
 
             container.innerHTML += `
@@ -389,19 +550,31 @@
                     <div class="item-info">
 
                         <h3>
-                            ${item.name}
+                            ${escapeHTML(item.name)}
                         </h3>
 
                         <p>
-                            المقاس: ${item.size}
+                            المقاس:
+                            ${escapeHTML(item.size || "-")}
                         </p>
 
                         <p>
-                            اللون: ${item.color}
+                            اللون:
+                            ${escapeHTML(item.color || "-")}
                         </p>
 
                         <p>
-                            السعر: ${item.price} جنيه
+                            السعر:
+                            ${price}
+                            جنيه
+                        </p>
+
+                        <p>
+                            الإجمالي:
+                            <strong>
+                                ${itemTotal}
+                                جنيه
+                            </strong>
                         </p>
 
                     </div>
@@ -409,15 +582,23 @@
 
                     <div class="quantity">
 
-                        <button onclick="changeQuantity(${index}, -1)">
+                        <button
+                            type="button"
+                            onclick="changeQuantity(${index}, -1)"
+                        >
                             -
                         </button>
 
+
                         <strong>
-                            ${item.quantity}
+                            ${quantity}
                         </strong>
 
-                        <button onclick="changeQuantity(${index}, 1)">
+
+                        <button
+                            type="button"
+                            onclick="changeQuantity(${index}, 1)"
+                        >
                             +
                         </button>
 
@@ -425,6 +606,7 @@
 
 
                     <button
+                        type="button"
                         class="remove"
                         onclick="removeItem(${index})"
                     >
@@ -440,12 +622,34 @@
 
         totalElement.innerText = total;
 
+
+        /* حفظ أي تنظيف للبيانات */
+
+        localStorage.setItem(
+            "gamyCart",
+            JSON.stringify(cart)
+        );
+
     }
 
 
+    /* =========================
+       تغيير الكمية
+    ========================= */
+
     function changeQuantity(index, amount) {
 
-        cart[index].quantity += amount;
+        if (!cart[index]) {
+            return;
+        }
+
+
+        const currentQuantity =
+            Number(cart[index].quantity) || 1;
+
+
+        cart[index].quantity =
+            currentQuantity + amount;
 
 
         if (cart[index].quantity <= 0) {
@@ -460,26 +664,141 @@
     }
 
 
+    /* =========================
+       حذف منتج
+    ========================= */
+
     function removeItem(index) {
 
+        if (!cart[index]) {
+            return;
+        }
+
+
         cart.splice(index, 1);
+
 
         saveCart();
 
     }
 
 
+    /* =========================
+       حفظ السلة
+    ========================= */
+
     function saveCart() {
 
-        localStorage.setItem(
-            "gamyCart",
-            JSON.stringify(cart)
-        );
+        try {
+
+            localStorage.setItem(
+                "gamyCart",
+                JSON.stringify(cart)
+            );
+
+        } catch (error) {
+
+            console.error(
+                "خطأ في حفظ السلة:",
+                error
+            );
+
+            alert(
+                "حدث خطأ أثناء تحديث السلة."
+            );
+
+            return;
+
+        }
+
 
         displayCart();
 
     }
 
+
+    /* =========================
+       حماية النصوص
+    ========================= */
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =========================
+       زر إتمام الطلب
+    ========================= */
+
+    const checkoutButton =
+        document.getElementById(
+            "checkoutButton"
+        );
+
+
+    if (checkoutButton) {
+
+        checkoutButton.addEventListener(
+            "click",
+            function(event) {
+
+                let currentCart = [];
+
+                try {
+
+                    const savedCart =
+                        localStorage.getItem(
+                            "gamyCart"
+                        );
+
+                    currentCart = savedCart
+                        ? JSON.parse(savedCart)
+                        : [];
+
+                } catch (error) {
+
+                    currentCart = [];
+
+                }
+
+
+                if (
+                    !Array.isArray(currentCart) ||
+                    currentCart.length === 0
+                ) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "السلة فارغة، أضف منتجًا أولاً 🛒"
+                    );
+
+                    return;
+
+                }
+
+
+                /* السماح بالانتقال إلى checkout.html */
+
+                window.location.href =
+                    "checkout.html";
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       تشغيل الصفحة
+    ========================= */
 
     displayCart();
 
