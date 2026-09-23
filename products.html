@@ -956,18 +956,13 @@
 
 <!-- ================= JAVASCRIPT ================= -->
 
+```html
 <script>
-
-
-/* ==========================================
-   قراءة السلة الحالية
-========================================== */
 
 let cart =
     JSON.parse(
         localStorage.getItem("gamyCart")
     ) || [];
-
 
 
 /* ==========================================
@@ -978,20 +973,22 @@ function updateCartCount() {
 
     let count = 0;
 
-
     cart.forEach(function(item) {
 
-        count += item.quantity;
+        count += Number(item.quantity) || 0;
 
     });
 
+    const cartCount =
+        document.getElementById("cartCount");
 
-    document.getElementById(
-        "cartCount"
-    ).innerText = count;
+    if (cartCount) {
+
+        cartCount.innerText = count;
+
+    }
 
 }
-
 
 
 /* ==========================================
@@ -1004,39 +1001,46 @@ function addToCart(
     price
 ) {
 
-
-    /*
-       نحدد كارت المنتج الذي ضغط عليه العميل
-    */
+    /* تحديد كارت المنتج */
 
     const product =
         button.closest(".product");
 
 
-    /*
-       الحصول على المقاس
-    */
+    if (!product) {
+
+        alert("حدث خطأ في تحديد المنتج.");
+
+        return;
+
+    }
+
+
+    /* الحصول على المقاس */
+
+    const sizeSelect =
+        product.querySelector(".size");
+
 
     const size =
-        product.querySelector(
-            ".size"
-        ).value;
+        sizeSelect
+            ? sizeSelect.value
+            : "";
 
 
-    /*
-       الحصول على اللون
-    */
+    /* الحصول على اللون */
+
+    const colorSelect =
+        product.querySelector(".color");
+
 
     const color =
-        product.querySelector(
-            ".color"
-        ).value;
+        colorSelect
+            ? colorSelect.value
+            : "";
 
 
-
-    /* ======================================
-       التأكد من اختيار المقاس
-    ====================================== */
+    /* التأكد من اختيار المقاس */
 
     if (!size) {
 
@@ -1049,10 +1053,7 @@ function addToCart(
     }
 
 
-
-    /* ======================================
-       التأكد من اختيار اللون
-    ====================================== */
+    /* التأكد من اختيار اللون */
 
     if (!color) {
 
@@ -1065,9 +1066,8 @@ function addToCart(
     }
 
 
-
     /* ======================================
-       البحث عن المنتج
+       البحث عن نفس المنتج بنفس المقاس واللون
     ====================================== */
 
     const existingProduct =
@@ -1077,14 +1077,13 @@ function addToCart(
 
                 item.name === productName &&
 
-                item.size === size &&
+                String(item.size) === String(size) &&
 
-                item.color === color
+                String(item.color) === String(color)
 
             );
 
         });
-
 
 
     /* ======================================
@@ -1093,7 +1092,8 @@ function addToCart(
 
     if (existingProduct) {
 
-        existingProduct.quantity++;
+        existingProduct.quantity =
+            Number(existingProduct.quantity || 0) + 1;
 
     }
 
@@ -1108,7 +1108,7 @@ function addToCart(
 
             name: productName,
 
-            price: price,
+            price: Number(price),
 
             size: size,
 
@@ -1121,7 +1121,6 @@ function addToCart(
     }
 
 
-
     /* ======================================
        حفظ السلة
     ====================================== */
@@ -1132,59 +1131,25 @@ function addToCart(
     );
 
 
-
-    /* ======================================
-       تحديث عداد السلة
-    ====================================== */
+    /* تحديث العداد */
 
     updateCartCount();
 
 
-
     /* ======================================
-       تغيير شكل الزر
+       الانتقال تلقائياً للسلة
     ====================================== */
 
-    const oldText =
-        button.innerHTML;
-
-
-    button.innerHTML =
-        "✓ تمت الإضافة للسلة";
-
-
-    button.classList.add(
-        "added"
-    );
-
-
-    setTimeout(function() {
-
-        button.innerHTML =
-            oldText;
-
-        button.classList.remove(
-            "added"
-        );
-
-    }, 1500);
-
+    window.location.href = "cart.html";
 
 }
 
 
-
 /* ==========================================
-   تشغيل عداد السلة عند فتح الصفحة
+   تشغيل العداد عند فتح الصفحة
 ========================================== */
 
 updateCartCount();
 
-
 </script>
-
-
-</body>
-
-</html>
 ```
