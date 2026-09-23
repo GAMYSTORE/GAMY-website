@@ -244,4 +244,1025 @@ nav a {
     width: 100%;
     max-width: 500px;
     border-radius: 12px;
-    p
+    padding: 35px 25px;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.success-box h2 {
+    margin-bottom: 15px;
+}
+
+.order-number {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 7px;
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.home-button {
+    display: block;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 40px;
+}
+
+.error-message {
+    display: none;
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 6px;
+    background: #ffeaea;
+    color: #b00000;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+
+    .title h1 {
+        font-size: 32px;
+    }
+
+    header {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    GAMY STORE
+</div>
+
+<nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+    <a href="cart.html">السلة 🛒</a>
+</nav>
+
+</header>
+
+<section class="title">
+
+<h1>
+    إتمام الطلب
+</h1>
+
+<p>
+    أدخل بياناتك لإتمام طلبك
+</p>
+
+</section>
+
+<div id="emptyCart" class="empty"
+     style="display:none; width:90%; max-width:700px; margin:0 auto 80px;">
+
+<h2>
+    السلة فارغة 🛒
+</h2>
+
+<p style="margin-top:10px;">
+    لا يمكن إتمام الطلب بدون وجود منتج في السلة.
+</p>
+
+<a href="products.html">
+    العودة للمنتجات
+</a>
+
+</div>
+
+<div class="checkout-container" id="checkoutContainer">
+
+<!-- بيانات العميل -->
+
+<div class="box">
+
+<h2>
+    👤 بيانات العميل
+</h2>
+
+<form id="orderForm">
+
+<div class="form-group">
+
+<label for="name">
+    الاسم بالكامل
+    <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="اكتب اسمك بالكامل"
+required
+
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="phone">
+    رقم الهاتف
+    <span class="required">*</span>
+</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="01xxxxxxxxx"
+inputmode="numeric"
+required
+
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="governorate">
+    المحافظة
+    <span class="required">*</span>
+</label>
+
+<select id="governorate" required>
+
+<option value="">
+    اختر المحافظة
+</option>
+
+<option value="القاهرة">القاهرة</option>
+<option value="الجيزة">الجيزة</option>
+<option value="القليوبية">القليوبية</option>
+<option value="الإسكندرية">الإسكندرية</option>
+<option value="الدقهلية">الدقهلية</option>
+<option value="الشرقية">الشرقية</option>
+<option value="الغربية">الغربية</option>
+<option value="المنوفية">المنوفية</option>
+<option value="البحيرة">البحيرة</option>
+<option value="كفر الشيخ">كفر الشيخ</option>
+<option value="دمياط">دمياط</option>
+<option value="بورسعيد">بورسعيد</option>
+<option value="الإسماعيلية">الإسماعيلية</option>
+<option value="السويس">السويس</option>
+<option value="الفيوم">الفيوم</option>
+<option value="بني سويف">بني سويف</option>
+<option value="المنيا">المنيا</option>
+<option value="أسيوط">أسيوط</option>
+<option value="سوهاج">سوهاج</option>
+<option value="قنا">قنا</option>
+<option value="الأقصر">الأقصر</option>
+<option value="أسوان">أسوان</option>
+<option value="البحر الأحمر">البحر الأحمر</option>
+<option value="الوادي الجديد">الوادي الجديد</option>
+<option value="مطروح">مطروح</option>
+<option value="شمال سيناء">شمال سيناء</option>
+<option value="جنوب سيناء">جنوب سيناء</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label for="city">
+    المدينة / المنطقة
+    <span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="city"
+placeholder="مثال: مدينة نصر"
+required
+
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="address">
+    العنوان بالتفصيل
+    <span class="required">*</span>
+</label>
+
+<textarea
+    id="address"
+    placeholder="اسم الشارع، رقم العقار، الدور، الشقة..."
+    required
+></textarea>
+
+</div>
+
+<div class="form-group">
+
+<label for="notes">
+    ملاحظات إضافية
+</label>
+
+<textarea
+    id="notes"
+    placeholder="أي ملاحظات خاصة بالطلب..."
+></textarea>
+
+</div>
+
+<div class="payment-box">
+
+<label>
+
+<input
+type="radio"
+name="payment"
+value="الدفع عند الاستلام"
+checked
+
+>
+
+<span>
+    💵 الدفع عند الاستلام
+</span>
+
+</label>
+
+</div>
+
+<div id="errorMessage" class="error-message"></div>
+
+<button
+type="submit"
+class="submit-button"
+id="submitButton"
+
+>
+
+```
+تأكيد الطلب
+```
+
+</button>
+
+</form>
+
+</div>
+
+<!-- ملخص الطلب -->
+
+<div class="box">
+
+<h2>
+    🛍️ ملخص الطلب
+</h2>
+
+<div id="orderItems"></div>
+
+<div class="total-box">
+
+<div class="total-row">
+
+<span>
+    الإجمالي
+</span>
+
+<span>
+    <span id="totalPrice">0</span>
+    جنيه
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<h2>
+    GAMY STORE
+</h2>
+
+<br>
+
+<p>
+    Fashion that defines you.
+</p>
+
+</footer>
+
+<!-- رسالة نجاح الطلب -->
+
+<div class="success" id="successModal">
+
+<div class="success-box">
+
+<div class="success-icon">
+    ✅
+</div>
+
+<h2>
+    تم تأكيد طلبك بنجاح!
+</h2>
+
+<p>
+    شكرًا لطلبك من GAMY STORE ❤️
+</p>
+
+<div class="order-number">
+
+رقم الطلب: <br>
+
+<span id="successOrderNumber">
+    -
+</span>
+
+</div>
+
+<p>
+    تم تسجيل طلبك بنجاح وسيتم التواصل معك لتأكيده.
+</p>
+
+<a
+href="index.html"
+class="home-button"
+
+>
+
+```
+العودة للرئيسية
+```
+
+</a>
+
+</div>
+
+</div>
+
+<!-- Supabase -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+/* ==========================================
+   إعداد Supabase
+========================================== */
+
+const SUPABASE_URL =
+    "https://sqojingoqsbpsslzykoa.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable__xgO8Q6nUxvL5AI2VklEbw_66DnEEf9";
+
+const supabase =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+/* ==========================================
+   قراءة السلة
+========================================== */
+
+let cart = [];
+
+try {
+
+    const savedCart =
+        localStorage.getItem("gamyCart");
+
+    cart = savedCart
+        ? JSON.parse(savedCart)
+        : [];
+
+    if (!Array.isArray(cart)) {
+        cart = [];
+    }
+
+} catch (error) {
+
+    console.error(
+        "خطأ في قراءة السلة:",
+        error
+    );
+
+    cart = [];
+
+}
+
+
+/* ==========================================
+   عناصر الصفحة
+========================================== */
+
+const checkoutContainer =
+    document.getElementById("checkoutContainer");
+
+const emptyCart =
+    document.getElementById("emptyCart");
+
+const orderItems =
+    document.getElementById("orderItems");
+
+const totalPrice =
+    document.getElementById("totalPrice");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+
+/* ==========================================
+   تنظيف النصوص
+========================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==========================================
+   إنشاء رقم الطلب
+========================================== */
+
+function generateOrderNumber() {
+
+    const now = new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(2, "0");
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(2, "0");
+
+    const random =
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+    return (
+        "GAMY-" +
+        year +
+        month +
+        day +
+        "-" +
+        random
+    );
+
+}
+
+
+/* ==========================================
+   عرض رسالة الخطأ
+========================================== */
+
+function showError(message) {
+
+    errorMessage.innerText = message;
+    errorMessage.style.display = "block";
+
+}
+
+function hideError() {
+
+    errorMessage.innerText = "";
+    errorMessage.style.display = "none";
+
+}
+
+
+/* ==========================================
+   عرض ملخص الطلب
+========================================== */
+
+function displayOrder() {
+
+    orderItems.innerHTML = "";
+
+    let total = 0;
+
+    if (
+        !Array.isArray(cart) ||
+        cart.length === 0
+    ) {
+
+        checkoutContainer.style.display =
+            "none";
+
+        emptyCart.style.display =
+            "block";
+
+        totalPrice.innerText =
+            "0";
+
+        return;
+
+    }
+
+    cart.forEach(function(item) {
+
+        const price =
+            Number(item.price) || 0;
+
+        const quantity =
+            Number(item.quantity) || 1;
+
+        const itemTotal =
+            price * quantity;
+
+        total += itemTotal;
+
+        orderItems.innerHTML += `
+
+            <div class="order-item">
+
+                <h3>
+                    ${escapeHTML(item.name)}
+                </h3>
+
+                <p>
+                    المقاس:
+                    ${escapeHTML(item.size || "-")}
+                </p>
+
+                <p>
+                    اللون:
+                    ${escapeHTML(item.color || "-")}
+                </p>
+
+                <p>
+                    الكمية:
+                    ${quantity}
+                </p>
+
+                <p>
+                    سعر القطعة:
+                    ${price} جنيه
+                </p>
+
+                <div class="order-item-total">
+                    إجمالي المنتج:
+                    ${itemTotal} جنيه
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+    totalPrice.innerText =
+        total;
+
+}
+
+
+/* ==========================================
+   إرسال الطلب إلى Supabase
+========================================== */
+
+document
+    .getElementById("orderForm")
+    .addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            hideError();
+
+            /* التأكد من وجود منتجات */
+
+            if (
+                !Array.isArray(cart) ||
+                cart.length === 0
+            ) {
+
+                showError(
+                    "السلة فارغة، أضف منتجًا أولاً 🛒"
+                );
+
+                return;
+
+            }
+
+
+            /* بيانات العميل */
+
+            const name =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+            const governorate =
+                document
+                    .getElementById("governorate")
+                    .value
+                    .trim();
+
+            const city =
+                document
+                    .getElementById("city")
+                    .value
+                    .trim();
+
+            const address =
+                document
+                    .getElementById("address")
+                    .value
+                    .trim();
+
+            const notes =
+                document
+                    .getElementById("notes")
+                    .value
+                    .trim();
+
+            const paymentElement =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                );
+
+            const payment =
+                paymentElement
+                    ? paymentElement.value
+                    : "الدفع عند الاستلام";
+
+
+            /* التحقق من البيانات */
+
+            if (
+                !name ||
+                !phone ||
+                !governorate ||
+                !city ||
+                !address
+            ) {
+
+                showError(
+                    "من فضلك أكمل جميع البيانات المطلوبة."
+                );
+
+                return;
+
+            }
+
+
+            /* منع الضغط مرتين */
+
+            submitButton.disabled =
+                true;
+
+            submitButton.innerText =
+                "جاري إرسال الطلب...";
+
+
+            try {
+
+                /* إنشاء رقم الطلب */
+
+                const orderNumber =
+                    generateOrderNumber();
+
+
+                /* حساب المنتجات */
+
+                let total = 0;
+
+                const products =
+                    cart.map(function(item) {
+
+                        const price =
+                            Number(item.price) || 0;
+
+                        const quantity =
+                            Number(item.quantity) || 1;
+
+                        const itemTotal =
+                            price * quantity;
+
+                        total +=
+                            itemTotal;
+
+                        return {
+
+                            name:
+                                String(
+                                    item.name || ""
+                                ),
+
+                            size:
+                                String(
+                                    item.size || "-"
+                                ),
+
+                            color:
+                                String(
+                                    item.color || "-"
+                                ),
+
+                            price:
+                                price,
+
+                            quantity:
+                                quantity,
+
+                            total:
+                                itemTotal
+
+                        };
+
+                    });
+
+
+                /* ======================================
+                   تجهيز بيانات قاعدة البيانات
+                ====================================== */
+
+                const orderData = {
+
+                    order_number:
+                        orderNumber,
+
+                    customer_name:
+                        name,
+
+                    customer_phone:
+                        phone,
+
+                    governorate:
+                        governorate,
+
+                    city:
+                        city,
+
+                    address:
+                        address,
+
+                    notes:
+                        notes,
+
+                    items:
+                        products,
+
+                    total:
+                        total,
+
+                    status:
+                        "جديد"
+
+                };
+
+
+                console.log(
+                    "إرسال الطلب إلى Supabase:",
+                    orderData
+                );
+
+
+                /* ======================================
+                   حفظ الطلب في Supabase
+                ====================================== */
+
+                const { data, error } =
+                    await supabase
+                        .from("orders")
+                        .insert(orderData)
+                        .select()
+                        .single();
+
+
+                /* في حالة وجود خطأ */
+
+                if (error) {
+
+                    console.error(
+                        "Supabase Error:",
+                        error
+                    );
+
+                    throw new Error(
+                        error.message ||
+                        "حدث خطأ أثناء حفظ الطلب."
+                    );
+
+                }
+
+
+                console.log(
+                    "تم حفظ الطلب:",
+                    data
+                );
+
+
+                /* ======================================
+                   حفظ آخر طلب محليًا
+                   للتوافق مع الموقع
+                ====================================== */
+
+                const localOrder = {
+
+                    orderNumber:
+                        orderNumber,
+
+                    date:
+                        new Date().toISOString(),
+
+                    customer: {
+
+                        name:
+                            name,
+
+                        phone:
+                            phone,
+
+                        governorate:
+                            governorate,
+
+                        city:
+                            city,
+
+                        address:
+                            address,
+
+                        notes:
+                            notes
+
+                    },
+
+                    products:
+                        products,
+
+                    total:
+                        total,
+
+                    payment:
+                        payment
+
+                };
+
+
+                try {
+
+                    localStorage.setItem(
+                        "lastGamyOrder",
+                        JSON.stringify(
+                            localOrder
+                        )
+                    );
+
+                } catch (storageError) {
+
+                    console.warn(
+                        "تعذر حفظ آخر طلب محليًا:",
+                        storageError
+                    );
+
+                }
+
+
+                /* ======================================
+                   تفريغ السلة
+                   بعد نجاح Supabase فقط
+                ====================================== */
+
+                localStorage.removeItem(
+                    "gamyCart"
+                );
+
+
+                /* ======================================
+                   عرض رقم الطلب
+                ====================================== */
+
+                document
+                    .getElementById(
+                        "successOrderNumber"
+                    )
+                    .innerText =
+                    orderNumber;
+
+
+                /* ======================================
+                   عرض شاشة النجاح
+                ====================================== */
+
+                document
+                    .getElementById(
+                        "successModal"
+                    )
+                    .style.display =
+                    "flex";
+
+
+                /* منع إعادة إرسال نفس الطلب */
+
+                cart = [];
+
+
+            } catch (error) {
+
+                console.error(
+                    "فشل إرسال الطلب:",
+                    error
+                );
+
+                showError(
+                    "حدث خطأ أثناء إرسال الطلب. من فضلك حاول مرة أخرى."
+                );
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.innerText =
+                    "تأكيد الطلب";
+
+                return;
+
+            }
+
+
+            submitButton.disabled =
+                false;
+
+            submitButton.innerText =
+                "تأكيد الطلب";
+
+        }
+    );
+
+
+/* ==========================================
+   تشغيل الصفحة
+========================================== */
+
+displayOrder();
+
+</script>
+
+</body>
+</html>
