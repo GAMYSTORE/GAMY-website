@@ -1,7 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,13 +65,37 @@
             text-decoration: none;
             color: #111;
             font-size: 23px;
+
+            position: relative;
         }
+
+        #cartCount {
+            position: absolute;
+
+            top: -10px;
+            right: -12px;
+
+            background: #111;
+            color: white;
+
+            width: 20px;
+            height: 20px;
+
+            border-radius: 50%;
+
+            font-size: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
 
         /* ================= PAGE TITLE ================= */
 
         .page-title {
             text-align: center;
-            padding: 60px 20px 30px;
+            padding: 60px 20px 35px;
         }
 
         .page-title h1 {
@@ -82,19 +108,26 @@
             font-size: 17px;
         }
 
+
         /* ================= PRODUCTS ================= */
 
         .products-container {
             width: 86%;
+            max-width: 1400px;
+
             margin: auto;
 
             display: grid;
+
             grid-template-columns: repeat(4, 1fr);
 
             gap: 25px;
 
             padding-bottom: 80px;
         }
+
+
+        /* ================= PRODUCT CARD ================= */
 
         .product {
             background: white;
@@ -103,7 +136,8 @@
 
             overflow: hidden;
 
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.08);
 
             transition: 0.3s;
         }
@@ -115,6 +149,9 @@
                 0 8px 25px rgba(0,0,0,0.12);
         }
 
+
+        /* ================= PRODUCT IMAGE ================= */
+
         .product-image {
             width: 100%;
             height: 300px;
@@ -124,12 +161,16 @@
             display: block;
         }
 
+
+        /* ================= PRODUCT INFO ================= */
+
         .product-info {
             padding: 20px;
         }
 
         .product-name {
             font-size: 19px;
+
             font-weight: bold;
 
             margin-bottom: 10px;
@@ -137,10 +178,12 @@
 
         .price {
             font-size: 19px;
+
             font-weight: bold;
 
             margin-bottom: 18px;
         }
+
 
         /* ================= OPTIONS ================= */
 
@@ -152,6 +195,7 @@
             display: block;
 
             font-size: 14px;
+
             font-weight: bold;
 
             margin-bottom: 7px;
@@ -160,7 +204,7 @@
         select {
             width: 100%;
 
-            padding: 10px;
+            padding: 11px;
 
             border: 1px solid #ddd;
 
@@ -169,14 +213,17 @@
             background: white;
 
             font-size: 14px;
+
+            cursor: pointer;
         }
 
-        /* ================= BUTTON ================= */
+
+        /* ================= ADD TO CART ================= */
 
         .add-cart {
             width: 100%;
 
-            padding: 13px;
+            padding: 14px;
 
             border: none;
 
@@ -184,6 +231,7 @@
             color: white;
 
             font-size: 15px;
+
             font-weight: bold;
 
             border-radius: 5px;
@@ -197,10 +245,16 @@
             background: #333;
         }
 
+        .add-cart.added {
+            background: #555;
+        }
+
+
         /* ================= FOOTER ================= */
 
         footer {
             background: #111;
+
             color: white;
 
             text-align: center;
@@ -216,6 +270,7 @@
             color: #bbb;
         }
 
+
         /* ================= TABLET ================= */
 
         @media (max-width: 1100px) {
@@ -225,6 +280,7 @@
             }
 
         }
+
 
         /* ================= MOBILE ================= */
 
@@ -260,12 +316,14 @@
 
         }
 
+
         /* ================= SMALL MOBILE ================= */
 
         @media (max-width: 500px) {
 
             header {
                 flex-wrap: wrap;
+
                 gap: 15px;
             }
 
@@ -307,6 +365,7 @@
         GAMY STORE
     </div>
 
+
     <nav>
 
         <a href="index.html">
@@ -327,14 +386,21 @@
 
     </nav>
 
+
     <a href="cart.html" class="cart">
+
         🛒
+
+        <span id="cartCount">
+            0
+        </span>
+
     </a>
 
 </header>
 
 
-<!-- ================= TITLE ================= -->
+<!-- ================= PAGE TITLE ================= -->
 
 <section class="page-title">
 
@@ -354,9 +420,13 @@
 <section class="products-container">
 
 
+    <!-- ================================================= -->
     <!-- PRODUCT 1 -->
+    <!-- ================================================= -->
 
     <div class="product">
+
+        <!-- غيّر رابط الصورة هنا -->
 
         <img
             class="product-image"
@@ -364,15 +434,24 @@
             alt="تيشيرت أبيض"
         >
 
+
         <div class="product-info">
+
+            <!-- اسم المنتج -->
 
             <div class="product-name">
                 تيشيرت أبيض كلاسيك
             </div>
 
+
+            <!-- السعر -->
+
             <div class="price">
                 450 جنيه
             </div>
+
+
+            <!-- المقاس -->
 
             <div class="option">
 
@@ -380,9 +459,12 @@
                     المقاس
                 </label>
 
-                <select>
+                <select class="size">
 
-                    <option>اختر المقاس</option>
+                    <option value="">
+                        اختر المقاس
+                    </option>
+
                     <option>S</option>
                     <option>M</option>
                     <option>L</option>
@@ -393,15 +475,20 @@
             </div>
 
 
+            <!-- اللون -->
+
             <div class="option">
 
                 <label>
                     اللون
                 </label>
 
-                <select>
+                <select class="color">
 
-                    <option>اختر اللون</option>
+                    <option value="">
+                        اختر اللون
+                    </option>
+
                     <option>أبيض</option>
                     <option>أسود</option>
                     <option>رمادي</option>
@@ -413,9 +500,11 @@
 
             <button
                 class="add-cart"
-                onclick="addToCart('تيشيرت أبيض كلاسيك', 450)"
+                onclick="addToCart(this, 'تيشيرت أبيض كلاسيك', 450)"
             >
+
                 🛒 أضف للسلة
+
             </button>
 
         </div>
@@ -423,15 +512,19 @@
     </div>
 
 
+
+    <!-- ================================================= -->
     <!-- PRODUCT 2 -->
+    <!-- ================================================= -->
 
     <div class="product">
 
         <img
             class="product-image"
             src="https://images.unsplash.com/photo-1542272604-787c3835535d"
-            alt="جينز"
+            alt="بنطلون جينز"
         >
+
 
         <div class="product-info">
 
@@ -439,9 +532,11 @@
                 بنطلون جينز كلاسيك
             </div>
 
+
             <div class="price">
                 750 جنيه
             </div>
+
 
             <div class="option">
 
@@ -449,9 +544,12 @@
                     المقاس
                 </label>
 
-                <select>
+                <select class="size">
 
-                    <option>اختر المقاس</option>
+                    <option value="">
+                        اختر المقاس
+                    </option>
+
                     <option>28</option>
                     <option>30</option>
                     <option>32</option>
@@ -469,9 +567,12 @@
                     اللون
                 </label>
 
-                <select>
+                <select class="color">
 
-                    <option>اختر اللون</option>
+                    <option value="">
+                        اختر اللون
+                    </option>
+
                     <option>أزرق</option>
                     <option>أسود</option>
 
@@ -482,9 +583,11 @@
 
             <button
                 class="add-cart"
-                onclick="addToCart('بنطلون جينز كلاسيك', 750)"
+                onclick="addToCart(this, 'بنطلون جينز كلاسيك', 750)"
             >
+
                 🛒 أضف للسلة
+
             </button>
 
         </div>
@@ -492,15 +595,19 @@
     </div>
 
 
+
+    <!-- ================================================= -->
     <!-- PRODUCT 3 -->
+    <!-- ================================================= -->
 
     <div class="product">
 
         <img
             class="product-image"
             src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3"
-            alt="هودي"
+            alt="هودي شتوي"
         >
+
 
         <div class="product-info">
 
@@ -508,9 +615,11 @@
                 هودي شتوي
             </div>
 
+
             <div class="price">
                 850 جنيه
             </div>
+
 
             <div class="option">
 
@@ -518,9 +627,12 @@
                     المقاس
                 </label>
 
-                <select>
+                <select class="size">
 
-                    <option>اختر المقاس</option>
+                    <option value="">
+                        اختر المقاس
+                    </option>
+
                     <option>S</option>
                     <option>M</option>
                     <option>L</option>
@@ -538,9 +650,12 @@
                     اللون
                 </label>
 
-                <select>
+                <select class="color">
 
-                    <option>اختر اللون</option>
+                    <option value="">
+                        اختر اللون
+                    </option>
+
                     <option>أسود</option>
                     <option>بيج</option>
                     <option>رمادي</option>
@@ -552,9 +667,11 @@
 
             <button
                 class="add-cart"
-                onclick="addToCart('هودي شتوي', 850)"
+                onclick="addToCart(this, 'هودي شتوي', 850)"
             >
+
                 🛒 أضف للسلة
+
             </button>
 
         </div>
@@ -562,7 +679,10 @@
     </div>
 
 
+
+    <!-- ================================================= -->
     <!-- PRODUCT 4 -->
+    <!-- ================================================= -->
 
     <div class="product">
 
@@ -572,15 +692,18 @@
             alt="حذاء رياضي"
         >
 
+
         <div class="product-info">
 
             <div class="product-name">
                 حذاء رياضي
             </div>
 
+
             <div class="price">
                 1200 جنيه
             </div>
+
 
             <div class="option">
 
@@ -588,9 +711,12 @@
                     المقاس
                 </label>
 
-                <select>
+                <select class="size">
 
-                    <option>اختر المقاس</option>
+                    <option value="">
+                        اختر المقاس
+                    </option>
+
                     <option>39</option>
                     <option>40</option>
                     <option>41</option>
@@ -609,9 +735,12 @@
                     اللون
                 </label>
 
-                <select>
+                <select class="color">
 
-                    <option>اختر اللون</option>
+                    <option value="">
+                        اختر اللون
+                    </option>
+
                     <option>أبيض</option>
                     <option>أسود</option>
 
@@ -622,9 +751,11 @@
 
             <button
                 class="add-cart"
-                onclick="addToCart('حذاء رياضي', 1200)"
+                onclick="addToCart(this, 'حذاء رياضي', 1200)"
             >
+
                 🛒 أضف للسلة
+
             </button>
 
         </div>
@@ -632,15 +763,19 @@
     </div>
 
 
+
+    <!-- ================================================= -->
     <!-- PRODUCT 5 -->
+    <!-- ================================================= -->
 
     <div class="product">
 
         <img
             class="product-image"
             src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1"
-            alt="فستان"
+            alt="فستان أنيق"
         >
+
 
         <div class="product-info">
 
@@ -648,9 +783,11 @@
                 فستان أنيق
             </div>
 
+
             <div class="price">
                 950 جنيه
             </div>
+
 
             <div class="option">
 
@@ -658,9 +795,12 @@
                     المقاس
                 </label>
 
-                <select>
+                <select class="size">
 
-                    <option>اختر المقاس</option>
+                    <option value="">
+                        اختر المقاس
+                    </option>
+
                     <option>S</option>
                     <option>M</option>
                     <option>L</option>
@@ -677,9 +817,12 @@
                     اللون
                 </label>
 
-                <select>
+                <select class="color">
 
-                    <option>اختر اللون</option>
+                    <option value="">
+                        اختر اللون
+                    </option>
+
                     <option>أسود</option>
                     <option>أحمر</option>
                     <option>بيج</option>
@@ -691,9 +834,11 @@
 
             <button
                 class="add-cart"
-                onclick="addToCart('فستان أنيق', 950)"
+                onclick="addToCart(this, 'فستان أنيق', 950)"
             >
+
                 🛒 أضف للسلة
+
             </button>
 
         </div>
@@ -701,15 +846,19 @@
     </div>
 
 
+
+    <!-- ================================================= -->
     <!-- PRODUCT 6 -->
+    <!-- ================================================= -->
 
     <div class="product">
 
         <img
             class="product-image"
             src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378"
-            alt="جاكيت"
+            alt="جاكيت عصري"
         >
+
 
         <div class="product-info">
 
@@ -717,9 +866,11 @@
                 جاكيت عصري
             </div>
 
+
             <div class="price">
                 1100 جنيه
             </div>
+
 
             <div class="option">
 
@@ -727,9 +878,12 @@
                     المقاس
                 </label>
 
-                <select>
+                <select class="size">
 
-                    <option>اختر المقاس</option>
+                    <option value="">
+                        اختر المقاس
+                    </option>
+
                     <option>S</option>
                     <option>M</option>
                     <option>L</option>
@@ -746,9 +900,12 @@
                     اللون
                 </label>
 
-                <select>
+                <select class="color">
 
-                    <option>اختر اللون</option>
+                    <option value="">
+                        اختر اللون
+                    </option>
+
                     <option>أسود</option>
                     <option>بني</option>
                     <option>بيج</option>
@@ -760,9 +917,11 @@
 
             <button
                 class="add-cart"
-                onclick="addToCart('جاكيت عصري', 1100)"
+                onclick="addToCart(this, 'جاكيت عصري', 1100)"
             >
+
                 🛒 أضف للسلة
+
             </button>
 
         </div>
@@ -794,22 +953,233 @@
 </footer>
 
 
+
 <!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-    function addToCart(productName, price) {
+
+/* ==========================================
+   قراءة السلة الحالية
+========================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("gamyCart")
+    ) || [];
+
+
+
+/* ==========================================
+   تحديث رقم السلة
+========================================== */
+
+function updateCartCount() {
+
+    let count = 0;
+
+
+    cart.forEach(function(item) {
+
+        count += item.quantity;
+
+    });
+
+
+    document.getElementById(
+        "cartCount"
+    ).innerText = count;
+
+}
+
+
+
+/* ==========================================
+   إضافة المنتج للسلة
+========================================== */
+
+function addToCart(
+    button,
+    productName,
+    price
+) {
+
+
+    /*
+       نحدد كارت المنتج الذي ضغط عليه العميل
+    */
+
+    const product =
+        button.closest(".product");
+
+
+    /*
+       الحصول على المقاس
+    */
+
+    const size =
+        product.querySelector(
+            ".size"
+        ).value;
+
+
+    /*
+       الحصول على اللون
+    */
+
+    const color =
+        product.querySelector(
+            ".color"
+        ).value;
+
+
+
+    /* ======================================
+       التأكد من اختيار المقاس
+    ====================================== */
+
+    if (!size) {
 
         alert(
-            "تم إضافة " +
-            productName +
-            " إلى السلة 🛒\n\n" +
-            "السعر: " +
-            price +
-            " جنيه"
+            "من فضلك اختر المقاس أولاً 📏"
         );
 
+        return;
+
     }
+
+
+
+    /* ======================================
+       التأكد من اختيار اللون
+    ====================================== */
+
+    if (!color) {
+
+        alert(
+            "من فضلك اختر اللون أولاً 🎨"
+        );
+
+        return;
+
+    }
+
+
+
+    /* ======================================
+       البحث عن المنتج
+    ====================================== */
+
+    const existingProduct =
+        cart.find(function(item) {
+
+            return (
+
+                item.name === productName &&
+
+                item.size === size &&
+
+                item.color === color
+
+            );
+
+        });
+
+
+
+    /* ======================================
+       لو المنتج موجود نزود الكمية
+    ====================================== */
+
+    if (existingProduct) {
+
+        existingProduct.quantity++;
+
+    }
+
+
+    /* ======================================
+       لو منتج جديد
+    ====================================== */
+
+    else {
+
+        cart.push({
+
+            name: productName,
+
+            price: price,
+
+            size: size,
+
+            color: color,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+
+    /* ======================================
+       حفظ السلة
+    ====================================== */
+
+    localStorage.setItem(
+        "gamyCart",
+        JSON.stringify(cart)
+    );
+
+
+
+    /* ======================================
+       تحديث عداد السلة
+    ====================================== */
+
+    updateCartCount();
+
+
+
+    /* ======================================
+       تغيير شكل الزر
+    ====================================== */
+
+    const oldText =
+        button.innerHTML;
+
+
+    button.innerHTML =
+        "✓ تمت الإضافة للسلة";
+
+
+    button.classList.add(
+        "added"
+    );
+
+
+    setTimeout(function() {
+
+        button.innerHTML =
+            oldText;
+
+        button.classList.remove(
+            "added"
+        );
+
+    }, 1500);
+
+
+}
+
+
+
+/* ==========================================
+   تشغيل عداد السلة عند فتح الصفحة
+========================================== */
+
+updateCartCount();
+
 
 </script>
 
@@ -817,3 +1187,19 @@
 </body>
 
 </html>
+```
+
+بعد ما تستبدل الملف، اعمل **Commit changes**.
+
+بعدها جرّب الآتي:
+
+1. افتح **Products**.
+2. اختر مقاس.
+3. اختر لون.
+4. اضغط **🛒 أضف للسلة**.
+5. هتلاقي الرقم فوق السلة اتغير.
+6. اضغط السلة، والمفروض المنتج يكون محفوظ.
+
+**ملحوظة:** بيانات المنتجات الحالية (الأسماء والأسعار والخيارات والصور) مأخوذة من ملفك الأصلي كما هو، مع تعديل طريقة عمل السلة.
+
+بعد ما تتأكد إن المنتجات دخلت السلة، نكمل **`cart.html`** ونربطه بـ **`checkout.html`** بحيث العميل يدخل الاسم والهاتف والعنوان والمحافظة وطريقة الدفع، ثم نعمل طريقة فعلية تستقبل بها أنت الطلبات.
