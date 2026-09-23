@@ -1,0 +1,1676 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>إدارة الطلبات - GAMY STORE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            min-height: 100vh;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        .header {
+            background: #111;
+            color: #fff;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(0,0,0,.15);
+        }
+
+        .header-inner {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #f5c400;
+        }
+
+        .header-title {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px 50px;
+        }
+
+        /* Statistics */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 22px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.06);
+            border: 1px solid #eee;
+        }
+
+        .stat-title {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111;
+        }
+
+        /* Toolbar */
+
+        .toolbar {
+            background: #fff;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.06);
+            display: grid;
+            grid-template-columns: 1fr 220px auto;
+            gap: 12px;
+        }
+
+        .search-box,
+        .filter-box {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+            background: #fff;
+        }
+
+        .search-box:focus,
+        .filter-box:focus {
+            border-color: #111;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-danger {
+            background: #d90429;
+            color: #fff;
+        }
+
+        .btn-dark {
+            background: #111;
+            color: #fff;
+        }
+
+        .btn-light {
+            background: #eee;
+            color: #222;
+        }
+
+        /* Orders */
+
+        .orders-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .order-card {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+
+        .order-header {
+            padding: 18px 20px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .order-number {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .order-date {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .status-select {
+            padding: 9px 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            outline: none;
+        }
+
+        .order-body {
+            padding: 20px;
+        }
+
+        .customer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .customer-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 13px;
+        }
+
+        .customer-label {
+            color: #777;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .customer-value {
+            font-size: 14px;
+            font-weight: 700;
+            word-break: break-word;
+        }
+
+        /* Products */
+
+        .products-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .product-table th,
+        .product-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .product-table th {
+            background: #fafafa;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .order-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-top: 1px solid #eee;
+            padding-top: 18px;
+        }
+
+        .total-label {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .total-price {
+            font-size: 24px;
+            font-weight: 900;
+            margin-top: 4px;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Status */
+
+        .status-badge {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .status-new {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-processing {
+            background: #cfe2ff;
+            color: #084298;
+        }
+
+        .status-shipped {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .status-completed {
+            background: #198754;
+            color: #fff;
+        }
+
+        .status-cancelled {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        /* Empty */
+
+        .empty {
+            background: #fff;
+            border-radius: 16px;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+
+        .empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .empty h2 {
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            color: #777;
+        }
+
+        /* Modal */
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #fff;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+        }
+
+        .modal h3 {
+            margin-bottom: 12px;
+        }
+
+        .modal p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .toolbar {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 0 12px 40px;
+                margin-top: 20px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-value {
+                font-size: 22px;
+            }
+
+            .customer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .order-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .order-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .order-actions {
+                width: 100%;
+            }
+
+            .order-actions .btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div>
+            <div class="logo">
+                GAMY <span>STORE</span>
+            </div>
+
+            <div class="header-title">
+                لوحة إدارة الطلبات
+            </div>
+        </div>
+
+        <button class="btn btn-danger" onclick="confirmDeleteAll()">
+            حذف كل الطلبات
+        </button>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- Statistics -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-title">إجمالي الطلبات</div>
+            <div class="stat-value" id="totalOrders">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">الطلبات الجديدة</div>
+            <div class="stat-value" id="newOrders">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">طلبات مكتملة</div>
+            <div class="stat-value" id="completedOrders">0</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-title">إجمالي قيمة الطلبات</div>
+            <div class="stat-value" id="totalRevenue">0 ج.م</div>
+        </div>
+
+    </section>
+
+
+    <!-- Search / Filter -->
+
+    <section class="toolbar">
+
+        <input
+            type="text"
+            id="searchInput"
+            class="search-box"
+            placeholder="ابحث برقم الطلب أو اسم العميل أو رقم الهاتف..."
+            oninput="renderOrders()"
+        >
+
+        <select
+            id="statusFilter"
+            class="filter-box"
+            onchange="renderOrders()"
+        >
+            <option value="all">كل الحالات</option>
+            <option value="جديد">جديد</option>
+            <option value="قيد التجهيز">قيد التجهيز</option>
+            <option value="تم الشحن">تم الشحن</option>
+            <option value="مكتمل">مكتمل</option>
+            <option value="ملغي">ملغي</option>
+        </select>
+
+        <button class="btn btn-dark" onclick="renderOrders()">
+            تحديث الطلبات
+        </button>
+
+    </section>
+
+
+    <!-- Orders -->
+
+    <section id="ordersContainer" class="orders-container"></section>
+
+</main>
+
+
+<!-- Confirm Modal -->
+
+<div class="modal-overlay" id="confirmModal">
+
+    <div class="modal">
+
+        <h3 id="modalTitle">تأكيد العملية</h3>
+
+        <p id="modalMessage">
+            هل أنت متأكد؟
+        </p>
+
+        <div class="modal-actions">
+
+            <button
+                class="btn btn-danger"
+                id="confirmButton"
+            >
+                تأكيد
+            </button>
+
+            <button
+                class="btn btn-light"
+                onclick="closeModal()"
+            >
+                إلغاء
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /*
+     * ==========================================
+     * GAMY STORE - ADMIN ORDERS
+     * ==========================================
+     *
+     * نفس التخزين المستخدم في checkout.html:
+     *
+     * gamyOrders
+     *
+     * وآخر طلب:
+     *
+     * lastGamyOrder
+     *
+     */
+
+
+    let orders = [];
+
+    let pendingAction = null;
+
+
+    /* ==============================
+       قراءة الطلبات
+    ============================== */
+
+    function loadOrders() {
+
+        try {
+
+            const savedOrders =
+                localStorage.getItem("gamyOrders");
+
+            orders = savedOrders
+                ? JSON.parse(savedOrders)
+                : [];
+
+            if (!Array.isArray(orders)) {
+                orders = [];
+            }
+
+        } catch (error) {
+
+            console.error(
+                "خطأ في قراءة الطلبات:",
+                error
+            );
+
+            orders = [];
+        }
+
+    }
+
+
+    /* ==============================
+       حفظ الطلبات
+    ============================== */
+
+    function saveOrders() {
+
+        localStorage.setItem(
+            "gamyOrders",
+            JSON.stringify(orders)
+        );
+
+    }
+
+
+    /* ==============================
+       حماية HTML
+    ============================== */
+
+    function escapeHTML(value) {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* ==============================
+       تنسيق السعر
+    ============================== */
+
+    function formatPrice(price) {
+
+        const number = Number(price) || 0;
+
+        return number.toLocaleString("ar-EG") + " ج.م";
+
+    }
+
+
+    /* ==============================
+       تنسيق التاريخ
+    ============================== */
+
+    function formatDate(dateValue) {
+
+        if (!dateValue) {
+            return "غير محدد";
+        }
+
+        const date = new Date(dateValue);
+
+        if (isNaN(date.getTime())) {
+            return escapeHTML(dateValue);
+        }
+
+        return date.toLocaleString("ar-EG", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        });
+
+    }
+
+
+    /* ==============================
+       الحصول على حالة الطلب
+    ============================== */
+
+    function getOrderStatus(order) {
+
+        return order.status || "جديد";
+
+    }
+
+
+    /* ==============================
+       Class الحالة
+    ============================== */
+
+    function getStatusClass(status) {
+
+        switch (status) {
+
+            case "جديد":
+                return "status-new";
+
+            case "قيد التجهيز":
+                return "status-processing";
+
+            case "تم الشحن":
+                return "status-shipped";
+
+            case "مكتمل":
+                return "status-completed";
+
+            case "ملغي":
+                return "status-cancelled";
+
+            default:
+                return "status-new";
+        }
+
+    }
+
+
+    /* ==============================
+       المنتجات
+    ============================== */
+
+    function getProducts(order) {
+
+        if (Array.isArray(order.items)) {
+            return order.items;
+        }
+
+        if (Array.isArray(order.products)) {
+            return order.products;
+        }
+
+        return [];
+
+    }
+
+
+    /* ==============================
+       حساب إجمالي الطلب
+    ============================== */
+
+    function getOrderTotal(order) {
+
+        if (
+            order.total !== undefined &&
+            !isNaN(Number(order.total))
+        ) {
+            return Number(order.total);
+        }
+
+        if (
+            order.totalPrice !== undefined &&
+            !isNaN(Number(order.totalPrice))
+        ) {
+            return Number(order.totalPrice);
+        }
+
+        const products = getProducts(order);
+
+        return products.reduce(function(total, product) {
+
+            const price =
+                Number(product.price) || 0;
+
+            const quantity =
+                Number(product.quantity) || 1;
+
+            return total + (price * quantity);
+
+        }, 0);
+
+    }
+
+
+    /* ==============================
+       تحديث الإحصائيات
+    ============================== */
+
+    function updateStats() {
+
+        const total =
+            orders.length;
+
+        const newCount =
+            orders.filter(function(order) {
+                return getOrderStatus(order) === "جديد";
+            }).length;
+
+        const completedCount =
+            orders.filter(function(order) {
+                return getOrderStatus(order) === "مكتمل";
+            }).length;
+
+        const revenue =
+            orders.reduce(function(total, order) {
+
+                return total + getOrderTotal(order);
+
+            }, 0);
+
+
+        document.getElementById(
+            "totalOrders"
+        ).textContent = total;
+
+
+        document.getElementById(
+            "newOrders"
+        ).textContent = newCount;
+
+
+        document.getElementById(
+            "completedOrders"
+        ).textContent = completedCount;
+
+
+        document.getElementById(
+            "totalRevenue"
+        ).textContent =
+            formatPrice(revenue);
+
+    }
+
+
+    /* ==============================
+       البحث
+    ============================== */
+
+    function filterOrders() {
+
+        const search =
+            document
+                .getElementById("searchInput")
+                .value
+                .trim()
+                .toLowerCase();
+
+
+        const status =
+            document
+                .getElementById("statusFilter")
+                .value;
+
+
+        return orders.filter(function(order) {
+
+            const orderNumber =
+                String(
+                    order.orderNumber ||
+                    order.orderId ||
+                    order.id ||
+                    ""
+                ).toLowerCase();
+
+
+            const name =
+                String(
+                    order.name ||
+                    order.customerName ||
+                    order.fullName ||
+                    ""
+                ).toLowerCase();
+
+
+            const phone =
+                String(
+                    order.phone ||
+                    order.customerPhone ||
+                    ""
+                ).toLowerCase();
+
+
+            const matchesSearch =
+                !search ||
+                orderNumber.includes(search) ||
+                name.includes(search) ||
+                phone.includes(search);
+
+
+            const matchesStatus =
+                status === "all" ||
+                getOrderStatus(order) === status;
+
+
+            return (
+                matchesSearch &&
+                matchesStatus
+            );
+
+        });
+
+    }
+
+
+    /* ==============================
+       رسم الطلبات
+    ============================== */
+
+    function renderOrders() {
+
+        const container =
+            document.getElementById(
+                "ordersContainer"
+            );
+
+
+        updateStats();
+
+
+        const filteredOrders =
+            filterOrders();
+
+
+        if (filteredOrders.length === 0) {
+
+            container.innerHTML = `
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h2>
+                        لا توجد طلبات
+                    </h2>
+
+                    <p>
+                        ${
+                            orders.length === 0
+                            ? "لم يتم تسجيل أي طلب حتى الآن."
+                            : "لا توجد نتائج مطابقة للبحث."
+                        }
+                    </p>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML =
+            filteredOrders
+                .map(function(order) {
+
+                    return createOrderHTML(order);
+
+                })
+                .join("");
+
+    }
+
+
+    /* ==============================
+       إنشاء كارت الطلب
+    ============================== */
+
+    function createOrderHTML(order) {
+
+        const index =
+            orders.indexOf(order);
+
+
+        const orderNumber =
+            order.orderNumber ||
+            order.orderId ||
+            order.id ||
+            "بدون رقم";
+
+
+        const customerName =
+            order.name ||
+            order.customerName ||
+            order.fullName ||
+            "غير محدد";
+
+
+        const phone =
+            order.phone ||
+            order.customerPhone ||
+            "غير محدد";
+
+
+        const governorate =
+            order.governorate ||
+            "غير محدد";
+
+
+        const city =
+            order.city ||
+            "غير محدد";
+
+
+        const address =
+            order.address ||
+            "غير محدد";
+
+
+        const notes =
+            order.notes ||
+            "لا توجد ملاحظات";
+
+
+        const status =
+            getOrderStatus(order);
+
+
+        const products =
+            getProducts(order);
+
+
+        const total =
+            getOrderTotal(order);
+
+
+        let productsHTML = "";
+
+
+        if (products.length > 0) {
+
+            productsHTML = products.map(function(product) {
+
+                const name =
+                    product.name ||
+                    product.productName ||
+                    "منتج";
+
+
+                const size =
+                    product.size ||
+                    "—";
+
+
+                const color =
+                    product.color ||
+                    "—";
+
+
+                const quantity =
+                    Number(
+                        product.quantity
+                    ) || 1;
+
+
+                const price =
+                    Number(
+                        product.price
+                    ) || 0;
+
+
+                const itemTotal =
+                    price * quantity;
+
+
+                return `
+                    <tr>
+
+                        <td>
+                            ${escapeHTML(name)}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(size)}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(color)}
+                        </td>
+
+                        <td>
+                            ${quantity}
+                        </td>
+
+                        <td>
+                            ${formatPrice(price)}
+                        </td>
+
+                        <td>
+                            <strong>
+                                ${formatPrice(itemTotal)}
+                            </strong>
+                        </td>
+
+                    </tr>
+                `;
+
+            }).join("");
+
+        } else {
+
+            productsHTML = `
+                <tr>
+                    <td colspan="6">
+                        لا توجد تفاصيل منتجات
+                    </td>
+                </tr>
+            `;
+
+        }
+
+
+        return `
+
+            <article class="order-card">
+
+                <div class="order-header">
+
+                    <div>
+
+                        <div class="order-number">
+                            🧾 ${escapeHTML(orderNumber)}
+                        </div>
+
+                        <div class="order-date">
+                            ${formatDate(
+                                order.createdAt ||
+                                order.date ||
+                                order.createdDate
+                            )}
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <select
+                            class="status-select"
+                            onchange="changeStatus(${index}, this.value)"
+                        >
+
+                            <option
+                                value="جديد"
+                                ${status === "جديد" ? "selected" : ""}
+                            >
+                                جديد
+                            </option>
+
+                            <option
+                                value="قيد التجهيز"
+                                ${status === "قيد التجهيز" ? "selected" : ""}
+                            >
+                                قيد التجهيز
+                            </option>
+
+                            <option
+                                value="تم الشحن"
+                                ${status === "تم الشحن" ? "selected" : ""}
+                            >
+                                تم الشحن
+                            </option>
+
+                            <option
+                                value="مكتمل"
+                                ${status === "مكتمل" ? "selected" : ""}
+                            >
+                                مكتمل
+                            </option>
+
+                            <option
+                                value="ملغي"
+                                ${status === "ملغي" ? "selected" : ""}
+                            >
+                                ملغي
+                            </option>
+
+                        </select>
+
+                        <div style="margin-top:8px;text-align:center;">
+
+                            <span class="status-badge ${getStatusClass(status)}">
+                                ${escapeHTML(status)}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-body">
+
+                    <div class="customer-grid">
+
+                        <div class="customer-item">
+
+                            <div class="customer-label">
+                                اسم العميل
+                            </div>
+
+                            <div class="customer-value">
+                                ${escapeHTML(customerName)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="customer-item">
+
+                            <div class="customer-label">
+                                رقم الهاتف
+                            </div>
+
+                            <div class="customer-value">
+                                ${escapeHTML(phone)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="customer-item">
+
+                            <div class="customer-label">
+                                المحافظة
+                            </div>
+
+                            <div class="customer-value">
+                                ${escapeHTML(governorate)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="customer-item">
+
+                            <div class="customer-label">
+                                المدينة / المنطقة
+                            </div>
+
+                            <div class="customer-value">
+                                ${escapeHTML(city)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="customer-item">
+
+                            <div class="customer-label">
+                                العنوان
+                            </div>
+
+                            <div class="customer-value">
+                                ${escapeHTML(address)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="customer-item">
+
+                            <div class="customer-label">
+                                ملاحظات
+                            </div>
+
+                            <div class="customer-value">
+                                ${escapeHTML(notes)}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="products-title">
+                        🛍️ المنتجات المطلوبة
+                    </div>
+
+
+                    <div style="overflow-x:auto;">
+
+                        <table class="product-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        المنتج
+                                    </th>
+
+                                    <th>
+                                        المقاس
+                                    </th>
+
+                                    <th>
+                                        اللون
+                                    </th>
+
+                                    <th>
+                                        الكمية
+                                    </th>
+
+                                    <th>
+                                        سعر القطعة
+                                    </th>
+
+                                    <th>
+                                        الإجمالي
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+                                ${productsHTML}
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="order-footer">
+
+                        <div>
+
+                            <div class="total-label">
+                                إجمالي الطلب
+                            </div>
+
+                            <div class="total-price">
+                                ${formatPrice(total)}
+                            </div>
+
+                        </div>
+
+
+                        <div class="order-actions">
+
+                            <button
+                                class="btn btn-light"
+                                onclick="callCustomer('${escapeJS(phone)}')"
+                            >
+                                📞 اتصال
+                            </button>
+
+                            <button
+                                class="btn btn-danger"
+                                onclick="confirmDeleteOrder(${index})"
+                            >
+                                🗑️ حذف الطلب
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+    /* ==============================
+       حماية JavaScript
+    ============================== */
+
+    function escapeJS(value) {
+
+        return String(value || "")
+            .replace(/\\/g, "\\\\")
+            .replace(/'/g, "\\'")
+            .replace(/"/g, '\\"')
+            .replace(/\n/g, "\\n")
+            .replace(/\r/g, "\\r");
+
+    }
+
+
+    /* ==============================
+       تغيير حالة الطلب
+    ============================== */
+
+    function changeStatus(index, newStatus) {
+
+        if (!orders[index]) {
+            return;
+        }
+
+
+        orders[index].status =
+            newStatus;
+
+
+        orders[index].updatedAt =
+            new Date().toISOString();
+
+
+        saveOrders();
+
+        renderOrders();
+
+    }
+
+
+    /* ==============================
+       الاتصال بالعميل
+    ============================== */
+
+    function callCustomer(phone) {
+
+        if (!phone || phone === "غير محدد") {
+
+            alert(
+                "رقم الهاتف غير موجود."
+            );
+
+            return;
+        }
+
+
+        const cleanPhone =
+            String(phone)
+                .replace(/[^\d+]/g, "");
+
+
+        window.location.href =
+            "tel:" + cleanPhone;
+
+    }
+
+
+    /* ==============================
+       حذف طلب
+    ============================== */
+
+    function confirmDeleteOrder(index) {
+
+        if (!orders[index]) {
+            return;
+        }
+
+
+        const order =
+            orders[index];
+
+
+        const orderNumber =
+            order.orderNumber ||
+            order.orderId ||
+            order.id ||
+            "هذا الطلب";
+
+
+        openModal(
+            "حذف الطلب",
+            "هل أنت متأكد أنك تريد حذف الطلب " +
+            orderNumber +
+            "؟ لا يمكن التراجع عن هذه العملية.",
+            function() {
+
+                orders.splice(
+                    index,
+                    1
+                );
+
+
+                saveOrders();
+
+                closeModal();
+
+                renderOrders();
+
+            }
+        );
+
+    }
+
+
+    /* ==============================
+       حذف كل الطلبات
+    ============================== */
+
+    function confirmDeleteAll() {
+
+        if (orders.length === 0) {
+
+            alert(
+                "لا توجد طلبات لحذفها."
+            );
+
+            return;
+        }
+
+
+        openModal(
+            "حذف كل الطلبات",
+            "سيتم حذف جميع الطلبات نهائيًا من هذا المتصفح. هل أنت متأكد؟",
+            function() {
+
+                orders = [];
+
+                saveOrders();
+
+                localStorage.removeItem(
+                    "lastGamyOrder"
+                );
+
+                closeModal();
+
+                renderOrders();
+
+            }
+        );
+
+    }
+
+
+    /* ==============================
+       Modal
+    ============================== */
+
+    function openModal(
+        title,
+        message,
+        action
+    ) {
+
+        document.getElementById(
+            "modalTitle"
+        ).textContent = title;
+
+
+        document.getElementById(
+            "modalMessage"
+        ).textContent = message;
+
+
+        pendingAction = action;
+
+
+        document.getElementById(
+            "confirmModal"
+        ).classList.add("active");
+
+
+        document.getElementById(
+            "confirmButton"
+        ).onclick = function() {
+
+            if (typeof pendingAction === "function") {
+
+                pendingAction();
+
+            }
+
+        };
+
+    }
+
+
+    function closeModal() {
+
+        document.getElementById(
+            "confirmModal"
+        ).classList.remove("active");
+
+
+        pendingAction = null;
+
+    }
+
+
+    /* ==============================
+       الضغط خارج المودال
+    ============================== */
+
+    document
+        .getElementById("confirmModal")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target === this
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+    /* ==============================
+       زر ESC
+    ============================== */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+    /* ==============================
+       تحديث تلقائي لو checkout
+       فتح في Tab آخر
+    ============================== */
+
+    window.addEventListener(
+        "storage",
+        function(event) {
+
+            if (
+                event.key === "gamyOrders"
+            ) {
+
+                loadOrders();
+
+                renderOrders();
+
+            }
+
+        }
+    );
+
+
+    /* ==============================
+       تشغيل الصفحة
+    ============================== */
+
+    loadOrders();
+
+    renderOrders();
+
+</script>
+
+</body>
+</html>
+```
