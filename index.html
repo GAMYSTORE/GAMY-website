@@ -1,901 +1,1204 @@
 <!DOCTYPE html>
 
 <html lang="ar" dir="rtl">
+
 <head>
+
+```
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>GAMY STORE</title>
 
+
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html {
-    scroll-behavior: smooth;
-}
+    /* ================= RESET ================= */
 
-body {
-    font-family: Arial, sans-serif;
-    background: #fff;
-    color: #111;
-    overflow-x: hidden;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-    width: 100%;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background: #fff;
-    border-bottom: 1px solid #eee;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    white-space: nowrap;
-}
-
-nav {
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    color: #111;
-    text-decoration: none;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #777;
-}
-
-.cart {
-    font-size: 23px;
-    text-decoration: none;
-    color: #111;
-    transition: 0.3s;
-}
-
-.cart:hover {
-    transform: scale(1.1);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    position: relative;
-
-    width: 100%;
-    height: 86vh;
-    min-height: 600px;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    color: #fff;
-    background: #111;
-}
-
-/* Video */
-
-.hero-video {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    z-index: 0;
-
-    background: #111;
-}
-
-/* Dark overlay */
-
-.hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,0.15) 0%,
-            rgba(0,0,0,0.20) 35%,
-            rgba(0,0,0,0.48) 70%,
-            rgba(0,0,0,0.82) 100%
-        );
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-/* Center glow */
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 15%,
-            rgba(0,0,0,0.35) 100%
-        );
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-/* Hero Content */
-
-.hero-content {
-    position: relative;
-
-    z-index: 5;
-
-    width: 100%;
-    max-width: 950px;
-
-    padding: 30px;
-
-    animation: heroReveal 1.2s ease forwards;
-}
-
-.hero-small-title {
-    display: block;
-
-    margin-bottom: 24px;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    letter-spacing: 7px;
-
-    text-transform: uppercase;
-
-    color: rgba(255,255,255,0.92);
-}
-
-.hero h1 {
-    margin-bottom: 24px;
-
-    font-size: clamp(50px, 8vw, 100px);
-
-    font-weight: 800;
-
-    letter-spacing: 9px;
-
-    line-height: 1;
-
-    text-shadow:
-        0 5px 30px rgba(0,0,0,0.65);
-}
-
-.hero p {
-    margin: 0 auto 38px;
-
-    max-width: 650px;
-
-    font-size: 21px;
-
-    line-height: 1.8;
-
-    color: rgba(255,255,255,0.95);
-
-    text-shadow:
-        0 2px 15px rgba(0,0,0,0.6);
-}
-
-/* Button */
-
-.hero-btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 230px;
-
-    padding: 17px 42px;
-
-    background: #fff;
-    color: #111;
-
-    text-decoration: none;
-
-    font-size: 15px;
-    font-weight: bold;
-
-    letter-spacing: 1px;
-
-    border: 1px solid #fff;
-
-    transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.hero-btn:hover {
-    background: transparent;
-
-    color: #fff;
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,0.4);
-}
-
-/* Hero animation */
-
-@keyframes heroReveal {
-
-    from {
-        opacity: 0;
-        transform: translateY(35px);
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    html {
+        scroll-behavior: smooth;
     }
 
-}
-
-/* =========================
-   HERO MOVING BAR
-========================= */
-
-.hero-bar {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-
-    z-index: 6;
-
-    padding: 14px 0;
-
-    background: rgba(0,0,0,0.58);
-
-    backdrop-filter: blur(8px);
-
-    overflow: hidden;
-
-    border-top: 1px solid rgba(255,255,255,0.12);
-}
-
-.hero-bar-track {
-    display: flex;
-
-    width: max-content;
-
-    animation: ticker 25s linear infinite;
-}
-
-.hero-bar span {
-    display: inline-block;
-
-    padding: 0 38px;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    color: rgba(255,255,255,0.88);
-
-    white-space: nowrap;
-}
-
-@keyframes ticker {
-
-    from {
-        transform: translateX(0);
+    body {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        color: #111;
+        overflow-x: hidden;
     }
 
-    to {
-        transform: translateX(50%);
-    }
 
-}
-
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories {
-    padding: 100px 7%;
-
-    text-align: center;
-
-    background: #fff;
-}
-
-.categories h2 {
-    font-size: 38px;
-
-    margin-bottom: 50px;
-}
-
-.category-container {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.category {
-    height: 380px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    background-size: cover;
-    background-position: center;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 4px;
-
-    cursor: pointer;
-
-    transition: transform 0.4s ease;
-}
-
-.category:hover {
-    transform: translateY(-8px);
-}
-
-.category::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(0,0,0,0.35);
-
-    transition: 0.4s ease;
-}
-
-.category:hover::before {
-    background: rgba(0,0,0,0.55);
-}
-
-.category a {
-    position: relative;
-
-    z-index: 2;
-
-    color: #fff;
-
-    font-size: 30px;
-
-    font-weight: bold;
-
-    text-decoration: none;
-
-    transition: 0.4s ease;
-}
-
-.category:hover a {
-    transform: scale(1.08);
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    padding: 100px 10%;
-
-    background: #f6f6f6;
-
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 38px;
-
-    margin-bottom: 25px;
-}
-
-.about p {
-    max-width: 750px;
-
-    margin: auto;
-
-    line-height: 2;
-
-    color: #555;
-
-    font-size: 17px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #111;
-
-    color: #fff;
-
-    text-align: center;
-
-    padding: 50px 20px;
-}
-
-footer h2 {
-    margin-bottom: 15px;
-
-    font-size: 28px;
-}
-
-footer p {
-    color: #ccc;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
+    /* ================= HEADER ================= */
 
     header {
-        padding: 15px 5%;
-    }
-
-    .logo {
-        font-size: 21px;
-    }
-
-    nav {
-        gap: 12px;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-
-    .cart {
-        font-size: 20px;
-    }
-
-    .hero {
-        height: 76vh;
-
-        min-height: 520px;
-    }
-
-    .hero-content {
-        padding: 25px 20px;
-    }
-
-    .hero-small-title {
-        font-size: 10px;
-
-        letter-spacing: 4px;
-
-        margin-bottom: 18px;
-    }
-
-    .hero h1 {
-        font-size: 43px;
-
-        letter-spacing: 4px;
-
-        line-height: 1.1;
-    }
-
-    .hero p {
-        font-size: 17px;
-
-        line-height: 1.7;
-
-        margin-bottom: 30px;
-    }
-
-    .hero-btn {
-        min-width: 190px;
-
-        padding: 15px 28px;
-    }
-
-    .hero-bar span {
-        font-size: 9px;
-
-        padding: 0 20px;
-    }
-
-    .categories {
-        padding: 65px 5%;
-    }
-
-    .categories h2 {
-        font-size: 30px;
-
-        margin-bottom: 35px;
-    }
-
-    .category-container {
-        grid-template-columns: 1fr;
-    }
-
-    .category {
-        height: 280px;
-    }
-
-    .about {
-        padding: 65px 7%;
-    }
-
-    .about h2 {
-        font-size: 30px;
-    }
-
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 500px) {
-
-    header {
-        flex-wrap: wrap;
-
-        gap: 15px;
-    }
-
-    nav {
-        order: 3;
 
         width: 100%;
 
-        justify-content: center;
+        padding: 20px 7%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        background: #fff;
+
+        border-bottom: 1px solid #eee;
+
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+
     }
+
+
+    .logo {
+
+        font-size: 28px;
+
+        font-weight: bold;
+
+        letter-spacing: 2px;
+
+        white-space: nowrap;
+
+    }
+
+
+    nav {
+
+        display: flex;
+
+        gap: 30px;
+
+    }
+
+
+    nav a {
+
+        color: #111;
+
+        text-decoration: none;
+
+        font-size: 16px;
+
+        transition: 0.3s;
+
+    }
+
+
+    nav a:hover {
+
+        color: #777;
+
+    }
+
+
+    .cart {
+
+        font-size: 23px;
+
+        text-decoration: none;
+
+        color: #111;
+
+        transition: 0.3s;
+
+    }
+
+
+    .cart:hover {
+
+        transform: scale(1.1);
+
+    }
+
+
+
+    /* ================= PREMIUM HERO ================= */
 
     .hero {
-        height: 72vh;
 
-        min-height: 500px;
+        position: relative;
+
+        width: 100%;
+
+        height: 82vh;
+
+        min-height: 600px;
+
+        overflow: hidden;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        color: #fff;
+
+        background: #000;
+
     }
 
-    .hero h1 {
-        font-size: 35px;
 
-        letter-spacing: 3px;
+
+    /* ================= VIDEO ================= */
+
+    .hero-video {
+
+        position: absolute;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        z-index: 0;
+
+        background: #000;
+
     }
 
-    .hero p {
-        font-size: 16px;
+
+
+    /* ================= PREMIUM OVERLAY ================= */
+
+    .hero-overlay {
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+
+            linear-gradient(
+
+                180deg,
+
+                rgba(0, 0, 0, 0.30) 0%,
+
+                rgba(0, 0, 0, 0.20) 35%,
+
+                rgba(0, 0, 0, 0.55) 75%,
+
+                rgba(0, 0, 0, 0.82) 100%
+
+            );
+
+        z-index: 1;
+
+        pointer-events: none;
+
     }
+
+
+
+    /* ================= DARK EDGE ================= */
+
+    .hero::after {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+
+            radial-gradient(
+
+                circle at center,
+
+                transparent 20%,
+
+                rgba(0, 0, 0, 0.30) 100%
+
+            );
+
+        pointer-events: none;
+
+        z-index: 1;
+
+    }
+
+
+
+    /* ================= HERO CONTENT ================= */
+
+    .hero-content {
+
+        position: relative;
+
+        z-index: 3;
+
+        width: 100%;
+
+        max-width: 900px;
+
+        padding: 30px;
+
+        animation: heroReveal 1.3s ease forwards;
+
+    }
+
+
 
     .hero-small-title {
-        font-size: 9px;
 
-        letter-spacing: 3px;
+        display: block;
+
+        margin-bottom: 22px;
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        letter-spacing: 7px;
+
+        text-transform: uppercase;
+
+        color: rgba(255, 255, 255, 0.9);
+
     }
+
+
+
+    .hero h1 {
+
+        margin-bottom: 22px;
+
+        font-size: clamp(48px, 8vw, 95px);
+
+        font-weight: 800;
+
+        letter-spacing: 8px;
+
+        line-height: 1;
+
+        text-shadow:
+
+            0 5px 30px rgba(0, 0, 0, 0.55);
+
+    }
+
+
+
+    .hero p {
+
+        margin: 0 auto 38px;
+
+        max-width: 650px;
+
+        font-size: 21px;
+
+        line-height: 1.8;
+
+        color: rgba(255, 255, 255, 0.94);
+
+        text-shadow:
+
+            0 2px 15px rgba(0, 0, 0, 0.5);
+
+    }
+
+
+
+    /* ================= CTA BUTTON ================= */
 
     .hero-btn {
-        min-width: 175px;
 
-        padding: 14px 24px;
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 220px;
+
+        padding: 17px 42px;
+
+        background: #fff;
+
+        color: #111;
+
+        text-decoration: none;
+
+        font-size: 15px;
+
+        font-weight: bold;
+
+        letter-spacing: 1px;
+
+        border: 1px solid #fff;
+
+        transition: all 0.35s ease;
+
     }
 
-}
+
+
+    .hero-btn:hover {
+
+        background: transparent;
+
+        color: #fff;
+
+        transform: translateY(-4px);
+
+        box-shadow:
+
+            0 15px 45px rgba(0, 0, 0, 0.35);
+
+    }
+
+
+
+    /* ================= HERO ANIMATION ================= */
+
+    @keyframes heroReveal {
+
+        from {
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+    }
+
+
+
+    /* ================= HERO BOTTOM BAR ================= */
+
+    .hero-bar {
+
+        position: absolute;
+
+        bottom: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        z-index: 4;
+
+        padding: 13px 0;
+
+        background: rgba(0, 0, 0, 0.55);
+
+        backdrop-filter: blur(8px);
+
+        overflow: hidden;
+
+        border-top:
+
+            1px solid rgba(255, 255, 255, 0.12);
+
+    }
+
+
+
+    .hero-bar-track {
+
+        display: flex;
+
+        width: max-content;
+
+        animation: ticker 25s linear infinite;
+
+    }
+
+
+
+    .hero-bar span {
+
+        display: inline-block;
+
+        padding: 0 35px;
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+        color: rgba(255, 255, 255, 0.85);
+
+        white-space: nowrap;
+
+    }
+
+
+
+    @keyframes ticker {
+
+        from {
+
+            transform: translateX(0);
+
+        }
+
+        to {
+
+            transform: translateX(50%);
+
+        }
+
+    }
+
+
+
+    /* ================= CATEGORIES ================= */
+
+    .categories {
+
+        padding: 100px 7%;
+
+        text-align: center;
+
+        background: #fff;
+
+    }
+
+
+
+    .categories h2 {
+
+        font-size: 38px;
+
+        margin-bottom: 50px;
+
+    }
+
+
+
+    .category-container {
+
+        display: grid;
+
+        grid-template-columns:
+
+            repeat(3, 1fr);
+
+        gap: 25px;
+
+    }
+
+
+
+    .category {
+
+        height: 380px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        background-size: cover;
+
+        background-position: center;
+
+        position: relative;
+
+        overflow: hidden;
+
+        border-radius: 4px;
+
+        cursor: pointer;
+
+        transition:
+
+            transform 0.4s ease;
+
+    }
+
+
+
+    .category:hover {
+
+        transform: translateY(-8px);
+
+    }
+
+
+
+    .category::before {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.35);
+
+        transition: 0.4s ease;
+
+    }
+
+
+
+    .category:hover::before {
+
+        background: rgba(0, 0, 0, 0.55);
+
+    }
+
+
+
+    .category a {
+
+        position: relative;
+
+        z-index: 2;
+
+        color: #fff;
+
+        font-size: 30px;
+
+        font-weight: bold;
+
+        text-decoration: none;
+
+        transition: 0.4s ease;
+
+    }
+
+
+
+    .category:hover a {
+
+        transform: scale(1.08);
+
+    }
+
+
+
+    /* ================= ABOUT ================= */
+
+    .about {
+
+        padding: 100px 10%;
+
+        background: #f6f6f6;
+
+        text-align: center;
+
+    }
+
+
+
+    .about h2 {
+
+        font-size: 38px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+
+    .about p {
+
+        max-width: 750px;
+
+        margin: auto;
+
+        line-height: 2;
+
+        color: #555;
+
+        font-size: 17px;
+
+    }
+
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+
+        background: #111;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 50px 20px;
+
+    }
+
+
+
+    footer h2 {
+
+        margin-bottom: 15px;
+
+        font-size: 28px;
+
+    }
+
+
+
+    footer p {
+
+        color: #ccc;
+
+    }
+
+
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 800px) {
+
+        header {
+
+            padding: 15px 5%;
+
+        }
+
+
+
+        .logo {
+
+            font-size: 21px;
+
+        }
+
+
+
+        nav {
+
+            gap: 12px;
+
+        }
+
+
+
+        nav a {
+
+            font-size: 13px;
+
+        }
+
+
+
+        .cart {
+
+            font-size: 20px;
+
+        }
+
+
+
+        .hero {
+
+            height: 75vh;
+
+            min-height: 520px;
+
+        }
+
+
+
+        .hero-content {
+
+            padding: 25px 20px;
+
+        }
+
+
+
+        .hero-small-title {
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+
+        .hero h1 {
+
+            font-size: 43px;
+
+            letter-spacing: 4px;
+
+            line-height: 1.1;
+
+        }
+
+
+
+        .hero p {
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+
+        }
+
+
+
+        .hero-btn {
+
+            min-width: 190px;
+
+            padding: 15px 28px;
+
+        }
+
+
+
+        .hero-bar span {
+
+            font-size: 9px;
+
+            padding: 0 20px;
+
+        }
+
+
+
+        .categories {
+
+            padding: 65px 5%;
+
+        }
+
+
+
+        .categories h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+
+        .category-container {
+
+            grid-template-columns: 1fr;
+
+        }
+
+
+
+        .category {
+
+            height: 280px;
+
+        }
+
+
+
+        .about {
+
+            padding: 65px 7%;
+
+        }
+
+
+
+        .about h2 {
+
+            font-size: 30px;
+
+        }
+
+    }
+
+
+
+    /* ================= SMALL MOBILE ================= */
+
+    @media (max-width: 500px) {
+
+        header {
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+        }
+
+
+
+        nav {
+
+            order: 3;
+
+            width: 100%;
+
+            justify-content: center;
+
+        }
+
+
+
+        .hero {
+
+            height: 72vh;
+
+            min-height: 500px;
+
+        }
+
+
+
+        .hero h1 {
+
+            font-size: 35px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+
+        .hero p {
+
+            font-size: 16px;
+
+        }
+
+
+
+        .hero-small-title {
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+
+        .hero-btn {
+
+            min-width: 175px;
+
+            padding: 14px 24px;
+
+        }
+
+    }
+
 </style>
+```
 
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+```
+<!-- ================= HEADER ================= -->
 
 <header>
 
-```
-<div class="logo">
-    GAMY STORE
-</div>
+    <div class="logo">
+        GAMY STORE
+    </div>
 
-<nav>
 
-    <a href="index.html">
-        الرئيسية
+    <nav>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="products.html">
+            المنتجات
+        </a>
+
+        <a href="#about">
+            من نحن
+        </a>
+
+        <a href="#contact">
+            تواصل معنا
+        </a>
+
+    </nav>
+
+
+    <a href="cart.html" class="cart">
+        🛒
     </a>
-
-    <a href="products.html">
-        المنتجات
-    </a>
-
-    <a href="#about">
-        من نحن
-    </a>
-
-    <a href="#contact">
-        تواصل معنا
-    </a>
-
-</nav>
-
-<a href="cart.html" class="cart">
-    🛒
-</a>
-```
 
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
+
+
+<!-- ================= PREMIUM HERO ================= -->
 
 <section class="hero">
 
-```
-<!--
-    IMPORTANT:
-    اسم الفيديو الحالي على GitHub:
-    hero-video.mp4.mp4
--->
 
-<video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
->
+    <!-- ================= VIDEO ================= -->
 
-    <source
-        src="hero-video.mp4.mp4"
-        type="video/mp4"
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
     >
 
-    متصفحك لا يدعم تشغيل الفيديو.
+        <source
+            src="https://github.com/GAMYSTORE/GAMY-website/raw/refs/heads/G2026MY/hero-video.mp4.mp4"
+            type="video/mp4"
+        >
 
-</video>
+        متصفحك لا يدعم تشغيل الفيديو.
 
-
-<div class="hero-overlay"></div>
-
-
-<div class="hero-content">
-
-    <span class="hero-small-title">
-        PREMIUM FASHION
-    </span>
-
-    <h1>
-        GAMY STORE
-    </h1>
-
-    <p>
-        اكتشف أحدث صيحات الموضة
-        واختار ستايلك الخاص
-    </p>
-
-    <a
-        href="products.html"
-        class="hero-btn"
-    >
-        اكتشف المنتجات
-    </a>
-
-</div>
+    </video>
 
 
-<!-- Moving Text -->
 
-<div class="hero-bar">
+    <!-- ================= OVERLAY ================= -->
 
-    <div class="hero-bar-track">
+    <div class="hero-overlay"></div>
 
-        <span>
-            GAMY STORE
-        </span>
 
-        <span>
+
+    <!-- ================= HERO CONTENT ================= -->
+
+    <div class="hero-content">
+
+        <span class="hero-small-title">
             PREMIUM FASHION
         </span>
 
-        <span>
-            NEW COLLECTION
-        </span>
 
-        <span>
-            DISCOVER YOUR STYLE
-        </span>
-
-        <span>
+        <h1>
             GAMY STORE
-        </span>
+        </h1>
 
-        <span>
-            PREMIUM FASHION
-        </span>
 
-        <span>
-            NEW COLLECTION
-        </span>
+        <p>
+            اكتشف أحدث صيحات الموضة
+            واختار ستايلك الخاص
+        </p>
 
-        <span>
-            DISCOVER YOUR STYLE
-        </span>
+
+        <a
+            href="products.html"
+            class="hero-btn"
+        >
+            اكتشف المنتجات
+        </a>
 
     </div>
 
-</div>
-```
+
+
+    <!-- ================= MOVING BAR ================= -->
+
+    <div class="hero-bar">
+
+        <div class="hero-bar-track">
+
+            <span>
+                GAMY STORE
+            </span>
+
+            <span>
+                PREMIUM FASHION
+            </span>
+
+            <span>
+                NEW COLLECTION
+            </span>
+
+            <span>
+                DISCOVER YOUR STYLE
+            </span>
+
+            <span>
+                GAMY STORE
+            </span>
+
+            <span>
+                PREMIUM FASHION
+            </span>
+
+            <span>
+                NEW COLLECTION
+            </span>
+
+            <span>
+                DISCOVER YOUR STYLE
+            </span>
+
+        </div>
+
+    </div>
+
 
 </section>
 
-<!-- =========================
-     CATEGORIES
-========================= -->
+
+
+<!-- ================= CATEGORIES ================= -->
 
 <section class="categories">
 
-```
-<h2>
-    تسوق حسب الفئة
-</h2>
+    <h2>
+        تسوق حسب الفئة
+    </h2>
 
-<div class="category-container">
 
-    <div
-        class="category"
-        style="
-            background-image:
-            url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b');
-        "
-    >
+    <div class="category-container">
 
-        <a href="products.html">
-            ملابس نسائية
-        </a>
+
+        <div
+            class="category"
+            style="
+                background-image:
+                url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b');
+            "
+        >
+
+            <a href="products.html">
+                ملابس نسائية
+            </a>
+
+        </div>
+
+
+
+        <div
+            class="category"
+            style="
+                background-image:
+                url('https://images.unsplash.com/photo-1617137968427-85924c800a22');
+            "
+        >
+
+            <a href="products.html">
+                ملابس رجالية
+            </a>
+
+        </div>
+
+
+
+        <div
+            class="category"
+            style="
+                background-image:
+                url('https://images.unsplash.com/photo-1542291026-7eec264c27ff';
+            "
+        >
+
+            <a href="products.html">
+                أحذية
+            </a>
+
+        </div>
+
 
     </div>
-
-
-    <div
-        class="category"
-        style="
-            background-image:
-            url('https://images.unsplash.com/photo-1617137968427-85924c800a22');
-        "
-    >
-
-        <a href="products.html">
-            ملابس رجالية
-        </a>
-
-    </div>
-
-
-    <div
-        class="category"
-        style="
-            background-image:
-            url('https://images.unsplash.com/photo-1542291026-7eec264c27ff');
-        "
-    >
-
-        <a href="products.html">
-            أحذية
-        </a>
-
-    </div>
-
-</div>
-```
 
 </section>
 
-<!-- =========================
-     ABOUT
-========================= -->
+
+
+<!-- ================= ABOUT ================= -->
 
 <section
     class="about"
     id="about"
 >
 
-```
-<h2>
-    عن GAMY STORE
-</h2>
+    <h2>
+        عن GAMY STORE
+    </h2>
 
-<p>
 
-    GAMY STORE هو متجر أزياء أونلاين
-    يقدم أحدث تصميمات الملابس والأحذية
-    بأسلوب عصري ومميز.
+    <p>
 
-    <br>
-    <br>
+        GAMY STORE هو متجر أزياء أونلاين
 
-    هدفنا إننا نوفر لك
-    منتجات عصرية بجودة مميزة
-    وتجربة تسوق سهلة وسريعة.
+        يقدم أحدث تصميمات الملابس والأحذية
 
-</p>
-```
+        بأسلوب عصري ومميز.
+
+        <br>
+        <br>
+
+        هدفنا إننا نوفر لك
+
+        منتجات عصرية بجودة مميزة
+
+        وتجربة تسوق سهلة وسريعة.
+
+    </p>
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer id="contact">
 
-```
-<h2>
-    GAMY STORE
-</h2>
+    <h2>
+        GAMY STORE
+    </h2>
 
-<p>
-    Fashion that defines you.
-</p>
+    <p>
+        Fashion that defines you.
+    </p>
 
-<br>
+    <br>
 
-<p>
-    © 2026 GAMY STORE
-</p>
-```
+    <p>
+        © 2026 GAMY STORE
+    </p>
 
 </footer>
+```
 
 </body>
+
 </html>
