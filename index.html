@@ -40,15 +40,11 @@
     /* ================= HEADER ================= */
 
     header {
-
         width: 100%;
-
         padding: 20px 7%;
 
         display: flex;
-
         justify-content: space-between;
-
         align-items: center;
 
         background: #fff;
@@ -56,38 +52,29 @@
         border-bottom: 1px solid #eee;
 
         position: sticky;
-
         top: 0;
 
         z-index: 1000;
-
     }
 
 
     .logo {
-
         font-size: 28px;
-
         font-weight: bold;
 
         letter-spacing: 2px;
 
         white-space: nowrap;
-
     }
 
 
     nav {
-
         display: flex;
-
         gap: 30px;
-
     }
 
 
     nav a {
-
         color: #111;
 
         text-decoration: none;
@@ -95,19 +82,15 @@
         font-size: 16px;
 
         transition: 0.3s;
-
     }
 
 
     nav a:hover {
-
         color: #777;
-
     }
 
 
     .cart {
-
         font-size: 23px;
 
         text-decoration: none;
@@ -115,14 +98,11 @@
         color: #111;
 
         transition: 0.3s;
-
     }
 
 
     .cart:hover {
-
         transform: scale(1.1);
-
     }
 
 
@@ -130,7 +110,6 @@
     /* ================= PREMIUM HERO ================= */
 
     .hero {
-
         position: relative;
 
         width: 100%;
@@ -152,36 +131,56 @@
         color: #fff;
 
         background: #000;
-
     }
 
 
 
-    /* ================= VIDEO ================= */
+    /* ================= YOUTUBE VIDEO ================= */
 
-    .hero-video {
-
+    .hero-youtube {
         position: absolute;
 
-        top: 0;
-
-        left: 0;
+        inset: 0;
 
         width: 100%;
 
         height: 100%;
 
-        object-fit: cover;
+        overflow: hidden;
 
         z-index: 0;
 
         background: #000;
+    }
 
+
+    .hero-youtube iframe {
+
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+
+        width: 100vw;
+
+        height: 56.25vw;
+
+        min-width: 177.78vh;
+
+        min-height: 100vh;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+
+        border: 0;
+
+        pointer-events: none;
     }
 
 
 
-    /* ================= PREMIUM OVERLAY ================= */
+    /* ================= HERO OVERLAY ================= */
 
     .hero-overlay {
 
@@ -195,20 +194,19 @@
 
                 180deg,
 
-                rgba(0, 0, 0, 0.30) 0%,
+                rgba(0, 0, 0, 0.25) 0%,
 
-                rgba(0, 0, 0, 0.20) 35%,
+                rgba(0, 0, 0, 0.18) 35%,
 
-                rgba(0, 0, 0, 0.55) 75%,
+                rgba(0, 0, 0, 0.52) 72%,
 
-                rgba(0, 0, 0, 0.82) 100%
+                rgba(0, 0, 0, 0.86) 100%
 
             );
 
         z-index: 1;
 
         pointer-events: none;
-
     }
 
 
@@ -229,16 +227,15 @@
 
                 circle at center,
 
-                transparent 20%,
+                transparent 18%,
 
-                rgba(0, 0, 0, 0.30) 100%
+                rgba(0, 0, 0, 0.38) 100%
 
             );
 
         pointer-events: none;
 
         z-index: 1;
-
     }
 
 
@@ -257,10 +254,9 @@
 
         padding: 30px;
 
-        animation: heroReveal 1.3s ease forwards;
-
+        animation:
+            heroReveal 1.3s ease forwards;
     }
-
 
 
     .hero-small-title {
@@ -277,17 +273,17 @@
 
         text-transform: uppercase;
 
-        color: rgba(255, 255, 255, 0.9);
-
+        color:
+            rgba(255,255,255,0.92);
     }
-
 
 
     .hero h1 {
 
         margin-bottom: 22px;
 
-        font-size: clamp(48px, 8vw, 95px);
+        font-size:
+            clamp(48px, 8vw, 95px);
 
         font-weight: 800;
 
@@ -296,16 +292,14 @@
         line-height: 1;
 
         text-shadow:
-
-            0 5px 30px rgba(0, 0, 0, 0.55);
-
+            0 5px 30px rgba(0,0,0,0.65);
     }
-
 
 
     .hero p {
 
-        margin: 0 auto 38px;
+        margin:
+            0 auto 38px;
 
         max-width: 650px;
 
@@ -313,12 +307,11 @@
 
         line-height: 1.8;
 
-        color: rgba(255, 255, 255, 0.94);
+        color:
+            rgba(255,255,255,0.95);
 
         text-shadow:
-
-            0 2px 15px rgba(0, 0, 0, 0.5);
-
+            0 2px 15px rgba(0,0,0,0.6);
     }
 
 
@@ -351,10 +344,9 @@
 
         border: 1px solid #fff;
 
-        transition: all 0.35s ease;
-
+        transition:
+            all 0.35s ease;
     }
-
 
 
     .hero-btn:hover {
@@ -363,12 +355,12 @@
 
         color: #fff;
 
-        transform: translateY(-4px);
+        transform:
+            translateY(-4px);
 
         box-shadow:
-
-            0 15px 45px rgba(0, 0, 0, 0.35);
-
+            0 15px 45px
+            rgba(0,0,0,0.35);
     }
 
 
@@ -381,16 +373,16 @@
 
             opacity: 0;
 
-            transform: translateY(35px);
-
+            transform:
+                translateY(35px);
         }
 
         to {
 
             opacity: 1;
 
-            transform: translateY(0);
-
+            transform:
+                translateY(0);
         }
 
     }
@@ -413,18 +405,18 @@
 
         padding: 13px 0;
 
-        background: rgba(0, 0, 0, 0.55);
+        background:
+            rgba(0,0,0,0.58);
 
-        backdrop-filter: blur(8px);
+        backdrop-filter:
+            blur(8px);
 
         overflow: hidden;
 
         border-top:
-
-            1px solid rgba(255, 255, 255, 0.12);
-
+            1px solid
+            rgba(255,255,255,0.12);
     }
-
 
 
     .hero-bar-track {
@@ -433,42 +425,39 @@
 
         width: max-content;
 
-        animation: ticker 25s linear infinite;
-
+        animation:
+            ticker 25s linear infinite;
     }
-
 
 
     .hero-bar span {
 
         display: inline-block;
 
-        padding: 0 35px;
+        padding:
+            0 35px;
 
         font-size: 11px;
 
         letter-spacing: 3px;
 
-        color: rgba(255, 255, 255, 0.85);
+        color:
+            rgba(255,255,255,0.88);
 
         white-space: nowrap;
-
     }
-
 
 
     @keyframes ticker {
 
         from {
-
-            transform: translateX(0);
-
+            transform:
+                translateX(0);
         }
 
         to {
-
-            transform: translateX(50%);
-
+            transform:
+                translateX(50%);
         }
 
     }
@@ -479,14 +468,13 @@
 
     .categories {
 
-        padding: 100px 7%;
+        padding:
+            100px 7%;
 
         text-align: center;
 
         background: #fff;
-
     }
-
 
 
     .categories h2 {
@@ -494,9 +482,7 @@
         font-size: 38px;
 
         margin-bottom: 50px;
-
     }
-
 
 
     .category-container {
@@ -504,13 +490,10 @@
         display: grid;
 
         grid-template-columns:
-
             repeat(3, 1fr);
 
         gap: 25px;
-
     }
-
 
 
     .category {
@@ -536,19 +519,15 @@
         cursor: pointer;
 
         transition:
-
             transform 0.4s ease;
-
     }
-
 
 
     .category:hover {
 
-        transform: translateY(-8px);
-
+        transform:
+            translateY(-8px);
     }
-
 
 
     .category::before {
@@ -559,20 +538,19 @@
 
         inset: 0;
 
-        background: rgba(0, 0, 0, 0.35);
+        background:
+            rgba(0,0,0,0.35);
 
-        transition: 0.4s ease;
-
+        transition:
+            0.4s ease;
     }
-
 
 
     .category:hover::before {
 
-        background: rgba(0, 0, 0, 0.55);
-
+        background:
+            rgba(0,0,0,0.55);
     }
-
 
 
     .category a {
@@ -589,16 +567,15 @@
 
         text-decoration: none;
 
-        transition: 0.4s ease;
-
+        transition:
+            0.4s ease;
     }
-
 
 
     .category:hover a {
 
-        transform: scale(1.08);
-
+        transform:
+            scale(1.08);
     }
 
 
@@ -607,14 +584,13 @@
 
     .about {
 
-        padding: 100px 10%;
+        padding:
+            100px 10%;
 
         background: #f6f6f6;
 
         text-align: center;
-
     }
-
 
 
     .about h2 {
@@ -622,9 +598,7 @@
         font-size: 38px;
 
         margin-bottom: 25px;
-
     }
-
 
 
     .about p {
@@ -638,7 +612,6 @@
         color: #555;
 
         font-size: 17px;
-
     }
 
 
@@ -653,10 +626,9 @@
 
         text-align: center;
 
-        padding: 50px 20px;
-
+        padding:
+            50px 20px;
     }
-
 
 
     footer h2 {
@@ -664,15 +636,12 @@
         margin-bottom: 15px;
 
         font-size: 28px;
-
     }
-
 
 
     footer p {
 
         color: #ccc;
-
     }
 
 
@@ -683,42 +652,33 @@
 
         header {
 
-            padding: 15px 5%;
-
+            padding:
+                15px 5%;
         }
-
 
 
         .logo {
 
             font-size: 21px;
-
         }
-
 
 
         nav {
 
             gap: 12px;
-
         }
-
 
 
         nav a {
 
             font-size: 13px;
-
         }
-
 
 
         .cart {
 
             font-size: 20px;
-
         }
-
 
 
         .hero {
@@ -726,17 +686,22 @@
             height: 75vh;
 
             min-height: 520px;
-
         }
 
+
+        .hero-youtube iframe {
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.35);
+        }
 
 
         .hero-content {
 
-            padding: 25px 20px;
-
+            padding:
+                25px 20px;
         }
-
 
 
         .hero-small-title {
@@ -746,9 +711,7 @@
             letter-spacing: 4px;
 
             margin-bottom: 18px;
-
         }
-
 
 
         .hero h1 {
@@ -758,9 +721,7 @@
             letter-spacing: 4px;
 
             line-height: 1.1;
-
         }
-
 
 
         .hero p {
@@ -770,37 +731,32 @@
             line-height: 1.7;
 
             margin-bottom: 30px;
-
         }
-
 
 
         .hero-btn {
 
             min-width: 190px;
 
-            padding: 15px 28px;
-
+            padding:
+                15px 28px;
         }
-
 
 
         .hero-bar span {
 
             font-size: 9px;
 
-            padding: 0 20px;
-
+            padding:
+                0 20px;
         }
-
 
 
         .categories {
 
-            padding: 65px 5%;
-
+            padding:
+                65px 5%;
         }
-
 
 
         .categories h2 {
@@ -808,39 +764,32 @@
             font-size: 30px;
 
             margin-bottom: 35px;
-
         }
-
 
 
         .category-container {
 
-            grid-template-columns: 1fr;
-
+            grid-template-columns:
+                1fr;
         }
-
 
 
         .category {
 
             height: 280px;
-
         }
-
 
 
         .about {
 
-            padding: 65px 7%;
-
+            padding:
+                65px 7%;
         }
-
 
 
         .about h2 {
 
             font-size: 30px;
-
         }
 
     }
@@ -856,9 +805,7 @@
             flex-wrap: wrap;
 
             gap: 15px;
-
         }
-
 
 
         nav {
@@ -868,9 +815,7 @@
             width: 100%;
 
             justify-content: center;
-
         }
-
 
 
         .hero {
@@ -878,9 +823,7 @@
             height: 72vh;
 
             min-height: 500px;
-
         }
-
 
 
         .hero h1 {
@@ -888,17 +831,13 @@
             font-size: 35px;
 
             letter-spacing: 3px;
-
         }
-
 
 
         .hero p {
 
             font-size: 16px;
-
         }
-
 
 
         .hero-small-title {
@@ -906,17 +845,15 @@
             font-size: 9px;
 
             letter-spacing: 3px;
-
         }
-
 
 
         .hero-btn {
 
             min-width: 175px;
 
-            padding: 14px 24px;
-
+            padding:
+                14px 24px;
         }
 
     }
@@ -959,7 +896,10 @@
     </nav>
 
 
-    <a href="cart.html" class="cart">
+    <a
+        href="cart.html"
+        class="cart"
+    >
         🛒
     </a>
 
@@ -972,25 +912,25 @@
 <section class="hero">
 
 
-    <!-- ================= VIDEO ================= -->
+    <!-- ================= YOUTUBE VIDEO ================= -->
 
-    <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-    >
+    <div class="hero-youtube">
 
-        <source
-            src="https://github.com/GAMYSTORE/GAMY-website/raw/refs/heads/G2026MY/hero-video.mp4.mp4"
-            type="video/mp4"
-        >
+        <iframe
 
-        متصفحك لا يدعم تشغيل الفيديو.
+            src="https://www.youtube.com/embed/40FqZyCvMOU?autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0"
 
-    </video>
+            title="GAMY STORE"
+
+            frameborder="0"
+
+            allow="autoplay; encrypted-media"
+
+            allowfullscreen>
+
+        </iframe>
+
+    </div>
 
 
 
@@ -1090,8 +1030,11 @@
     <div class="category-container">
 
 
+        <!-- WOMEN -->
+
         <div
             class="category"
+
             style="
                 background-image:
                 url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b');
@@ -1106,8 +1049,11 @@
 
 
 
+        <!-- MEN -->
+
         <div
             class="category"
+
             style="
                 background-image:
                 url('https://images.unsplash.com/photo-1617137968427-85924c800a22');
@@ -1122,11 +1068,14 @@
 
 
 
+        <!-- SHOES -->
+
         <div
             class="category"
+
             style="
                 background-image:
-                url('https://images.unsplash.com/photo-1542291026-7eec264c27ff';
+                url('https://images.unsplash.com/photo-1542291026-7eec264c27ff');
             "
         >
 
@@ -1180,17 +1129,22 @@
 
 <!-- ================= FOOTER ================= -->
 
-<footer id="contact">
+<footer
+    id="contact"
+>
 
     <h2>
         GAMY STORE
     </h2>
 
+
     <p>
         Fashion that defines you.
     </p>
 
+
     <br>
+
 
     <p>
         © 2026 GAMY STORE
