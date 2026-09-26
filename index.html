@@ -1,1737 +1,1515 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HAكـّ | BREAK THROUGH REALITY</title>
+  <title>HAكـّ | BREAK THROUGH REALITY</title>
 
-<meta name="description" content="HAكـّ — BREAK THROUGH REALITY. Fashion beyond the ordinary.">
-<meta name="keywords" content="HAكـّ, fashion, clothing, streetwear, fashion Egypt">
+  <meta name="description"
+        content="HAكـّ — BREAK THROUGH REALITY. تجربة أزياء مختلفة تكسر المألوف.">
 
-<style>
+  <meta name="theme-color" content="#080808">
 
-/* =========================================================
-   HAكـّ — BRAND SYSTEM
-   BREAK THROUGH REALITY
-========================================================= */
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-:root {
-    --black: #080808;
-    --black-soft: #111111;
-    --black-light: #181818;
+    html {
+      scroll-behavior: smooth;
+    }
 
-    --white: #ffffff;
-    --silver: #b7b7b7;
-    --silver-light: #e6e6e6;
-
-    --border-dark: rgba(255,255,255,0.12);
-    --border-light: rgba(0,0,0,0.10);
-
-    --header-height: 78px;
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family:
+    body {
+      font-family:
         Arial,
-        Helvetica,
+        "Segoe UI",
+        Tahoma,
         sans-serif;
-
-    background: var(--black);
-    color: var(--white);
-
-    overflow-x: hidden;
-}
-
-a {
-    color: inherit;
-}
-
-
-/* =========================================================
-   SELECTION
-========================================================= */
-
-::selection {
-    background: var(--white);
-    color: var(--black);
-}
-
-
-/* =========================================================
-   CUSTOM SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--black);
-}
-
-::-webkit-scrollbar-thumb {
-    background: #444;
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #777;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-header {
-    position: fixed;
-
-    top: 0;
-    right: 0;
-    left: 0;
-
-    height: var(--header-height);
-
-    background: rgba(8, 8, 8, 0.72);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 6%;
-
-    z-index: 1000;
-
-    border-bottom: 1px solid var(--border-dark);
-
-    transition:
-        background 0.35s ease,
-        border-color 0.35s ease,
-        height 0.35s ease;
-}
-
-
-/* =========================================================
-   PREMIUM LOGO
-========================================================= */
-
-.logo-wrapper {
-    width: 150px;
-    height: 78px;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    text-decoration: none;
-
-    overflow: hidden;
-
-    flex-shrink: 0;
-
-    cursor: pointer;
-}
-
-.site-logo {
-    display: block;
-
-    width: 126px;
-    height: 62px;
-
-    object-fit: contain;
-    object-position: center;
-
-    border: 0;
-
-    background: transparent;
-
-    transition:
-        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.35s ease,
-        filter 0.35s ease;
-}
-
-.logo-wrapper:hover .site-logo {
-    transform: scale(1.045);
-
-    opacity: 0.94;
-
-    filter:
-        brightness(1.06)
-        contrast(1.03);
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-nav {
-    display: flex;
-    align-items: center;
-
-    gap: 30px;
-}
-
-nav a {
-    position: relative;
-
-    color: rgba(255,255,255,0.86);
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    transition:
-        color 0.3s ease,
-        opacity 0.3s ease;
-}
-
-nav a:not(.cart-link)::after {
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-    bottom: -8px;
-
-    width: 0;
-    height: 1px;
-
-    background: var(--white);
-
-    transition: width 0.3s ease;
-}
-
-nav a:not(.cart-link):hover::after {
-    width: 100%;
-}
-
-nav a:hover {
-    color: var(--white);
-}
-
-
-/* =========================================================
-   CART BUTTON
-========================================================= */
-
-.cart-link {
-    border: 1px solid rgba(255,255,255,0.45);
-
-    padding: 10px 17px;
-
-    border-radius: 30px;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-.cart-link:hover {
-    background: var(--white);
-
-    color: var(--black);
-
-    border-color: var(--white);
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    position: relative;
-
-    height: 88vh;
-
-    min-height: 650px;
-
-    background: var(--black);
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: var(--white);
-}
-
-
-/* =========================================================
-   YOUTUBE VIDEO
-========================================================= */
-
-.hero-youtube {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    z-index: 0;
-
-    background: #000;
-}
-
-.hero-youtube iframe {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 100vw;
-    height: 56.25vw;
-
-    min-width: 177.78vh;
-    min-height: 100vh;
-
-    transform:
-        translate(-50%, -50%)
-        scale(1.10);
-
-    border: 0;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   CINEMATIC OVERLAY
-========================================================= */
-
-.hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 1;
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            rgba(0,0,0,0.05),
-            rgba(0,0,0,0.55) 72%
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,0.78),
-            rgba(0,0,0,0.20),
-            rgba(0,0,0,0.78)
-        ),
-
-        linear-gradient(
-            0deg,
-            rgba(0,0,0,0.90),
-            transparent 42%,
-            rgba(0,0,0,0.38)
-        );
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.hero-content {
-    position: relative;
-
-    z-index: 3;
-
-    text-align: center;
-
-    max-width: 1100px;
-
-    padding: 30px;
-}
-
-.hero-small {
-    font-size: 11px;
-
-    letter-spacing: 6px;
-
-    margin-bottom: 22px;
-
-    color: var(--silver);
-
-    opacity: 0.95;
-
-    direction: ltr;
-}
-
-.hero-content h1 {
-    direction: ltr;
-
-    font-size: clamp(
-        65px,
-        12vw,
-        165px
-    );
-
-    line-height: 0.85;
-
-    letter-spacing: -7px;
-
-    font-weight: 900;
-
-    margin: 0;
-
-    color: var(--white);
-
-    text-shadow:
-        0 0 35px rgba(255,255,255,0.08);
-}
-
-.hero-content h2 {
-    direction: ltr;
-
-    font-size: clamp(
-        12px,
-        1.8vw,
-        20px
-    );
-
-    font-weight: 600;
-
-    letter-spacing: 9px;
-
-    margin-top: 27px;
-
-    color: var(--silver-light);
-}
-
-.hero-content p {
-    max-width: 650px;
-
-    margin: 27px auto 32px;
-
-    font-size: 15px;
-
-    line-height: 2;
-
-    color: rgba(255,255,255,0.78);
-}
-
-
-/* =========================================================
-   HERO BUTTON
-========================================================= */
-
-.hero-btn {
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    background: var(--white);
-
-    color: var(--black);
-
-    text-decoration: none;
-
-    padding: 15px 34px;
-
-    min-width: 175px;
-
-    border-radius: 2px;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    overflow: hidden;
-
-    transition:
-        color 0.35s ease,
-        transform 0.35s ease;
-}
-
-.hero-btn::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: var(--black);
-
-    transform: translateY(100%);
-
-    transition: transform 0.35s ease;
-
-    z-index: 0;
-}
-
-.hero-btn span {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-btn:hover {
-    color: var(--white);
-
-    transform: translateY(-3px);
-}
-
-.hero-btn:hover::before {
-    transform: translateY(0);
-}
-
-
-/* =========================================================
-   SOUND BUTTON
-========================================================= */
-
-.sound-btn {
-    position: absolute;
-
-    z-index: 10;
-
-    left: 30px;
-    bottom: 72px;
-
-    width: 54px;
-    height: 54px;
-
-    border: 1px solid rgba(255,255,255,0.50);
-
-    border-radius: 50%;
-
-    background: rgba(0,0,0,0.45);
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    color: var(--white);
-
-    font-size: 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.sound-btn:hover {
-    transform: scale(1.08);
-
-    background: rgba(255,255,255,0.14);
-
-    border-color: var(--white);
-}
-
-.sound-btn:active {
-    transform: scale(0.94);
-}
-
-.sound-btn.sound-on {
-    background: rgba(255,255,255,0.18);
-
-    border-color: var(--white);
-}
-
-.sound-btn::after {
-    content: "تشغيل الصوت";
-
-    position: absolute;
-
-    right: 65px;
-
-    white-space: nowrap;
-
-    background: rgba(0,0,0,0.85);
-
-    color: var(--white);
-
-    font-size: 11px;
-
-    padding: 8px 12px;
-
-    border-radius: 20px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transform: translateX(5px);
-
-    transition: 0.25s ease;
-}
-
-.sound-btn:hover::after {
-    opacity: 1;
-
-    transform: translateX(0);
-}
-
-.sound-btn.sound-on::after {
-    content: "كتم الصوت";
-}
-
-
-/* =========================================================
-   TICKER
-========================================================= */
-
-.ticker {
-    position: absolute;
-
-    bottom: 0;
-    right: 0;
-
-    width: 100%;
-
-    height: 48px;
-
-    background: var(--white);
-
-    color: var(--black);
-
-    z-index: 5;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-}
-
-.ticker-track {
-    display: flex;
-
-    width: max-content;
-
-    animation:
-        tickerMove 28s linear infinite;
-}
-
-.ticker span {
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-
-    padding: 0 38px;
-
-    white-space: nowrap;
-
-    direction: ltr;
-}
-
-@keyframes tickerMove {
-
-    from {
-        transform: translateX(0);
+      background: #080808;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    to {
-        transform: translateX(50%);
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-}
-
-
-/* =========================================================
-   CATEGORIES
-========================================================= */
-
-.categories {
-    padding: 120px 6%;
-
-    background: var(--white);
-
-    color: var(--black);
-}
-
-.section-title {
-    text-align: center;
-
-    margin-bottom: 60px;
-}
-
-.section-title span {
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    color: #777;
-
-    direction: ltr;
-}
-
-.section-title h2 {
-    font-size: clamp(
-        38px,
-        5vw,
-        65px
-    );
-
-    margin-top: 12px;
-
-    letter-spacing: -3px;
-
-    font-weight: 900;
-}
-
-.category-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.category-card {
-    position: relative;
-
-    height: 520px;
-
-    overflow: hidden;
-
-    border-radius: 2px;
-
-    background: #eee;
-
-    text-decoration: none;
-
-    display: block;
-}
-
-.category-card img {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform 0.9s cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        ),
-        filter 0.6s ease;
-}
-
-.category-card:hover img {
-    transform: scale(1.08);
-
-    filter: contrast(1.06);
-}
-
-.category-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            0deg,
-            rgba(0,0,0,0.78),
-            transparent 62%
-        );
-
-    display: flex;
-
-    align-items: flex-end;
-
-    padding: 38px;
-}
-
-.category-overlay div {
-    color: var(--white);
-}
-
-.category-overlay span {
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    direction: ltr;
-}
-
-.category-overlay h3 {
-    font-size: 34px;
-
-    margin-top: 8px;
-
-    font-weight: 800;
-
-    direction: ltr;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about {
-    position: relative;
-
-    background: var(--black);
-
-    color: var(--white);
-
-    padding: 140px 8%;
-
-    text-align: center;
-
-    overflow: hidden;
-}
-
-.about::before {
-    content: "HAكـّ";
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    font-size: 24vw;
-
-    font-weight: 900;
-
-    color: rgba(255,255,255,0.018);
-
-    white-space: nowrap;
-
-    pointer-events: none;
-
-    direction: ltr;
-}
-
-.about-content {
-    position: relative;
-
-    z-index: 2;
-}
-
-.about-label {
-    font-size: 10px;
-
-    letter-spacing: 5px;
-
-    color: var(--silver);
-
-    direction: ltr;
-}
-
-.about h2 {
-    font-size: clamp(
-        40px,
-        6vw,
-        82px
-    );
-
-    margin: 20px 0 32px;
-
-    letter-spacing: -3px;
-
-    font-weight: 900;
-
-    direction: ltr;
-}
-
-.about p {
-    max-width: 760px;
-
-    margin: auto;
-
-    color: #aaa;
-
-    line-height: 2.1;
-
-    font-size: 15px;
-}
-
-.about-slogan {
-    margin-top: 45px;
-
-    font-size: 11px;
-
-    letter-spacing: 6px;
-
-    color: var(--white);
-
-    font-weight: 800;
-
-    direction: ltr;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    background: #000;
-
-    color: var(--white);
-
-    padding: 55px 6%;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.footer-inner {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 25px;
-}
-
-.footer-brand {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-.footer-logo {
-    font-size: 25px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-
-    direction: ltr;
-}
-
-.footer-slogan {
-    font-size: 8px;
-
-    letter-spacing: 3px;
-
-    color: #777;
-
-    direction: ltr;
-}
-
-.footer-copy {
-    font-size: 11px;
-
-    color: #666;
-
-    direction: ltr;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
-        padding: 0 5%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 35px;
+
+      background: rgba(8, 8, 8, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+
+      z-index: 1000;
+
+      transition: 0.3s ease;
     }
 
+    header:hover {
+      background: rgba(8, 8, 8, 0.9);
+    }
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .logo-wrapper {
+      width: 150px;
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .site-logo {
+      width: 128px;
+      height: 64px;
+
+      object-fit: contain;
+      object-position: center;
+
+      display: block;
+
+      /*
+        اللوجو أبيض على خلفية سوداء.
+        screen تجعل الأسود يندمج مع خلفية الهيدر
+        فيظهر رمز اللوجو فقط.
+      */
+      mix-blend-mode: screen;
+
+      transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+    }
+
+    .site-logo:hover {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
     nav {
-        gap: 15px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
     }
 
     nav a {
-        font-size: 11px;
+      position: relative;
+
+      color: #fff;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      letter-spacing: 0.5px;
+
+      transition: 0.3s ease;
     }
 
-    .category-grid {
-        grid-template-columns: 1fr;
+    nav a::after {
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      bottom: -8px;
+
+      width: 0;
+      height: 1px;
+
+      background: #fff;
+
+      transition: width 0.3s ease;
     }
 
-    .category-card {
-        height: 450px;
+    nav a:hover {
+      color: #cfcfcf;
     }
 
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 800px) {
-
-    header {
-        height: 68px;
-
-        padding: 0 5%;
-    }
-
-
-    /* Premium mobile logo */
-
-    .logo-wrapper {
-        width: 105px;
-        height: 68px;
-
-        justify-content: flex-start;
-    }
-
-    .site-logo {
-        width: 94px;
-        height: 51px;
-    }
-
-
-    nav {
-        gap: 10px;
-    }
-
-    nav a:nth-child(2),
-    nav a:nth-child(3),
-    nav a:nth-child(4) {
-        display: none;
+    nav a:hover::after {
+      width: 100%;
     }
 
     .cart-link {
-        padding: 8px 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
+    #cartCount {
+      min-width: 18px;
+      height: 18px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: #fff;
+      color: #080808;
+
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-        min-height: 650px;
+      position: relative;
 
-        height: 90vh;
+      min-height: 650px;
+      height: 88vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background: #000;
     }
 
-    .hero-youtube iframe {
-        transform:
-            translate(-50%, -50%)
-            scale(1.38);
+    .youtube-background {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 100vw;
+      height: 56.25vw;
+
+      min-width: 177.78vh;
+      min-height: 100vh;
+
+      transform: translate(-50%, -50%);
+
+      border: 0;
+
+      pointer-events: none;
     }
 
+    /* طبقة سينمائية فوق الفيديو */
+
+    .hero-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.68),
+          rgba(0,0,0,0.15) 40%,
+          rgba(0,0,0,0.78)
+        );
+
+      z-index: 2;
+    }
+
+    .hero-overlay::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 0%,
+          rgba(0,0,0,0.35) 65%,
+          rgba(0,0,0,0.72) 100%
+        );
+    }
+
+    /* =========================
+       HERO CONTENT
+    ========================= */
 
     .hero-content {
-        padding: 20px;
+      position: relative;
+
+      z-index: 4;
+
+      width: min(1000px, 90%);
+
+      text-align: center;
+
+      margin-top: 35px;
     }
 
     .hero-small {
-        font-size: 9px;
+      font-size: 14px;
 
-        letter-spacing: 4px;
+      letter-spacing: 5px;
 
-        margin-bottom: 20px;
+      color: #d7d7d7;
+
+      margin-bottom: 20px;
+
+      animation: fadeUp 1s ease forwards;
     }
 
-    .hero-content h1 {
-        font-size: 62px;
+    .hero-title {
+      font-size: clamp(55px, 10vw, 125px);
 
-        letter-spacing: -4px;
+      line-height: 0.9;
+
+      font-weight: 900;
+
+      letter-spacing: -5px;
+
+      color: #fff;
+
+      margin-bottom: 22px;
+
+      text-shadow:
+        0 10px 40px rgba(0,0,0,0.6);
+
+      animation: fadeUp 1.1s ease forwards;
     }
 
-    .hero-content h2 {
-        font-size: 12px;
+    .hero-brand {
+      font-size: clamp(28px, 4vw, 50px);
 
-        letter-spacing: 5px;
+      font-weight: 700;
 
-        margin-top: 22px;
+      letter-spacing: 3px;
+
+      margin-bottom: 15px;
+
+      color: #fff;
+
+      animation: fadeUp 1.2s ease forwards;
     }
 
-    .hero-content p {
-        font-size: 13px;
+    .hero-slogan {
+      font-size: clamp(15px, 2vw, 21px);
 
-        line-height: 1.9;
+      letter-spacing: 5px;
 
-        max-width: 340px;
+      color: #ddd;
+
+      margin-bottom: 22px;
+
+      animation: fadeUp 1.3s ease forwards;
     }
 
+    .hero-description {
+      max-width: 700px;
 
-    .sound-btn {
-        left: 18px;
+      margin: 0 auto 32px;
 
-        bottom: 66px;
+      color: #ddd;
 
-        width: 48px;
-        height: 48px;
+      font-size: 16px;
 
-        font-size: 18px;
+      line-height: 2;
+
+      animation: fadeUp 1.4s ease forwards;
     }
 
-    .sound-btn::after {
-        display: none;
+    /* =========================
+       CTA
+    ========================= */
+
+    .hero-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 190px;
+
+      padding: 15px 32px;
+
+      background: #fff;
+      color: #080808;
+
+      border: 1px solid #fff;
+
+      font-size: 14px;
+      font-weight: bold;
+
+      letter-spacing: 1px;
+
+      transition: 0.35s ease;
+
+      animation: fadeUp 1.5s ease forwards;
     }
 
+    .hero-button:hover {
+      background: transparent;
+      color: #fff;
+
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       SOUND BUTTON
+    ========================= */
+
+    .sound-button {
+      position: absolute;
+
+      left: 28px;
+      bottom: 80px;
+
+      z-index: 10;
+
+      width: 48px;
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255,255,255,0.45);
+
+      border-radius: 50%;
+
+      background: rgba(0,0,0,0.42);
+
+      color: #fff;
+
+      cursor: pointer;
+
+      font-size: 18px;
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      transition: 0.3s ease;
+    }
+
+    .sound-button:hover {
+      background: #fff;
+      color: #080808;
+
+      transform: scale(1.08);
+    }
+
+    /* =========================
+       TICKER
+    ========================= */
+
+    .ticker {
+      position: absolute;
+
+      right: 0;
+      bottom: 0;
+
+      width: 100%;
+
+      height: 48px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      background: rgba(0,0,0,0.68);
+
+      border-top: 1px solid rgba(255,255,255,0.15);
+
+      z-index: 5;
+    }
+
+    .ticker-track {
+      display: flex;
+
+      width: max-content;
+
+      animation: tickerMove 22s linear infinite;
+    }
+
+    .ticker-item {
+      padding: 0 45px;
+
+      white-space: nowrap;
+
+      font-size: 12px;
+
+      letter-spacing: 3px;
+
+      color: #fff;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
 
     .categories {
-        padding: 85px 5%;
+      background: #fff;
+
+      color: #080808;
+
+      padding: 100px 5%;
     }
 
+    .section-label {
+      font-size: 12px;
+
+      letter-spacing: 4px;
+
+      color: #777;
+
+      margin-bottom: 12px;
+
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 5vw, 58px);
+
+      text-align: center;
+
+      font-weight: 800;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+
+      color: #666;
+
+      font-size: 15px;
+
+      margin-bottom: 55px;
+    }
+
+    .category-grid {
+      max-width: 1400px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .category-card {
+      position: relative;
+
+      height: 500px;
+
+      overflow: hidden;
+
+      background: #111;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+    }
+
+    .category-card::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.8),
+          transparent 55%
+        );
+    }
+
+    .category-card:hover img {
+      transform: scale(1.08);
+
+      filter: brightness(0.85);
+    }
+
+    .category-info {
+      position: absolute;
+
+      right: 28px;
+      left: 28px;
+      bottom: 28px;
+
+      z-index: 2;
+
+      color: #fff;
+    }
+
+    .category-info span {
+      display: block;
+
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 8px;
+
+      opacity: 0.75;
+    }
+
+    .category-info h3 {
+      font-size: 30px;
+
+      margin-bottom: 14px;
+    }
+
+    .category-info strong {
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      font-weight: 500;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about {
-        padding: 100px 7%;
+      position: relative;
+
+      background: #080808;
+
+      color: #fff;
+
+      padding: 120px 8%;
+
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: "HAكـّ";
+
+      position: absolute;
+
+      left: -50px;
+      bottom: -100px;
+
+      font-size: 25vw;
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      color: rgba(255,255,255,0.025);
+
+      pointer-events: none;
+    }
+
+    .about-inner {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 1050px;
+
+      margin: auto;
+
+      text-align: center;
+    }
+
+    .about-label {
+      color: #888;
+
+      font-size: 12px;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 20px;
     }
 
     .about h2 {
-        letter-spacing: -2px;
+      font-size: clamp(38px, 7vw, 85px);
+
+      line-height: 0.95;
+
+      letter-spacing: -4px;
+
+      margin-bottom: 35px;
     }
 
+    .about p {
+      max-width: 800px;
 
-    .footer-inner {
-        flex-direction: column;
+      margin: auto;
 
-        text-align: center;
+      color: #bbb;
+
+      font-size: 17px;
+
+      line-height: 2.1;
     }
 
-}
+    .about-slogan {
+      margin-top: 35px;
 
+      font-size: 13px;
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+      letter-spacing: 5px;
 
-@media (max-width: 500px) {
+      color: #fff;
+    }
 
-    .logo-wrapper {
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #050505;
+
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+      text-align: center;
+
+      padding: 50px 20px;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+
+      font-weight: 800;
+
+      margin-bottom: 12px;
+    }
+
+    .footer-slogan {
+      color: #888;
+
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 25px;
+    }
+
+    .copyright {
+      color: #555;
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes tickerMove {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(50%);
+      }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      header {
+        padding: 0 20px;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        height: 430px;
+      }
+
+      .hero-title {
+        letter-spacing: -3px;
+      }
+    }
+
+    @media (max-width: 800px) {
+
+      header {
+        height: 68px;
+      }
+
+      .logo-wrapper {
+        width: 105px;
+        height: 68px;
+      }
+
+      .site-logo {
+        width: 94px;
+        height: 52px;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      nav a:nth-child(3),
+      nav a:nth-child(4) {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+        height: 82vh;
+      }
+
+      .hero-description {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      .sound-button {
+        left: 18px;
+        bottom: 70px;
+
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      header {
+        padding: 0 12px;
+      }
+
+      .logo-wrapper {
         width: 92px;
-    }
+        height: 68px;
+      }
 
-    .site-logo {
+      .site-logo {
         width: 84px;
         height: 48px;
-    }
+      }
 
+      nav {
+        gap: 10px;
+      }
 
-    .hero-content h1 {
-        font-size: 49px;
+      nav a {
+        font-size: 11px;
+      }
 
-        letter-spacing: -3px;
-    }
+      nav a:nth-child(2) {
+        display: none;
+      }
 
-    .hero-content h2 {
+      .hero {
+        min-height: 590px;
+      }
+
+      .hero-small {
         font-size: 10px;
+        letter-spacing: 3px;
+      }
 
-        letter-spacing: 4px;
-    }
+      .hero-title {
+        font-size: 52px;
+        letter-spacing: -3px;
+      }
 
-    .hero-content p {
+      .hero-brand {
+        font-size: 28px;
+      }
+
+      .hero-slogan {
         font-size: 12px;
+        letter-spacing: 3px;
+      }
 
-        line-height: 1.8;
+      .hero-description {
+        font-size: 13px;
+        padding: 0 10px;
+      }
+
+      .hero-button {
+        min-width: 170px;
+        padding: 13px 24px;
+      }
+
+      .categories {
+        padding: 75px 18px;
+      }
+
+      .category-card {
+        height: 390px;
+      }
+
+      .about {
+        padding: 90px 25px;
+      }
+
+      .about p {
+        font-size: 15px;
+      }
     }
-
-    .hero-btn {
-        padding: 13px 28px;
-
-        min-width: 160px;
-    }
-
-
-    .ticker {
-        height: 42px;
-    }
-
-    .ticker span {
-        font-size: 9px;
-
-        padding: 0 23px;
-    }
-
-
-    .category-card {
-        height: 410px;
-    }
-
-}
-
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: 0.01ms !important;
-    }
-
-}
-
-</style>
-
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
+  <header>
 
-<header>
-
-    <a href="index.html" class="logo-wrapper">
-
-        <img
-            src="https://cdn.phototourl.com/member/2026-09-26-28eb943e-b61d-4c22-a498-ee913385683f.jpg"
-            alt="HAكـّ Logo"
-            class="site-logo"
-        >
-
+    <!-- اللوجو الجديد -->
+    <a href="index.html" class="logo-wrapper" aria-label="HAكـّ">
+      <img
+        class="site-logo"
+        src="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
+        alt="HAكـّ Logo"
+      >
     </a>
 
-
+    <!-- Navigation -->
     <nav>
 
-        <a href="index.html">
-            الرئيسية
-        </a>
+      <a href="index.html">
+        الرئيسية
+      </a>
 
-        <a href="products.html">
-            المنتجات
-        </a>
+      <a href="products.html">
+        المنتجات
+      </a>
 
-        <a href="#about">
-            من نحن
-        </a>
+      <a href="#about">
+        من نحن
+      </a>
 
-        <a href="#contact">
-            تواصل معنا
-        </a>
+      <a href="#contact">
+        تواصل معنا
+      </a>
 
-        <a href="cart.html" class="cart-link">
-            السلة 🛒
-        </a>
+      <a href="cart.html" class="cart-link">
+        🛒
+        <span id="cartCount">0</span>
+      </a>
 
     </nav>
 
-</header>
+  </header>
 
 
+  <!-- =========================
+       HERO
+  ========================== -->
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+  <section class="hero">
 
-<section class="hero">
+    <!-- YouTube Background -->
+
+    <iframe
+      id="youtubePlayer"
+      class="youtube-background"
+      src="https://www.youtube.com/embed/40FqZyCvMOU?autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
+      title="HAكـّ Fashion Video"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
 
 
-    <div class="hero-youtube">
-
-        <div id="youtubePlayer"></div>
-
-    </div>
-
+    <!-- Cinematic Overlay -->
 
     <div class="hero-overlay"></div>
 
 
+    <!-- Hero Content -->
+
     <div class="hero-content">
 
-        <div class="hero-small">
-            BREAK THE ORDINARY
-        </div>
+      <div class="hero-small">
+        BREAK THE ORDINARY
+      </div>
 
+      <h1 class="hero-title">
+        HAكـّ
+      </h1>
 
-        <h1>
-            HAكـّ
-        </h1>
+      <div class="hero-brand">
+        HAكـّ
+      </div>
 
+      <div class="hero-slogan">
+        BREAK THROUGH REALITY
+      </div>
 
-        <h2>
-            BREAK THROUGH REALITY
-        </h2>
+      <p class="hero-description">
+        مش مجرد ستايل.
+        طريقة مختلفة تشوف بيها الموضة،
+        تعبر بيها عن نفسك،
+        وتكسر بيها المألوف.
+      </p>
 
-
-        <p>
-            مش مجرد ستايل.
-            طريقة مختلفة تشوف بيها الموضة،
-            تعبر بيها عن نفسك،
-            وتكسر بيها المألوف.
-        </p>
-
-
-        <a href="products.html" class="hero-btn">
-            <span>
-                اكتشف المجموعة
-            </span>
-        </a>
+      <a href="products.html" class="hero-button">
+        اكتشف المجموعة
+      </a>
 
     </div>
 
 
+    <!-- Sound Button -->
 
     <button
-        class="sound-btn"
-        id="soundBtn"
-        type="button"
-        aria-label="تشغيل الصوت"
-        title="تشغيل الصوت">
+      id="soundButton"
+      class="sound-button"
+      type="button"
+      aria-label="تشغيل الصوت"
+      title="تشغيل الصوت">
 
-        🔇
+      🔇
 
     </button>
 
 
+    <!-- Ticker -->
 
     <div class="ticker">
 
-        <div class="ticker-track">
+      <div class="ticker-track">
 
-            <span>HAكـّ</span>
-
-            <span>BREAK THROUGH REALITY</span>
-
-            <span>BREAK THE ORDINARY</span>
-
-            <span>REDEFINE YOUR STYLE</span>
-
-            <span>HAكـّ</span>
-
-            <span>BREAK THROUGH REALITY</span>
-
-            <span>BREAK THE ORDINARY</span>
-
-            <span>REDEFINE YOUR STYLE</span>
-
-            <span>HAكـّ</span>
-
-            <span>BREAK THROUGH REALITY</span>
-
+        <div class="ticker-item">
+          HAكـّ
         </div>
 
+        <div class="ticker-item">
+          BREAK THROUGH REALITY
+        </div>
+
+        <div class="ticker-item">
+          BREAK THE ORDINARY
+        </div>
+
+        <div class="ticker-item">
+          REDEFINE YOUR STYLE
+        </div>
+
+        <div class="ticker-item">
+          HAكـّ
+        </div>
+
+        <div class="ticker-item">
+          BREAK THROUGH REALITY
+        </div>
+
+        <div class="ticker-item">
+          BREAK THE ORDINARY
+        </div>
+
+        <div class="ticker-item">
+          REDEFINE YOUR STYLE
+        </div>
+
+      </div>
+
     </div>
 
-</section>
+  </section>
 
 
+  <!-- =========================
+       CATEGORIES
+  ========================== -->
 
-<!-- =======================================================
-     CATEGORIES
-======================================================= -->
+  <section class="categories">
 
-<section class="categories">
-
-    <div class="section-title">
-
-        <span>
-            EXPLORE THE WORLD OF HAكـّ
-        </span>
-
-        <h2>
-            اختار ستايلك
-        </h2>
-
+    <div class="section-label">
+      EXPLORE THE WORLD OF HAكـّ
     </div>
+
+    <h2 class="section-title">
+      اختار ستايلك
+    </h2>
+
+    <p class="section-subtitle">
+      اكتشف القطع المصممة لتكون مختلفة
+    </p>
 
 
     <div class="category-grid">
 
+      <!-- Women -->
 
-        <a
-            href="products.html?category=women"
-            class="category-card">
+      <a
+        href="products.html?category=women"
+        class="category-card">
 
-            <img
-                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
-                alt="HAكـّ Women Collection"
-                loading="lazy">
+        <img
+          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
+          alt="Women Fashion"
+          loading="lazy"
+        >
 
-            <div class="category-overlay">
+        <div class="category-info">
 
-                <div>
+          <span>
+            COLLECTION 01
+          </span>
 
-                    <span>
-                        COLLECTION 01
-                    </span>
+          <h3>
+            Women
+          </h3>
 
-                    <h3>
-                        Women
-                    </h3>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-
-        <a
-            href="products.html?category=men"
-            class="category-card">
-
-            <img
-                src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
-                alt="HAكـّ Men Collection"
-                loading="lazy">
-
-            <div class="category-overlay">
-
-                <div>
-
-                    <span>
-                        COLLECTION 02
-                    </span>
-
-                    <h3>
-                        Men
-                    </h3>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-
-        <a
-            href="products.html?category=shoes"
-            class="category-card">
-
-            <img
-                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
-                alt="HAكـّ Shoes Collection"
-                loading="lazy">
-
-            <div class="category-overlay">
-
-                <div>
-
-                    <span>
-                        COLLECTION 03
-                    </span>
-
-                    <h3>
-                        Shoes
-                    </h3>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     ABOUT
-======================================================= -->
-
-<section class="about" id="about">
-
-    <div class="about-content">
-
-        <span class="about-label">
-            THE IDEA BEHIND HAكـّ
-        </span>
-
-
-        <h2>
-            BREAK THROUGH REALITY
-        </h2>
-
-
-        <p>
-            HAكـّ مش مجرد اسم.
-            الاسم نفسه مبني على فكرة كسر المألوف،
-            مستوحى من كلمة HACK وتحويلها إلى هوية بصرية
-            تجمع بين الحروف الإنجليزية والعربية.
-            إحنا بنؤمن إن الستايل مش قواعد ثابتة،
-            وإن الاختلاف هو أول خطوة لصناعة حاجة جديدة.
-        </p>
-
-
-        <div class="about-slogan">
-            BREAK THROUGH REALITY
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer id="contact">
-
-    <div class="footer-inner">
-
-        <div class="footer-brand">
-
-            <div class="footer-logo">
-                HAكـّ
-            </div>
-
-            <div class="footer-slogan">
-                BREAK THROUGH REALITY
-            </div>
+          <strong>
+            EXPLORE →
+          </strong>
 
         </div>
 
+      </a>
 
-        <div class="footer-copy">
-            © 2026 HAكـّ — All Rights Reserved
+
+      <!-- Men -->
+
+      <a
+        href="products.html?category=men"
+        class="category-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
+          alt="Men Fashion"
+          loading="lazy"
+        >
+
+        <div class="category-info">
+
+          <span>
+            COLLECTION 02
+          </span>
+
+          <h3>
+            Men
+          </h3>
+
+          <strong>
+            EXPLORE →
+          </strong>
+
         </div>
+
+      </a>
+
+
+      <!-- Shoes -->
+
+      <a
+        href="products.html?category=shoes"
+        class="category-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
+          alt="Shoes Collection"
+          loading="lazy"
+        >
+
+        <div class="category-info">
+
+          <span>
+            COLLECTION 03
+          </span>
+
+          <h3>
+            Shoes
+          </h3>
+
+          <strong>
+            EXPLORE →
+          </strong>
+
+        </div>
+
+      </a>
 
     </div>
 
-</footer>
+  </section>
 
 
+  <!-- =========================
+       ABOUT
+  ========================== -->
 
-<!-- =======================================================
-     YOUTUBE API
-======================================================= -->
+  <section class="about" id="about">
 
-<script src="https://www.youtube.com/iframe_api"></script>
+    <div class="about-inner">
 
+      <div class="about-label">
+        THE IDEA BEHIND HAكـّ
+      </div>
 
-<script>
+      <h2>
+        BREAK<br>
+        THROUGH<br>
+        REALITY
+      </h2>
 
-let player;
+      <p>
+        HAكـّ مستوحى من فكرة HACK،
+        لكن بطابع مختلف يجمع بين الحروف الإنجليزية
+        والعربية ليخلق هوية بصرية غير تقليدية.
+        نحن لا نؤمن أن الموضة لازم تكون محكومة بقواعد ثابتة.
+        الأسلوب الحقيقي يبدأ عندما تبدأ أنت في كسر المألوف.
+      </p>
 
-let isSoundOn = false;
+      <div class="about-slogan">
+        BREAK THROUGH REALITY
+      </div>
 
-const soundBtn =
-    document.getElementById("soundBtn");
+    </div>
 
-
-function onYouTubeIframeAPIReady() {
-
-    player = new YT.Player(
-        "youtubePlayer",
-        {
-
-            videoId: "40FqZyCvMOU",
-
-            playerVars: {
-
-                autoplay: 1,
-
-                mute: 1,
-
-                loop: 1,
-
-                playlist: "40FqZyCvMOU",
-
-                controls: 0,
-
-                playsinline: 1,
-
-                rel: 0,
-
-                modestbranding: 1,
-
-                disablekb: 1
-
-            },
-
-            events: {
-
-                onReady: function(event) {
-
-                    event.target.mute();
-
-                    event.target.setVolume(0);
-
-                    event.target.playVideo();
-
-                },
+  </section>
 
 
-                onStateChange:
-                    function(event) {
+  <!-- =========================
+       CONTACT
+  ========================== -->
 
-                        if (
-                            event.data ===
-                            YT.PlayerState.ENDED
-                        ) {
+  <section
+    id="contact"
+    style="
+      background:#fff;
+      color:#080808;
+      padding:90px 20px;
+      text-align:center;
+    "
+  >
 
-                            event.target.playVideo();
+    <div
+      style="
+        font-size:12px;
+        letter-spacing:4px;
+        color:#777;
+        margin-bottom:15px;
+      "
+    >
+      GET IN TOUCH
+    </div>
 
-                        }
+    <h2
+      style="
+        font-size:clamp(35px,6vw,70px);
+        margin-bottom:20px;
+      "
+    >
+      تواصل معنا
+    </h2>
 
-                    }
+    <p
+      style="
+        color:#666;
+        font-size:15px;
+        line-height:2;
+        max-width:600px;
+        margin:auto;
+      "
+    >
+      عندك سؤال عن المنتجات أو الطلبات؟
+      تواصل معنا وسنكون معك.
+    </p>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-logo">
+      HAكـّ
+    </div>
+
+    <div class="footer-slogan">
+      BREAK THROUGH REALITY
+    </div>
+
+    <div class="copyright">
+      © 2026 HAكـّ — All Rights Reserved
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       YOUTUBE API
+  ========================== -->
+
+  <script>
+
+    let player;
+    let isSoundOn = false;
+
+
+    function onYouTubeIframeAPIReady() {
+
+      player = new YT.Player("youtubePlayer", {
+
+        events: {
+
+          onReady: function(event) {
+
+            event.target.mute();
+
+            event.target.setVolume(0);
+
+            event.target.playVideo();
+
+          },
+
+          onStateChange: function(event) {
+
+            /*
+              إذا انتهى الفيديو،
+              نعيد تشغيله تلقائياً.
+            */
+
+            if (event.data === YT.PlayerState.ENDED) {
+
+              event.target.seekTo(0);
+
+              event.target.playVideo();
 
             }
 
-        }
-    );
-
-}
-
-
-/* =========================================================
-   SOUND BUTTON
-========================================================= */
-
-soundBtn.addEventListener(
-    "click",
-    function() {
-
-        if (!player) {
-            return;
-        }
-
-
-        if (!isSoundOn) {
-
-            player.unMute();
-
-            player.setVolume(100);
-
-            player.playVideo();
-
-            isSoundOn = true;
-
-            soundBtn.innerHTML = "🔊";
-
-            soundBtn.classList.add(
-                "sound-on"
-            );
-
-            soundBtn.setAttribute(
-                "aria-label",
-                "كتم الصوت"
-            );
-
-            soundBtn.setAttribute(
-                "title",
-                "كتم الصوت"
-            );
-
-
-        } else {
-
-            player.mute();
-
-            isSoundOn = false;
-
-            soundBtn.innerHTML = "🔇";
-
-            soundBtn.classList.remove(
-                "sound-on"
-            );
-
-            soundBtn.setAttribute(
-                "aria-label",
-                "تشغيل الصوت"
-            );
-
-            soundBtn.setAttribute(
-                "title",
-                "تشغيل الصوت"
-            );
+          }
 
         }
+
+      });
 
     }
-);
 
 
-/* =========================================================
-   AUTOPLAY FALLBACK
-========================================================= */
+    /* =========================
+       SOUND CONTROL
+    ========================== */
 
-function startVideoOnInteraction() {
+    const soundButton =
+      document.getElementById("soundButton");
 
-    if (!player) {
+
+    soundButton.addEventListener("click", function() {
+
+      if (!player) {
         return;
-    }
+      }
 
-    try {
+
+      if (!isSoundOn) {
+
+        player.unMute();
+
+        player.setVolume(100);
 
         player.playVideo();
 
-    } catch (error) {
+        soundButton.innerHTML = "🔊";
 
-        console.log(
-            "Video autoplay waiting for browser."
+        soundButton.setAttribute(
+          "aria-label",
+          "كتم الصوت"
         );
 
-    }
+        soundButton.setAttribute(
+          "title",
+          "كتم الصوت"
+        );
 
-}
+        isSoundOn = true;
+
+      } else {
+
+        player.mute();
+
+        player.setVolume(0);
+
+        soundButton.innerHTML = "🔇";
+
+        soundButton.setAttribute(
+          "aria-label",
+          "تشغيل الصوت"
+        );
+
+        soundButton.setAttribute(
+          "title",
+          "تشغيل الصوت"
+        );
+
+        isSoundOn = false;
+
+      }
+
+    });
 
 
-document.addEventListener(
-    "pointerdown",
-    startVideoOnInteraction,
-    {
+    /*
+      محاولة تشغيل الفيديو بمجرد
+      تفاعل المستخدم مع الصفحة.
+    */
+
+    document.addEventListener(
+      "pointerdown",
+      function() {
+
+        if (player) {
+
+          try {
+            player.playVideo();
+          } catch (error) {}
+
+        }
+
+      },
+      {
         once: true
+      }
+    );
+
+
+    /* =========================
+       CART COUNT
+    ========================== */
+
+    function updateCartCount() {
+
+      const cartCount =
+        document.getElementById("cartCount");
+
+      let cart = [];
+
+      try {
+
+        cart =
+          JSON.parse(
+            localStorage.getItem("gamyCart")
+          ) || [];
+
+      } catch (error) {
+
+        cart = [];
+
+      }
+
+
+      let totalQuantity = 0;
+
+
+      cart.forEach(function(item) {
+
+        totalQuantity +=
+          Number(item.quantity) || 0;
+
+      });
+
+
+      cartCount.textContent =
+        totalQuantity;
+
     }
-);
 
-</script>
 
+    updateCartCount();
+
+
+    /*
+      تحديث العداد لو حصل تغيير
+      في localStorage من صفحة أخرى.
+    */
+
+    window.addEventListener(
+      "storage",
+      function(event) {
+
+        if (event.key === "gamyCart") {
+          updateCartCount();
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <!-- YouTube API -->
+
+  <script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 </html>
