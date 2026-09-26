@@ -12,6 +12,7 @@
   <meta name="theme-color" content="#080808">
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -28,8 +29,10 @@
         "Segoe UI",
         Tahoma,
         sans-serif;
+
       background: #080808;
       color: #fff;
+
       overflow-x: hidden;
     }
 
@@ -42,12 +45,14 @@
       font-family: inherit;
     }
 
-    /* =========================
+
+    /* =====================================================
        HEADER
-    ========================= */
+    ===================================================== */
 
     header {
       position: fixed;
+
       top: 0;
       right: 0;
       left: 0;
@@ -61,6 +66,7 @@
       padding: 0 35px;
 
       background: rgba(8, 8, 8, 0.78);
+
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
 
@@ -72,12 +78,13 @@
     }
 
     header:hover {
-      background: rgba(8, 8, 8, 0.9);
+      background: rgba(8, 8, 8, 0.90);
     }
 
-    /* =========================
+
+    /* =====================================================
        LOGO
-    ========================= */
+    ===================================================== */
 
     .logo-wrapper {
       width: 150px;
@@ -88,6 +95,7 @@
       justify-content: center;
 
       flex-shrink: 0;
+
       overflow: hidden;
     }
 
@@ -100,11 +108,6 @@
 
       display: block;
 
-      /*
-        اللوجو أبيض على خلفية سوداء.
-        screen تجعل الأسود يندمج مع خلفية الهيدر
-        فيظهر رمز اللوجو فقط.
-      */
       mix-blend-mode: screen;
 
       transition:
@@ -117,13 +120,15 @@
       opacity: 0.92;
     }
 
-    /* =========================
+
+    /* =====================================================
        NAVIGATION
-    ========================= */
+    ===================================================== */
 
     nav {
       display: flex;
       align-items: center;
+
       gap: 30px;
     }
 
@@ -187,9 +192,10 @@
       font-weight: bold;
     }
 
-    /* =========================
+
+    /* =====================================================
        HERO
-    ========================= */
+    ===================================================== */
 
     .hero {
       position: relative;
@@ -225,7 +231,10 @@
       pointer-events: none;
     }
 
-    /* طبقة سينمائية فوق الفيديو */
+
+    /* =====================================================
+       HERO OVERLAY
+    ===================================================== */
 
     .hero-overlay {
       position: absolute;
@@ -259,9 +268,10 @@
         );
     }
 
-    /* =========================
+
+    /* =====================================================
        HERO CONTENT
-    ========================= */
+    ===================================================== */
 
     .hero-content {
       position: relative;
@@ -287,7 +297,18 @@
       animation: fadeUp 1s ease forwards;
     }
 
+
+    /*
+      مهم:
+      direction:ltr
+      حتى يظل ترتيب HAكـّ بصرياً ثابتاً
+      ولا يقوم RTL بعكس ترتيب الحروف.
+    */
+
     .hero-title {
+      direction: ltr;
+      unicode-bidi: isolate;
+
       font-size: clamp(55px, 10vw, 125px);
 
       line-height: 0.9;
@@ -298,7 +319,7 @@
 
       color: #fff;
 
-      margin-bottom: 22px;
+      margin-bottom: 28px;
 
       text-shadow:
         0 10px 40px rgba(0,0,0,0.6);
@@ -306,21 +327,14 @@
       animation: fadeUp 1.1s ease forwards;
     }
 
-    .hero-brand {
-      font-size: clamp(28px, 4vw, 50px);
 
-      font-weight: 700;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 15px;
-
-      color: #fff;
-
-      animation: fadeUp 1.2s ease forwards;
-    }
+    /* =====================================================
+       SLOGAN
+    ===================================================== */
 
     .hero-slogan {
+      direction: ltr;
+
       font-size: clamp(15px, 2vw, 21px);
 
       letter-spacing: 5px;
@@ -346,9 +360,10 @@
       animation: fadeUp 1.4s ease forwards;
     }
 
-    /* =========================
+
+    /* =====================================================
        CTA
-    ========================= */
+    ===================================================== */
 
     .hero-button {
       display: inline-flex;
@@ -361,11 +376,13 @@
       padding: 15px 32px;
 
       background: #fff;
+
       color: #080808;
 
       border: 1px solid #fff;
 
       font-size: 14px;
+
       font-weight: bold;
 
       letter-spacing: 1px;
@@ -377,14 +394,16 @@
 
     .hero-button:hover {
       background: transparent;
+
       color: #fff;
 
       transform: translateY(-3px);
     }
 
-    /* =========================
+
+    /* =====================================================
        SOUND BUTTON
-    ========================= */
+    ===================================================== */
 
     .sound-button {
       position: absolute;
@@ -421,14 +440,16 @@
 
     .sound-button:hover {
       background: #fff;
+
       color: #080808;
 
       transform: scale(1.08);
     }
 
-    /* =========================
+
+    /* =====================================================
        TICKER
-    ========================= */
+    ===================================================== */
 
     .ticker {
       position: absolute;
@@ -461,6 +482,8 @@
     }
 
     .ticker-item {
+      direction: ltr;
+
       padding: 0 45px;
 
       white-space: nowrap;
@@ -472,9 +495,10 @@
       color: #fff;
     }
 
-    /* =========================
+
+    /* =====================================================
        CATEGORIES
-    ========================= */
+    ===================================================== */
 
     .categories {
       background: #fff;
@@ -613,9 +637,10 @@
       font-weight: 500;
     }
 
-    /* =========================
+
+    /* =====================================================
        ABOUT
-    ========================= */
+    ===================================================== */
 
     .about {
       position: relative;
@@ -671,6 +696,8 @@
     }
 
     .about h2 {
+      direction: ltr;
+
       font-size: clamp(38px, 7vw, 85px);
 
       line-height: 0.95;
@@ -693,6 +720,8 @@
     }
 
     .about-slogan {
+      direction: ltr;
+
       margin-top: 35px;
 
       font-size: 13px;
@@ -702,9 +731,53 @@
       color: #fff;
     }
 
-    /* =========================
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    #contact {
+      background: #fff;
+
+      color: #080808;
+
+      padding: 90px 20px;
+
+      text-align: center;
+    }
+
+    .contact-label {
+      font-size: 12px;
+
+      letter-spacing: 4px;
+
+      color: #777;
+
+      margin-bottom: 15px;
+    }
+
+    #contact h2 {
+      font-size: clamp(35px,6vw,70px);
+
+      margin-bottom: 20px;
+    }
+
+    #contact p {
+      color: #666;
+
+      font-size: 15px;
+
+      line-height: 2;
+
+      max-width: 600px;
+
+      margin: auto;
+    }
+
+
+    /* =====================================================
        FOOTER
-    ========================= */
+    ===================================================== */
 
     footer {
       background: #050505;
@@ -717,6 +790,8 @@
     }
 
     .footer-logo {
+      direction: ltr;
+
       font-size: 28px;
 
       font-weight: 800;
@@ -725,6 +800,8 @@
     }
 
     .footer-slogan {
+      direction: ltr;
+
       color: #888;
 
       font-size: 11px;
@@ -740,23 +817,31 @@
       font-size: 12px;
     }
 
-    /* =========================
+
+    /* =====================================================
        ANIMATIONS
-    ========================= */
+    ===================================================== */
 
     @keyframes fadeUp {
+
       from {
         opacity: 0;
-        transform: translateY(25px);
+
+        transform:
+          translateY(25px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
       }
+
     }
 
     @keyframes tickerMove {
+
       from {
         transform: translateX(0);
       }
@@ -764,11 +849,13 @@
       to {
         transform: translateX(50%);
       }
+
     }
 
-    /* =========================
+
+    /* =====================================================
        RESPONSIVE
-    ========================= */
+    ===================================================== */
 
     @media (max-width: 900px) {
 
@@ -795,7 +882,9 @@
       .hero-title {
         letter-spacing: -3px;
       }
+
     }
+
 
     @media (max-width: 800px) {
 
@@ -824,22 +913,27 @@
 
       .hero {
         min-height: 600px;
+
         height: 82vh;
       }
 
       .hero-description {
         font-size: 14px;
+
         line-height: 1.9;
       }
 
       .sound-button {
         left: 18px;
+
         bottom: 70px;
 
         width: 44px;
         height: 44px;
       }
+
     }
+
 
     @media (max-width: 500px) {
 
@@ -849,11 +943,13 @@
 
       .logo-wrapper {
         width: 92px;
+
         height: 68px;
       }
 
       .site-logo {
         width: 84px;
+
         height: 48px;
       }
 
@@ -875,30 +971,31 @@
 
       .hero-small {
         font-size: 10px;
+
         letter-spacing: 3px;
       }
 
       .hero-title {
         font-size: 52px;
-        letter-spacing: -3px;
-      }
 
-      .hero-brand {
-        font-size: 28px;
+        letter-spacing: -3px;
       }
 
       .hero-slogan {
         font-size: 12px;
+
         letter-spacing: 3px;
       }
 
       .hero-description {
         font-size: 13px;
+
         padding: 0 10px;
       }
 
       .hero-button {
         min-width: 170px;
+
         padding: 13px 24px;
       }
 
@@ -917,28 +1014,37 @@
       .about p {
         font-size: 15px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================
+
+  <!-- =====================================================
        HEADER
-  ========================== -->
+  ===================================================== -->
 
   <header>
 
-    <!-- اللوجو الجديد -->
-    <a href="index.html" class="logo-wrapper" aria-label="HAكـّ">
+    <a
+      href="index.html"
+      class="logo-wrapper"
+      aria-label="HAكـّ"
+    >
+
       <img
         class="site-logo"
         src="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
         alt="HAكـّ Logo"
       >
+
     </a>
 
-    <!-- Navigation -->
+
     <nav>
 
       <a href="index.html">
@@ -957,7 +1063,10 @@
         تواصل معنا
       </a>
 
-      <a href="cart.html" class="cart-link">
+      <a
+        href="cart.html"
+        class="cart-link"
+      >
         🛒
         <span id="cartCount">0</span>
       </a>
@@ -967,13 +1076,13 @@
   </header>
 
 
-  <!-- =========================
+
+  <!-- =====================================================
        HERO
-  ========================== -->
+  ===================================================== -->
 
   <section class="hero">
 
-    <!-- YouTube Background -->
 
     <iframe
       id="youtubePlayer"
@@ -985,30 +1094,35 @@
     </iframe>
 
 
-    <!-- Cinematic Overlay -->
-
     <div class="hero-overlay"></div>
 
 
-    <!-- Hero Content -->
-
     <div class="hero-content">
+
 
       <div class="hero-small">
         BREAK THE ORDINARY
       </div>
 
+
+      <!--
+        تم تثبيت ترتيب البراند
+        بحيث تظهر كـّ على اليمين
+        و HA على اليسار
+      -->
+
       <h1 class="hero-title">
         HAكـّ
       </h1>
 
-      <div class="hero-brand">
-        HAكـّ
-      </div>
+
+      <!-- تم حذف hero-brand بالكامل -->
+
 
       <div class="hero-slogan">
         BREAK THROUGH REALITY
       </div>
+
 
       <p class="hero-description">
         مش مجرد ستايل.
@@ -1017,28 +1131,33 @@
         وتكسر بيها المألوف.
       </p>
 
-      <a href="products.html" class="hero-button">
+
+      <a
+        href="products.html"
+        class="hero-button"
+      >
         اكتشف المجموعة
       </a>
 
     </div>
 
 
-    <!-- Sound Button -->
+
+    <!-- SOUND BUTTON -->
 
     <button
       id="soundButton"
       class="sound-button"
       type="button"
       aria-label="تشغيل الصوت"
-      title="تشغيل الصوت">
-
+      title="تشغيل الصوت"
+    >
       🔇
-
     </button>
 
 
-    <!-- Ticker -->
+
+    <!-- TICKER -->
 
     <div class="ticker">
 
@@ -1083,9 +1202,10 @@
   </section>
 
 
-  <!-- =========================
+
+  <!-- =====================================================
        CATEGORIES
-  ========================== -->
+  ===================================================== -->
 
   <section class="categories">
 
@@ -1104,11 +1224,11 @@
 
     <div class="category-grid">
 
-      <!-- Women -->
 
       <a
         href="products.html?category=women"
-        class="category-card">
+        class="category-card"
+      >
 
         <img
           src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
@@ -1135,11 +1255,11 @@
       </a>
 
 
-      <!-- Men -->
 
       <a
         href="products.html?category=men"
-        class="category-card">
+        class="category-card"
+      >
 
         <img
           src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
@@ -1166,11 +1286,11 @@
       </a>
 
 
-      <!-- Shoes -->
 
       <a
         href="products.html?category=shoes"
-        class="category-card">
+        class="category-card"
+      >
 
         <img
           src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
@@ -1196,28 +1316,36 @@
 
       </a>
 
+
     </div>
 
   </section>
 
 
-  <!-- =========================
-       ABOUT
-  ========================== -->
 
-  <section class="about" id="about">
+  <!-- =====================================================
+       ABOUT
+  ===================================================== -->
+
+  <section
+    class="about"
+    id="about"
+  >
 
     <div class="about-inner">
+
 
       <div class="about-label">
         THE IDEA BEHIND HAكـّ
       </div>
+
 
       <h2>
         BREAK<br>
         THROUGH<br>
         REALITY
       </h2>
+
 
       <p>
         HAكـّ مستوحى من فكرة HACK،
@@ -1227,58 +1355,37 @@
         الأسلوب الحقيقي يبدأ عندما تبدأ أنت في كسر المألوف.
       </p>
 
+
       <div class="about-slogan">
         BREAK THROUGH REALITY
       </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- =========================
+
+  <!-- =====================================================
        CONTACT
-  ========================== -->
+  ===================================================== -->
 
   <section
     id="contact"
-    style="
-      background:#fff;
-      color:#080808;
-      padding:90px 20px;
-      text-align:center;
-    "
   >
 
-    <div
-      style="
-        font-size:12px;
-        letter-spacing:4px;
-        color:#777;
-        margin-bottom:15px;
-      "
-    >
+    <div class="contact-label">
       GET IN TOUCH
     </div>
 
-    <h2
-      style="
-        font-size:clamp(35px,6vw,70px);
-        margin-bottom:20px;
-      "
-    >
+
+    <h2>
       تواصل معنا
     </h2>
 
-    <p
-      style="
-        color:#666;
-        font-size:15px;
-        line-height:2;
-        max-width:600px;
-        margin:auto;
-      "
-    >
+
+    <p>
       عندك سؤال عن المنتجات أو الطلبات؟
       تواصل معنا وسنكون معك.
     </p>
@@ -1286,9 +1393,10 @@
   </section>
 
 
-  <!-- =========================
+
+  <!-- =====================================================
        FOOTER
-  ========================== -->
+  ===================================================== -->
 
   <footer>
 
@@ -1296,9 +1404,11 @@
       HAكـّ
     </div>
 
+
     <div class="footer-slogan">
       BREAK THROUGH REALITY
     </div>
+
 
     <div class="copyright">
       © 2026 HAكـّ — All Rights Reserved
@@ -1307,122 +1417,144 @@
   </footer>
 
 
-  <!-- =========================
+
+  <!-- =====================================================
        YOUTUBE API
-  ========================== -->
+  ===================================================== -->
 
   <script>
 
     let player;
+
     let isSoundOn = false;
 
 
     function onYouTubeIframeAPIReady() {
 
-      player = new YT.Player("youtubePlayer", {
+      player = new YT.Player(
+        "youtubePlayer",
+        {
 
-        events: {
+          events: {
 
-          onReady: function(event) {
+            onReady: function(event) {
 
-            event.target.mute();
+              event.target.mute();
 
-            event.target.setVolume(0);
-
-            event.target.playVideo();
-
-          },
-
-          onStateChange: function(event) {
-
-            /*
-              إذا انتهى الفيديو،
-              نعيد تشغيله تلقائياً.
-            */
-
-            if (event.data === YT.PlayerState.ENDED) {
-
-              event.target.seekTo(0);
+              event.target.setVolume(0);
 
               event.target.playVideo();
+
+            },
+
+
+            onStateChange: function(event) {
+
+              if (
+                event.data ===
+                YT.PlayerState.ENDED
+              ) {
+
+                event.target.seekTo(0);
+
+                event.target.playVideo();
+
+              }
 
             }
 
           }
 
         }
-
-      });
+      );
 
     }
 
 
-    /* =========================
-       SOUND CONTROL
-    ========================== */
+
+    /* =====================================================
+       SOUND
+    ===================================================== */
 
     const soundButton =
-      document.getElementById("soundButton");
+      document.getElementById(
+        "soundButton"
+      );
 
 
-    soundButton.addEventListener("click", function() {
+    soundButton.addEventListener(
+      "click",
+      function() {
 
-      if (!player) {
-        return;
+        if (!player) {
+          return;
+        }
+
+
+        if (!isSoundOn) {
+
+          player.unMute();
+
+          player.setVolume(100);
+
+          player.playVideo();
+
+
+          soundButton.innerHTML =
+            "🔊";
+
+
+          soundButton.setAttribute(
+            "aria-label",
+            "كتم الصوت"
+          );
+
+
+          soundButton.setAttribute(
+            "title",
+            "كتم الصوت"
+          );
+
+
+          isSoundOn = true;
+
+        }
+
+        else {
+
+          player.mute();
+
+          player.setVolume(0);
+
+
+          soundButton.innerHTML =
+            "🔇";
+
+
+          soundButton.setAttribute(
+            "aria-label",
+            "تشغيل الصوت"
+          );
+
+
+          soundButton.setAttribute(
+            "title",
+            "تشغيل الصوت"
+          );
+
+
+          isSoundOn = false;
+
+        }
+
       }
+    );
 
 
-      if (!isSoundOn) {
 
-        player.unMute();
-
-        player.setVolume(100);
-
-        player.playVideo();
-
-        soundButton.innerHTML = "🔊";
-
-        soundButton.setAttribute(
-          "aria-label",
-          "كتم الصوت"
-        );
-
-        soundButton.setAttribute(
-          "title",
-          "كتم الصوت"
-        );
-
-        isSoundOn = true;
-
-      } else {
-
-        player.mute();
-
-        player.setVolume(0);
-
-        soundButton.innerHTML = "🔇";
-
-        soundButton.setAttribute(
-          "aria-label",
-          "تشغيل الصوت"
-        );
-
-        soundButton.setAttribute(
-          "title",
-          "تشغيل الصوت"
-        );
-
-        isSoundOn = false;
-
-      }
-
-    });
-
-
-    /*
-      محاولة تشغيل الفيديو بمجرد
-      تفاعل المستخدم مع الصفحة.
-    */
+    /* =====================================================
+       AUTOPLAY FALLBACK
+    ===================================================== */
 
     document.addEventListener(
       "pointerdown",
@@ -1431,7 +1563,9 @@
         if (player) {
 
           try {
+
             player.playVideo();
+
           } catch (error) {}
 
         }
@@ -1443,25 +1577,34 @@
     );
 
 
-    /* =========================
+
+    /* =====================================================
        CART COUNT
-    ========================== */
+    ===================================================== */
 
     function updateCartCount() {
 
       const cartCount =
-        document.getElementById("cartCount");
+        document.getElementById(
+          "cartCount"
+        );
+
 
       let cart = [];
+
 
       try {
 
         cart =
           JSON.parse(
-            localStorage.getItem("gamyCart")
+            localStorage.getItem(
+              "gamyCart"
+            )
           ) || [];
 
-      } catch (error) {
+      }
+
+      catch (error) {
 
         cart = [];
 
@@ -1471,12 +1614,14 @@
       let totalQuantity = 0;
 
 
-      cart.forEach(function(item) {
+      cart.forEach(
+        function(item) {
 
-        totalQuantity +=
-          Number(item.quantity) || 0;
+          totalQuantity +=
+            Number(item.quantity) || 0;
 
-      });
+        }
+      );
 
 
       cartCount.textContent =
@@ -1488,17 +1633,17 @@
     updateCartCount();
 
 
-    /*
-      تحديث العداد لو حصل تغيير
-      في localStorage من صفحة أخرى.
-    */
-
     window.addEventListener(
       "storage",
       function(event) {
 
-        if (event.key === "gamyCart") {
+        if (
+          event.key ===
+          "gamyCart"
+        ) {
+
           updateCartCount();
+
         }
 
       }
@@ -1507,9 +1652,15 @@
   </script>
 
 
-  <!-- YouTube API -->
 
-  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- =====================================================
+       YOUTUBE API
+  ===================================================== -->
+
+  <script
+    src="https://www.youtube.com/iframe_api">
+  </script>
+
 
 </body>
 </html>
