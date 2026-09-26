@@ -3,12 +3,10 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>سلة المشتريات | GAMY STORE</title>
+    <title>السلة | HAكـّ</title>
 
     <style>
 
@@ -18,318 +16,797 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            color: #111;
+        :root {
+            --black: #080808;
+            --white: #ffffff;
+            --silver: #b7b7b7;
+            --light: #e6e6e6;
+            --dark-gray: #151515;
         }
 
-        /* HEADER */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, "Tahoma", sans-serif;
+            background: #f5f5f5;
+            color: var(--black);
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
-            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
 
-            padding: 20px 7%;
+            height: 78px;
+            padding: 0 5%;
+
+            background: rgba(8, 8, 8, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
             display: flex;
-
-            justify-content: space-between;
-
             align-items: center;
-
-            border-bottom: 1px solid #eee;
+            justify-content: space-between;
         }
 
-        .logo {
-            font-size: 27px;
+        .logo-wrapper {
+            width: 150px;
+            height: 78px;
 
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
 
-            letter-spacing: 2px;
+            overflow: hidden;
+        }
+
+        .site-logo {
+            width: 128px;
+            height: 64px;
+
+            object-fit: contain;
+
+            display: block;
+
+            mix-blend-mode: screen;
         }
 
         nav {
             display: flex;
-
-            gap: 25px;
+            align-items: center;
+            gap: 30px;
         }
 
         nav a {
+            position: relative;
+
+            color: white;
             text-decoration: none;
 
-            color: #111;
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
         }
 
-        .cart-icon {
-            font-size: 24px;
+        nav a::after {
+            content: "";
 
-            text-decoration: none;
+            position: absolute;
 
-            color: #111;
-        }
+            right: 0;
+            bottom: -8px;
 
-        /* TITLE */
+            width: 0;
+            height: 1px;
 
-        .title {
-            text-align: center;
-
-            padding: 55px 20px 30px;
-        }
-
-        .title h1 {
-            font-size: 40px;
-
-            margin-bottom: 10px;
-        }
-
-        .title p {
-            color: #666;
-        }
-
-        /* CART */
-
-        .cart-container {
-            width: 86%;
-
-            max-width: 1000px;
-
-            margin: auto;
-
-            padding-bottom: 80px;
-        }
-
-        .cart-item {
             background: white;
 
-            margin-bottom: 15px;
+            transition: 0.3s;
+        }
 
-            padding: 20px;
+        nav a:hover {
+            color: var(--silver);
+        }
 
-            border-radius: 8px;
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cart-link {
+            position: relative;
+
+            width: 45px;
+            height: 45px;
 
             display: flex;
-
             align-items: center;
+            justify-content: center;
 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 19px;
+
+            transition: 0.3s;
+        }
+
+        .cart-link:hover {
+            background: white;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           PAGE HERO
+        ========================= */
+
+        .page-hero {
+            position: relative;
+
+            min-height: 300px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    #292929 0%,
+                    #111 35%,
+                    #080808 75%
+                );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border: 1px solid rgba(255,255,255,0.06);
+
+            border-radius: 50%;
+
+            top: -280px;
+            left: 50%;
+
+            transform: translateX(-50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            padding: 60px 20px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            color: var(--silver);
+
+            margin-bottom: 18px;
+
+            direction: ltr;
+            unicode-bidi: isolate;
+        }
+
+        .hero-title {
+            font-size: clamp(42px, 7vw, 78px);
+
+            font-weight: 900;
+
+            letter-spacing: -2px;
+
+            line-height: 0.95;
+
+            direction: ltr;
+            unicode-bidi: isolate;
+
+            white-space: nowrap;
+        }
+
+        .hero-title span {
+            display: block;
+
+            font-size: clamp(13px, 2vw, 17px);
+
+            font-weight: 500;
+
+            letter-spacing: 7px;
+
+            color: var(--silver);
+
+            margin-top: 22px;
+        }
+
+        /* =========================
+           CART SECTION
+        ========================= */
+
+        .cart-container {
+            width: 90%;
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            padding: 60px 0 90px;
+        }
+
+        .section-heading {
+            display: flex;
+
+            align-items: flex-end;
             justify-content: space-between;
 
             gap: 20px;
 
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+
+            border-bottom: 1px solid #ddd;
+
+            padding-bottom: 18px;
         }
 
+        .section-heading h2 {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CART ITEM
+        ========================= */
+
+        .cart-item {
+            background: white;
+
+            border: 1px solid #e5e5e5;
+
+            margin-bottom: 14px;
+
+            padding: 22px;
+
+            min-height: 125px;
+
+            display: grid;
+
+            grid-template-columns: 1fr auto auto;
+
+            align-items: center;
+
+            gap: 30px;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .cart-item::before {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            top: 0;
+
+            width: 3px;
+            height: 100%;
+
+            background: #111;
+
+            transform: scaleY(0);
+
+            transform-origin: bottom;
+
+            transition: 0.3s;
+        }
+
+        .cart-item:hover {
+            border-color: #bbb;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .cart-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        /* =========================
+           ITEM INFO
+        ========================= */
+
         .item-info {
-            flex: 1;
+            min-width: 0;
         }
 
         .item-info h3 {
-            margin-bottom: 8px;
+            font-size: 19px;
+
+            margin-bottom: 12px;
+
+            font-weight: 800;
         }
 
-        .item-info p {
-            color: #666;
+        .item-details {
+            display: flex;
 
-            margin: 5px 0;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-bottom: 12px;
         }
 
-        /* QUANTITY */
+        .detail {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            background: #f4f4f4;
+
+            padding: 7px 10px;
+
+            font-size: 12px;
+
+            color: #555;
+        }
+
+        .item-price {
+            font-size: 14px;
+
+            color: #777;
+        }
+
+        .item-total {
+            margin-top: 6px;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            color: #111;
+        }
+
+        /* =========================
+           QUANTITY
+        ========================= */
+
+        .quantity-box {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .quantity-label {
+            font-size: 11px;
+
+            color: #888;
+
+            letter-spacing: 1px;
+        }
 
         .quantity {
             display: flex;
 
             align-items: center;
 
-            gap: 10px;
-        }
-
-        .quantity button {
-            width: 32px;
-
-            height: 32px;
-
             border: 1px solid #ddd;
 
             background: white;
+        }
+
+        .quantity button {
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            background: white;
+
+            color: #111;
 
             cursor: pointer;
 
-            font-size: 18px;
-
-            border-radius: 4px;
+            font-size: 20px;
 
             transition: 0.2s;
         }
 
         .quantity button:hover {
             background: #111;
-
             color: white;
         }
 
         .quantity strong {
-            min-width: 25px;
+            min-width: 42px;
 
             text-align: center;
 
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        /* REMOVE */
+        /* =========================
+           REMOVE
+        ========================= */
 
         .remove {
-            border: none;
+            border: 1px solid #111;
 
             background: #111;
 
             color: white;
 
-            padding: 10px 16px;
-
-            border-radius: 5px;
+            padding: 11px 20px;
 
             cursor: pointer;
 
-            transition: 0.2s;
+            font-family: inherit;
+
+            font-size: 13px;
+
+            transition: 0.25s;
         }
 
         .remove:hover {
-            background: #333;
-        }
-
-        /* TOTAL */
-
-        .total {
             background: white;
 
-            padding: 25px;
-
-            border-radius: 8px;
-
-            margin-top: 25px;
-
-            text-align: center;
-
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            color: #111;
         }
 
-        .total h2 {
-            margin-bottom: 20px;
-        }
-
-        .checkout {
-            display: inline-block;
-
-            background: #111;
-
-            color: white;
-
-            text-decoration: none;
-
-            padding: 15px 45px;
-
-            border-radius: 5px;
-
-            transition: 0.2s;
-        }
-
-        .checkout:hover {
-            background: #333;
-        }
-
-        /* EMPTY */
+        /* =========================
+           EMPTY CART
+        ========================= */
 
         .empty {
             background: white;
 
+            border: 1px solid #e2e2e2;
+
             text-align: center;
 
-            padding: 60px 20px;
+            padding: 75px 25px;
 
-            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
 
-            color: #666;
+        .empty-icon {
+            width: 70px;
+            height: 70px;
 
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            margin: 0 auto 25px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 28px;
+        }
+
+        .empty h2 {
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+        .empty p {
+            color: #777;
+
+            margin-bottom: 25px;
         }
 
         .empty a {
             display: inline-block;
 
-            margin-top: 15px;
-
             background: #111;
 
             color: white;
 
             text-decoration: none;
 
-            padding: 12px 25px;
+            padding: 14px 30px;
 
-            border-radius: 5px;
+            font-size: 14px;
+
+            transition: 0.25s;
         }
 
-        /* FOOTER */
+        .empty a:hover {
+            background: #333;
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           TOTAL
+        ========================= */
+
+        .total {
+            margin-top: 30px;
+
+            background: #080808;
+
+            color: white;
+
+            padding: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            border: 1px solid #222;
+        }
+
+        .total-info span {
+            display: block;
+
+            color: #999;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 7px;
+        }
+
+        .total-info h2 {
+            font-size: 30px;
+        }
+
+        .checkout {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 210px;
+
+            background: white;
+
+            color: #111;
+
+            text-decoration: none;
+
+            padding: 16px 30px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            transition: 0.25s;
+        }
+
+        .checkout:hover {
+            background: #ddd;
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            background: #111;
+            background: #080808;
 
             color: white;
 
             text-align: center;
 
-            padding: 40px;
+            padding: 50px 20px;
+
+            border-top: 1px solid #222;
         }
 
-        /* MOBILE */
+        .footer-brand {
+            font-size: 28px;
 
-        @media (max-width: 700px) {
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            direction: ltr;
+            unicode-bidi: isolate;
+
+            white-space: nowrap;
+        }
+
+        .footer-slogan {
+            margin-top: 10px;
+
+            color: #999;
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            direction: ltr;
+            unicode-bidi: isolate;
+
+            white-space: nowrap;
+        }
+
+        .copyright {
+            margin-top: 25px;
+
+            font-size: 11px;
+
+            color: #666;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
 
             header {
-                padding: 18px 5%;
+                height: 72px;
+                padding: 0 4%;
             }
 
-            .logo {
-                font-size: 21px;
+            .logo-wrapper {
+                width: 105px;
+                height: 68px;
+            }
+
+            .site-logo {
+                width: 94px;
+                height: 52px;
             }
 
             nav {
-                gap: 10px;
+                gap: 15px;
             }
 
             nav a {
-                font-size: 13px;
+                font-size: 12px;
+            }
+
+            .cart-link {
+                width: 40px;
+                height: 40px;
+                font-size: 17px;
+            }
+
+            .cart-container {
+                width: 92%;
+                padding-top: 45px;
             }
 
             .cart-item {
-                flex-direction: column;
+                grid-template-columns: 1fr;
 
-                align-items: stretch;
+                gap: 20px;
 
                 text-align: center;
             }
 
-            .item-info {
+            .item-details {
+                justify-content: center;
+            }
+
+            .quantity-box {
                 width: 100%;
             }
 
             .quantity {
-                justify-content: center;
+                margin: auto;
             }
 
             .remove {
                 width: 100%;
             }
 
-            .title {
-                padding-top: 40px;
-            }
+            .total {
+                flex-direction: column;
 
-            .title h1 {
-                font-size: 32px;
+                text-align: center;
             }
 
             .checkout {
                 width: 100%;
+            }
+
+            .section-heading {
+                flex-direction: column;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+        }
+
+        @media (max-width: 520px) {
+
+            header {
+                padding: 0 3%;
+            }
+
+            .logo-wrapper {
+                width: 92px;
+            }
+
+            .site-logo {
+                width: 84px;
+                height: 48px;
+            }
+
+            nav {
+                gap: 8px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            nav a:nth-child(3) {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 43px;
+            }
+
+            .hero-title span {
+                font-size: 10px;
+                letter-spacing: 4px;
+            }
+
+            .total {
+                padding: 25px 18px;
+            }
+
+            .total-info h2 {
+                font-size: 25px;
             }
 
         }
@@ -342,11 +819,21 @@
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
-    <div class="logo">
-        GAMY STORE
-    </div>
+    <a href="index.html" class="logo-wrapper">
+
+        <img
+            src="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
+            alt="HAكـّ"
+            class="site-logo"
+        >
+
+    </a>
 
 
     <nav>
@@ -359,41 +846,84 @@
             المنتجات
         </a>
 
+        <a href="index.html#about">
+            من نحن
+        </a>
+
     </nav>
 
 
-    <a href="cart.html" class="cart-icon">
+    <a href="cart.html" class="cart-link" aria-label="السلة">
         🛒
     </a>
 
 </header>
 
 
-<section class="title">
+<!-- =========================
+     PAGE HERO
+========================= -->
 
-    <h1>
-        سلة المشتريات
-    </h1>
+<section class="page-hero">
 
-    <p>
-        راجع المنتجات قبل إتمام الطلب
-    </p>
+    <div class="hero-content">
+
+        <div class="hero-label">
+            YOUR SELECTION
+        </div>
+
+        <h1 class="hero-title" dir="ltr">
+            CART
+            <span dir="ltr">
+                HAكـّ / BREAK THROUGH REALITY
+            </span>
+        </h1>
+
+    </div>
 
 </section>
 
 
-<div class="cart-container">
+<!-- =========================
+     CART
+========================= -->
+
+<main class="cart-container">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>
+                سلة المشتريات
+            </h2>
+
+            <p>
+                راجع اختياراتك قبل إتمام الطلب
+            </p>
+
+        </div>
+
+    </div>
+
 
     <div id="cartItems"></div>
 
 
     <div class="total">
 
-        <h2>
-            الإجمالي:
-            <span id="totalPrice">0</span>
-            جنيه
-        </h2>
+        <div class="total-info">
+
+            <span>
+                TOTAL
+            </span>
+
+            <h2>
+                <span id="totalPrice">0</span>
+                جنيه
+            </h2>
+
+        </div>
 
 
         <a
@@ -406,20 +936,26 @@
 
     </div>
 
-</div>
+</main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <h2>
-        GAMY STORE
-    </h2>
+    <div class="footer-brand" dir="ltr">
+        HAكـّ
+    </div>
 
-    <br>
+    <div class="footer-slogan" dir="ltr">
+        BREAK THROUGH REALITY
+    </div>
 
-    <p>
-        Fashion that defines you.
-    </p>
+    <div class="copyright">
+        © 2026 HAكـّ — All Rights Reserved
+    </div>
 
 </footer>
 
@@ -502,18 +1038,20 @@
 
                 <div class="empty">
 
-                    <h2>
-                        السلة فارغة 🛒
-                    </h2>
+                    <div class="empty-icon">
+                        🛒
+                    </div>
 
-                    <br>
+                    <h2>
+                        السلة فارغة
+                    </h2>
 
                     <p>
                         لم تقم بإضافة أي منتجات إلى السلة بعد.
                     </p>
 
                     <a href="products.html">
-                        اذهب للمنتجات
+                        اكتشف المنتجات
                     </a>
 
                 </div>
@@ -545,7 +1083,7 @@
 
             container.innerHTML += `
 
-                <div class="cart-item">
+                <article class="cart-item">
 
                     <div class="item-info">
 
@@ -553,54 +1091,68 @@
                             ${escapeHTML(item.name)}
                         </h3>
 
-                        <p>
-                            المقاس:
-                            ${escapeHTML(item.size || "-")}
-                        </p>
+                        <div class="item-details">
 
-                        <p>
-                            اللون:
-                            ${escapeHTML(item.color || "-")}
-                        </p>
+                            <span class="detail">
+                                المقاس:
+                                <strong>
+                                    ${escapeHTML(item.size || "-")}
+                                </strong>
+                            </span>
 
-                        <p>
-                            السعر:
+                            <span class="detail">
+                                اللون:
+                                <strong>
+                                    ${escapeHTML(item.color || "-")}
+                                </strong>
+                            </span>
+
+                        </div>
+
+                        <div class="item-price">
+                            سعر القطعة:
                             ${price}
                             جنيه
-                        </p>
+                        </div>
 
-                        <p>
+                        <div class="item-total">
                             الإجمالي:
-                            <strong>
-                                ${itemTotal}
-                                جنيه
-                            </strong>
-                        </p>
+                            ${itemTotal}
+                            جنيه
+                        </div>
 
                     </div>
 
 
-                    <div class="quantity">
+                    <div class="quantity-box">
 
-                        <button
-                            type="button"
-                            onclick="changeQuantity(${index}, -1)"
-                        >
-                            -
-                        </button>
+                        <div class="quantity-label">
+                            QUANTITY
+                        </div>
 
+                        <div class="quantity">
 
-                        <strong>
-                            ${quantity}
-                        </strong>
+                            <button
+                                type="button"
+                                onclick="changeQuantity(${index}, -1)"
+                                aria-label="تقليل الكمية"
+                            >
+                                −
+                            </button>
 
+                            <strong>
+                                ${quantity}
+                            </strong>
 
-                        <button
-                            type="button"
-                            onclick="changeQuantity(${index}, 1)"
-                        >
-                            +
-                        </button>
+                            <button
+                                type="button"
+                                onclick="changeQuantity(${index}, 1)"
+                                aria-label="زيادة الكمية"
+                            >
+                                +
+                            </button>
+
+                        </div>
 
                     </div>
 
@@ -610,17 +1162,18 @@
                         class="remove"
                         onclick="removeItem(${index})"
                     >
-                        حذف
+                        حذف المنتج
                     </button>
 
-                </div>
+                </article>
 
             `;
 
         });
 
 
-        totalElement.innerText = total;
+        totalElement.innerText =
+            total.toLocaleString("en-US");
 
 
         /* حفظ أي تنظيف للبيانات */
@@ -784,8 +1337,6 @@
 
                 }
 
-
-                /* السماح بالانتقال إلى checkout.html */
 
                 window.location.href =
                     "checkout.html";
