@@ -201,7 +201,7 @@
       position: relative;
 
       min-height: 650px;
-      height: 88vh;
+      height: 100vh;
 
       display: flex;
       align-items: center;
@@ -218,11 +218,15 @@
       top: 50%;
       left: 50%;
 
-      width: 100vw;
-      height: 56.25vw;
+      /*
+        يجعل فيديو YouTube يغطي الـHero بالكامل
+        مع الحفاظ على نسبة 16:9 بدون حواف سوداء.
+      */
+      width: 177.78vh;
+      height: 100vh;
 
-      min-width: 177.78vh;
-      min-height: 100vh;
+      min-width: 100vw;
+      min-height: 56.25vw;
 
       transform: translate(-50%, -50%);
 
@@ -920,6 +924,13 @@
         min-height: 600px;
 
         height: 82vh;
+      }
+
+      .youtube-background {
+        width: 177.78vh;
+        height: 100vh;
+        min-width: 100vw;
+        min-height: 56.25vw;
       }
 
       .hero-description {
