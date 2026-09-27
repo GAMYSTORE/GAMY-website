@@ -446,6 +446,11 @@
       transform: scale(1.08);
     }
 
+    .sound-button:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
 
     /* =====================================================
        TICKER
@@ -1087,9 +1092,9 @@
     <iframe
       id="youtubePlayer"
       class="youtube-background"
-      src="https://www.youtube.com/embed/40FqZyCvMOU?autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
+      src="https://www.youtube.com/embed/40FqZyCvMOU?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
       title="HAكـّ Fashion Video"
-      allow="autoplay; encrypted-media"
+      allow="autoplay; encrypted-media; picture-in-picture"
       allowfullscreen>
     </iframe>
 
@@ -1151,6 +1156,7 @@
       type="button"
       aria-label="تشغيل الصوت"
       title="تشغيل الصوت"
+      disabled
     >
       🔇
     </button>
@@ -1436,6 +1442,8 @@
 
               event.target.playVideo();
 
+              soundButton.disabled = false;
+
             },
 
 
@@ -1477,7 +1485,10 @@
       "click",
       function() {
 
-        if (!player) {
+        if (
+          !player ||
+          typeof player.unMute !== "function"
+        ) {
           return;
         }
 
