@@ -657,22 +657,39 @@
 
       letter-spacing: 1px;
 
-      transition: 0.35s ease;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+
+      transform: translateZ(0);
+
+      will-change:
+        background-color,
+        color,
+        transform;
 
       animation: fadeUp 1.5s ease forwards;
     }
 
     .hero-button:hover {
-      background: transparent;
+      background-color: transparent;
 
       color: #fff;
 
-      transform: translateY(-3px);
+      transform:
+        translate3d(0, -3px, 0);
+    }
+
+    .hero-button:active {
+      transform:
+        translate3d(0, 0, 0);
     }
 
 
     /* =====================================================
        SOUND BUTTON
+       SMOOTH / PERFORMANCE VERSION
     ===================================================== */
 
     .sound-button {
@@ -694,7 +711,7 @@
 
       border-radius: 50%;
 
-      background: rgba(0,0,0,0.42);
+      background: rgba(0,0,0,0.55);
 
       color: #fff;
 
@@ -702,22 +719,54 @@
 
       font-size: 18px;
 
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      /* تحسين الأداء مع فيديو الـ YouTube */
+      transform: translateZ(0);
 
-      transition: 0.3s ease;
+      will-change:
+        background-color,
+        color,
+        transform;
+
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+      appearance: none;
+      -webkit-appearance: none;
+
+      outline: none;
+
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .sound-button:hover {
-      background: #fff;
+      background-color: #fff;
 
       color: #080808;
 
-      transform: scale(1.08);
+      transform:
+        translate3d(0, -2px, 0)
+        scale(1.04);
+    }
+
+    .sound-button:active {
+      transform:
+        translate3d(0, 0, 0)
+        scale(0.96);
+    }
+
+    .sound-button:focus-visible {
+      outline: 2px solid #fff;
+
+      outline-offset: 3px;
     }
 
     .sound-button:disabled {
       opacity: 0.65;
+
       cursor: wait;
     }
 
@@ -1482,114 +1531,117 @@
   <!-- =====================================================
        HERO
   ===================================================== -->
-<!-- =====================================================
-     HERO
-===================================================== -->
 
-<section class="hero">
+  <section class="hero">
 
-  <!-- YOUTUBE BACKGROUND VIDEO -->
-  <iframe
-    id="youtubePlayer"
-    class="youtube-background"
-    src="https://www.youtube.com/embed/40FqZyCvMOU?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
-    title="HAكـّ Fashion Video"
-    allow="autoplay; encrypted-media; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+    <!-- YOUTUBE BACKGROUND VIDEO -->
+
+    <iframe
+      id="youtubePlayer"
+      class="youtube-background"
+      src="https://www.youtube.com/embed/40FqZyCvMOU?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
+      title="HAكـّ Fashion Video"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
 
 
-  <!-- HERO OVERLAY -->
-  <div class="hero-overlay"></div>
+    <!-- HERO OVERLAY -->
+
+    <div class="hero-overlay"></div>
 
 
-  <!-- HERO CONTENT -->
-  <div class="hero-content">
+    <!-- HERO CONTENT -->
 
-    <div class="hero-small">
-      BREAK THE ORDINARY
+    <div class="hero-content">
+
+      <div class="hero-small">
+        BREAK THE ORDINARY
+      </div>
+
+      <h1 class="hero-title">
+        HAكـّ
+      </h1>
+
+      <div class="hero-slogan">
+        BREAK THROUGH REALITY
+      </div>
+
+      <p class="hero-description">
+        Not just a style.
+        A different way to see fashion,
+        express yourself,
+        and break the ordinary.
+      </p>
+
+      <a
+        href="products.html"
+        class="hero-button"
+      >
+        EXPLORE COLLECTION
+      </a>
+
     </div>
 
-    <h1 class="hero-title">
-      HAكـّ
-    </h1>
 
-    <div class="hero-slogan">
-      BREAK THROUGH REALITY
-    </div>
+    <!-- SOUND BUTTON -->
 
-    <p class="hero-description">
-      Not just a style.
-      A different way to see fashion,
-      express yourself,
-      and break the ordinary.
-    </p>
-
-    <a
-      href="products.html"
-      class="hero-button"
+    <button
+      id="soundButton"
+      class="sound-button"
+      type="button"
+      aria-label="Turn sound on"
+      title="Turn sound on"
+      disabled
     >
-      EXPLORE COLLECTION
-    </a>
-
-  </div>
+      🔇
+    </button>
 
 
-  <!-- SOUND BUTTON -->
-  <button
-    id="soundButton"
-    class="sound-button"
-    type="button"
-    aria-label="Turn sound on"
-    title="Turn sound on"
-    disabled
-  >
-    🔇
-  </button>
+    <!-- TICKER -->
 
+    <div class="ticker">
 
-  <!-- TICKER -->
-  <div class="ticker">
+      <div class="ticker-track">
 
-    <div class="ticker-track">
+        <div class="ticker-item">
+          HAكـّ
+        </div>
 
-      <div class="ticker-item">
-        HAكـّ
-      </div>
+        <div class="ticker-item">
+          BREAK THROUGH REALITY
+        </div>
 
-      <div class="ticker-item">
-        BREAK THROUGH REALITY
-      </div>
+        <div class="ticker-item">
+          BREAK THE ORDINARY
+        </div>
 
-      <div class="ticker-item">
-        BREAK THE ORDINARY
-      </div>
+        <div class="ticker-item">
+          REDEFINE YOUR STYLE
+        </div>
 
-      <div class="ticker-item">
-        REDEFINE YOUR STYLE
-      </div>
+        <div class="ticker-item">
+          HAكـّ
+        </div>
 
-      <div class="ticker-item">
-        HAكـّ
-      </div>
+        <div class="ticker-item">
+          BREAK THROUGH REALITY
+        </div>
 
-      <div class="ticker-item">
-        BREAK THROUGH REALITY
-      </div>
+        <div class="ticker-item">
+          BREAK THE ORDINARY
+        </div>
 
-      <div class="ticker-item">
-        BREAK THE ORDINARY
-      </div>
+        <div class="ticker-item">
+          REDEFINE YOUR STYLE
+        </div>
 
-      <div class="ticker-item">
-        REDEFINE YOUR STYLE
       </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
 
   <!-- =====================================================
        CATEGORIES
@@ -1838,6 +1890,21 @@
   ===================================================== -->
 
   <script>
+
+    /* =====================================================
+       SOUND VARIABLES
+       MOVED BEFORE LANGUAGE INITIALIZATION
+    ===================================================== */
+
+    let player = null;
+
+    let isSoundOn = false;
+
+    const soundButton =
+      document.getElementById(
+        "soundButton"
+      );
+
 
     /* =====================================================
        TRANSLATIONS
@@ -2384,11 +2451,6 @@
        YOUTUBE PLAYER
     ===================================================== */
 
-    let player;
-
-    let isSoundOn = false;
-
-
     function onYouTubeIframeAPIReady() {
 
       player =
@@ -2440,12 +2502,6 @@
     /* =====================================================
        SOUND
     ===================================================== */
-
-    const soundButton =
-      document.getElementById(
-        "soundButton"
-      );
-
 
     soundButton.addEventListener(
       "click",
