@@ -1,15 +1,164 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html lang="en" dir="ltr">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>HAكـّ | BREAK THROUGH REALITY</title>
+  <!-- =====================================================
+       SEO
+  ===================================================== -->
 
-  <meta name="description"
-        content="HAكـّ — BREAK THROUGH REALITY. تجربة أزياء مختلفة تكسر المألوف.">
+  <title>HACK STORE | BREAK THROUGH REALITY</title>
 
-  <meta name="theme-color" content="#080808">
+<meta
+id="metaDescription"
+name="description"
+content="HACK STORE — A different fashion experience that breaks the ordinary. Discover clothing, fashion and shoes online."
+
+>
+
+<meta
+name="keywords"
+content="HACK STORE, fashion store, clothing, clothes online, fashion Egypt, shoes, online fashion store, streetwear"
+
+>
+
+<meta
+name="author"
+content="HACK STORE"
+
+>
+
+<meta
+name="robots"
+content="index, follow, max-image-preview:large"
+
+>
+
+<meta
+name="googlebot"
+content="index, follow"
+
+>
+
+<meta
+name="theme-color"
+content="#080808"
+
+>
+
+  <link
+    rel="canonical"
+    href="https://hackstore-eg.github.io/HACK.COM/"
+  >
+
+  <!-- =====================================================
+       OPEN GRAPH
+  ===================================================== -->
+
+<meta
+property="og:type"
+content="website"
+
+>
+
+<meta
+property="og:title"
+content="HACK STORE | BREAK THROUGH REALITY"
+
+>
+
+<meta
+id="ogDescription"
+property="og:description"
+content="HACK STORE — A different fashion experience that breaks the ordinary."
+
+>
+
+<meta
+property="og:url"
+content="https://hackstore-eg.github.io/HACK.COM/"
+
+>
+
+<meta
+property="og:site_name"
+content="HACK STORE"
+
+>
+
+<meta
+id="ogLocale"
+property="og:locale"
+content="en_US"
+
+>
+
+<meta
+property="og:image"
+content="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
+
+>
+
+<meta
+property="og:image:alt"
+content="HACK STORE Logo"
+
+>
+
+  <!-- =====================================================
+       TWITTER CARD
+  ===================================================== -->
+
+<meta
+name="twitter:card"
+content="summary_large_image"
+
+>
+
+<meta
+name="twitter:title"
+content="HACK STORE | BREAK THROUGH REALITY"
+
+>
+
+<meta
+id="twitterDescription"
+name="twitter:description"
+content="HACK STORE — A different fashion experience that breaks the ordinary."
+
+>
+
+<meta
+name="twitter:image"
+content="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
+
+>
+
+  <!-- =====================================================
+       STRUCTURED DATA
+  ===================================================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "HACK STORE",
+    "alternateName": "هاك ستور",
+    "url": "https://hackstore-eg.github.io/HACK.COM/",
+    "logo": "https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png",
+    "description": "HACK STORE — A different fashion experience that breaks the ordinary.",
+    "slogan": "BREAK THROUGH REALITY",
+    "brand": {
+      "@type": "Brand",
+      "name": "HACK STORE"
+    }
+  }
+  </script>
 
   <style>
 
@@ -34,6 +183,10 @@
       color: #fff;
 
       overflow-x: hidden;
+
+      transition:
+        direction 0s,
+        text-align 0.2s ease;
     }
 
     a {
@@ -129,7 +282,7 @@
       display: flex;
       align-items: center;
 
-      gap: 30px;
+      gap: 26px;
     }
 
     nav a {
@@ -143,6 +296,8 @@
       letter-spacing: 0.5px;
 
       transition: 0.3s ease;
+
+      white-space: nowrap;
     }
 
     nav a::after {
@@ -150,7 +305,7 @@
 
       position: absolute;
 
-      right: 0;
+      left: 0;
       bottom: -8px;
 
       width: 0;
@@ -168,6 +323,11 @@
     nav a:hover::after {
       width: 100%;
     }
+
+
+    /* =====================================================
+       CART
+    ===================================================== */
 
     .cart-link {
       display: flex;
@@ -190,6 +350,139 @@
 
       font-size: 10px;
       font-weight: bold;
+    }
+
+
+    /* =====================================================
+       LANGUAGE SWITCHER
+    ===================================================== */
+
+    .language-switcher {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      margin-left: 4px;
+    }
+
+    .language-button {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      min-width: 112px;
+
+      padding: 8px 11px;
+
+      border: 1px solid rgba(255,255,255,0.25);
+
+      border-radius: 20px;
+
+      background: rgba(255,255,255,0.06);
+
+      color: #fff;
+
+      cursor: pointer;
+
+      font-size: 12px;
+
+      transition: 0.3s ease;
+    }
+
+    .language-button:hover {
+      background: #fff;
+      color: #080808;
+      border-color: #fff;
+    }
+
+    .language-flag {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .language-name {
+      flex: 1;
+      text-align: center;
+    }
+
+    .language-arrow {
+      font-size: 9px;
+      opacity: 0.7;
+    }
+
+    .language-menu {
+      position: absolute;
+
+      top: calc(100% + 9px);
+
+      right: 0;
+
+      width: 145px;
+
+      padding: 6px;
+
+      background: rgba(10,10,10,0.97);
+
+      border: 1px solid rgba(255,255,255,0.15);
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 15px 40px rgba(0,0,0,0.45);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform: translateY(-7px);
+
+      transition: 0.25s ease;
+
+      z-index: 2000;
+    }
+
+    .language-switcher.open .language-menu {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    .language-option {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      gap: 9px;
+
+      padding: 10px 11px;
+
+      border: 0;
+
+      border-radius: 8px;
+
+      background: transparent;
+
+      color: #fff;
+
+      cursor: pointer;
+
+      text-align: left;
+
+      font-size: 12px;
+
+      transition: 0.2s ease;
+    }
+
+    .language-option:hover {
+      background: rgba(255,255,255,0.10);
+    }
+
+    .language-option.active {
+      background: rgba(255,255,255,0.14);
     }
 
 
@@ -218,10 +511,6 @@
       top: 50%;
       left: 50%;
 
-      /*
-        يجعل فيديو YouTube يغطي الـHero بالكامل
-        مع الحفاظ على نسبة 16:9 بدون حواف سوداء.
-      */
       width: 177.78vh;
       height: 100vh;
 
@@ -300,14 +589,6 @@
 
       animation: fadeUp 1s ease forwards;
     }
-
-
-    /*
-      مهم:
-      direction:ltr
-      حتى يظل ترتيب HAكـّ بصرياً ثابتاً
-      ولا يقوم RTL بعكس ترتيب الحروف.
-    */
 
     .hero-title {
       direction: ltr;
@@ -664,7 +945,7 @@
     }
 
     .about::before {
-      content: "HAكـّ";
+      content: "HACK STORE";
 
       position: absolute;
 
@@ -714,18 +995,6 @@
       letter-spacing: -4px;
 
       margin-bottom: 35px;
-    }
-
-    .about p {
-      max-width: 800px;
-
-      margin: auto;
-
-      color: #bbb;
-
-      font-size: 17px;
-
-      line-height: 2.1;
     }
 
     .about-slogan {
@@ -866,6 +1135,19 @@
        RESPONSIVE
     ===================================================== */
 
+    @media (max-width: 1100px) {
+
+      nav {
+        gap: 17px;
+      }
+
+      .language-button {
+        min-width: 100px;
+      }
+
+    }
+
+
     @media (max-width: 900px) {
 
       header {
@@ -873,7 +1155,7 @@
       }
 
       nav {
-        gap: 18px;
+        gap: 14px;
       }
 
       nav a {
@@ -912,12 +1194,22 @@
       }
 
       nav {
-        gap: 14px;
+        gap: 12px;
       }
 
       nav a:nth-child(3),
       nav a:nth-child(4) {
         display: none;
+      }
+
+      .language-button {
+        min-width: 92px;
+
+        padding: 7px 8px;
+      }
+
+      .language-menu {
+        right: 0;
       }
 
       .hero {
@@ -954,31 +1246,45 @@
     @media (max-width: 500px) {
 
       header {
-        padding: 0 12px;
+        padding: 0 10px;
       }
 
       .logo-wrapper {
-        width: 92px;
+        width: 82px;
 
         height: 68px;
       }
 
       .site-logo {
-        width: 84px;
+        width: 76px;
 
-        height: 48px;
+        height: 46px;
       }
 
       nav {
-        gap: 10px;
+        gap: 8px;
       }
 
       nav a {
-        font-size: 11px;
+        font-size: 10px;
       }
 
       nav a:nth-child(2) {
         display: none;
+      }
+
+      .language-button {
+        min-width: 86px;
+
+        font-size: 10px;
+      }
+
+      .language-flag {
+        font-size: 15px;
+      }
+
+      .language-menu {
+        width: 135px;
       }
 
       .hero {
@@ -992,9 +1298,9 @@
       }
 
       .hero-title {
-        font-size: 52px;
+        font-size: 48px;
 
-        letter-spacing: -3px;
+        letter-spacing: -2px;
       }
 
       .hero-slogan {
@@ -1027,18 +1333,13 @@
         padding: 90px 25px;
       }
 
-      .about p {
-        font-size: 15px;
-      }
-
     }
 
   </style>
+
 </head>
 
-
 <body>
-
 
   <!-- =====================================================
        HEADER
@@ -1046,179 +1347,279 @@
 
   <header>
 
-    <a
-      href="index.html"
-      class="logo-wrapper"
-      aria-label="HAكـّ"
+```
+<a
+  href="index.html"
+  class="logo-wrapper"
+  aria-label="HACK STORE"
+>
+
+  <img
+    class="site-logo"
+    src="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
+    alt="HACK STORE Logo"
+  >
+
+</a>
+
+
+<nav>
+
+  <a
+    href="index.html"
+    data-i18n="home"
+  >
+    Home
+  </a>
+
+  <a
+    href="products.html"
+    data-i18n="products"
+  >
+    Products
+  </a>
+
+  <a
+    href="#about"
+    data-i18n="about"
+  >
+    About Us
+  </a>
+
+  <a
+    href="#contact"
+    data-i18n="contact"
+  >
+    Contact
+  </a>
+
+
+  <!-- CART -->
+
+  <a
+    href="cart.html"
+    class="cart-link"
+    aria-label="Shopping Cart"
+  >
+
+    🛒
+
+    <span id="cartCount">
+      0
+    </span>
+
+  </a>
+
+
+  <!-- LANGUAGE -->
+
+  <div
+    class="language-switcher"
+    id="languageSwitcher"
+  >
+
+    <button
+      type="button"
+      class="language-button"
+      id="languageButton"
+      aria-label="Choose language"
+      aria-expanded="false"
     >
 
-      <img
-        class="site-logo"
-        src="https://cdn.phototourl.com/member/2026-09-26-51ccf248-77a7-4d8b-83ac-c87d102a783d.png"
-        alt="HAكـّ Logo"
+      <span
+        class="language-flag"
+        id="currentFlag"
+      >
+        🇬🇧
+      </span>
+
+      <span
+        class="language-name"
+        id="currentLanguage"
+      >
+        English
+      </span>
+
+      <span class="language-arrow">
+        ▼
+      </span>
+
+    </button>
+
+
+    <div
+      class="language-menu"
+      id="languageMenu"
+    >
+
+      <button
+        type="button"
+        class="language-option active"
+        data-lang="en"
       >
 
-    </a>
+        <span>
+          🇬🇧
+        </span>
+
+        <span>
+          English
+        </span>
+
+      </button>
 
 
-    <nav>
-
-      <a href="index.html">
-        الرئيسية
-      </a>
-
-      <a href="products.html">
-        المنتجات
-      </a>
-
-      <a href="#about">
-        من نحن
-      </a>
-
-      <a href="#contact">
-        تواصل معنا
-      </a>
-
-      <a
-        href="cart.html"
-        class="cart-link"
+      <button
+        type="button"
+        class="language-option"
+        data-lang="ar"
       >
-        🛒
-        <span id="cartCount">0</span>
-      </a>
 
-    </nav>
+        <span>
+          🇪🇬
+        </span>
+
+        <span>
+          العربية
+        </span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</nav>
+```
 
   </header>
-
-
 
   <!-- =====================================================
        HERO
   ===================================================== -->
 
-  <section class="hero">
+  <section
+    class="hero"
+    aria-label="HACK STORE"
+  >
+
+```
+<iframe
+  id="youtubePlayer"
+  class="youtube-background"
+  src="https://www.youtube.com/embed/40FqZyCvMOU?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
+  title="HACK STORE Fashion Video"
+  allow="autoplay; encrypted-media; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
 
-    <iframe
-      id="youtubePlayer"
-      class="youtube-background"
-      src="https://www.youtube.com/embed/40FqZyCvMOU?enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=40FqZyCvMOU&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1"
-      title="HAكـّ Fashion Video"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+<div class="hero-overlay"></div>
 
 
-    <div class="hero-overlay"></div>
+<div class="hero-content">
 
 
-    <div class="hero-content">
+  <div
+    class="hero-small"
+    data-i18n="heroSmall"
+  >
+    BREAK THE ORDINARY
+  </div>
 
 
-      <div class="hero-small">
-        BREAK THE ORDINARY
-      </div>
+  <h1 class="hero-title">
+    HACK STORE
+  </h1>
 
 
-      <!--
-        تم تثبيت ترتيب البراند
-        بحيث تظهر كـّ على اليمين
-        و HA على اليسار
-      -->
-
-      <h1 class="hero-title">
-        HAكـّ
-      </h1>
+  <div class="hero-slogan">
+    BREAK THROUGH REALITY
+  </div>
 
 
-      <!-- تم حذف hero-brand بالكامل -->
+  <p
+    class="hero-description"
+    data-i18n="heroDescription"
+  >
+    Not just a style.
+    A different way to see fashion,
+    express yourself,
+    and break the ordinary.
+  </p>
 
 
-      <div class="hero-slogan">
-        BREAK THROUGH REALITY
-      </div>
+  <a
+    href="products.html"
+    class="hero-button"
+    data-i18n="discover"
+  >
+    Discover the Collection
+  </a>
+
+</div>
 
 
-      <p class="hero-description">
-        مش مجرد ستايل.
-        طريقة مختلفة تشوف بيها الموضة،
-        تعبر بيها عن نفسك،
-        وتكسر بيها المألوف.
-      </p>
+
+<!-- SOUND BUTTON -->
+
+<button
+  id="soundButton"
+  class="sound-button"
+  type="button"
+  aria-label="Turn sound on"
+  title="Turn sound on"
+  disabled
+>
+  🔇
+</button>
 
 
-      <a
-        href="products.html"
-        class="hero-button"
-      >
-        اكتشف المجموعة
-      </a>
 
+<!-- TICKER -->
+
+<div class="ticker">
+
+  <div class="ticker-track">
+
+    <div class="ticker-item">
+      HACK STORE
     </div>
 
-
-
-    <!-- SOUND BUTTON -->
-
-    <button
-      id="soundButton"
-      class="sound-button"
-      type="button"
-      aria-label="تشغيل الصوت"
-      title="تشغيل الصوت"
-      disabled
-    >
-      🔇
-    </button>
-
-
-
-    <!-- TICKER -->
-
-    <div class="ticker">
-
-      <div class="ticker-track">
-
-        <div class="ticker-item">
-          HAكـّ
-        </div>
-
-        <div class="ticker-item">
-          BREAK THROUGH REALITY
-        </div>
-
-        <div class="ticker-item">
-          BREAK THE ORDINARY
-        </div>
-
-        <div class="ticker-item">
-          REDEFINE YOUR STYLE
-        </div>
-
-        <div class="ticker-item">
-          HAكـّ
-        </div>
-
-        <div class="ticker-item">
-          BREAK THROUGH REALITY
-        </div>
-
-        <div class="ticker-item">
-          BREAK THE ORDINARY
-        </div>
-
-        <div class="ticker-item">
-          REDEFINE YOUR STYLE
-        </div>
-
-      </div>
-
+    <div class="ticker-item">
+      BREAK THROUGH REALITY
     </div>
+
+    <div class="ticker-item">
+      BREAK THE ORDINARY
+    </div>
+
+    <div class="ticker-item">
+      REDEFINE YOUR STYLE
+    </div>
+
+    <div class="ticker-item">
+      HACK STORE
+    </div>
+
+    <div class="ticker-item">
+      BREAK THROUGH REALITY
+    </div>
+
+    <div class="ticker-item">
+      BREAK THE ORDINARY
+    </div>
+
+    <div class="ticker-item">
+      REDEFINE YOUR STYLE
+    </div>
+
+  </div>
+
+</div>
+```
 
   </section>
-
-
 
   <!-- =====================================================
        CATEGORIES
@@ -1226,119 +1627,148 @@
 
   <section class="categories">
 
-    <div class="section-label">
-      EXPLORE THE WORLD OF HAكـّ
+```
+<div
+  class="section-label"
+  data-i18n="explore"
+>
+  EXPLORE THE WORLD OF HACK STORE
+</div>
+
+
+<h2
+  class="section-title"
+  data-i18n="chooseStyle"
+>
+  Choose Your Style
+</h2>
+
+
+<p
+  class="section-subtitle"
+  data-i18n="discoverPieces"
+>
+  Discover pieces designed to be different
+</p>
+
+
+<div class="category-grid">
+
+
+  <!-- WOMEN -->
+
+  <a
+    href="products.html?category=women"
+    class="category-card"
+  >
+
+    <img
+      src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
+      alt="Women's Fashion - HACK STORE"
+      loading="lazy"
+    >
+
+    <div class="category-info">
+
+      <span>
+        COLLECTION 01
+      </span>
+
+      <h3
+        data-i18n="women"
+      >
+        Women
+      </h3>
+
+      <strong
+        data-i18n="exploreArrow"
+      >
+        EXPLORE →
+      </strong>
+
     </div>
 
-    <h2 class="section-title">
-      اختار ستايلك
-    </h2>
-
-    <p class="section-subtitle">
-      اكتشف القطع المصممة لتكون مختلفة
-    </p>
+  </a>
 
 
-    <div class="category-grid">
 
+  <!-- MEN -->
 
-      <a
-        href="products.html?category=women"
-        class="category-card"
+  <a
+    href="products.html?category=men"
+    class="category-card"
+  >
+
+    <img
+      src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
+      alt="Men's Fashion - HACK STORE"
+      loading="lazy"
+    >
+
+    <div class="category-info">
+
+      <span>
+        COLLECTION 02
+      </span>
+
+      <h3
+        data-i18n="men"
       >
+        Men
+      </h3>
 
-        <img
-          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=85"
-          alt="Women Fashion"
-          loading="lazy"
-        >
-
-        <div class="category-info">
-
-          <span>
-            COLLECTION 01
-          </span>
-
-          <h3>
-            Women
-          </h3>
-
-          <strong>
-            EXPLORE →
-          </strong>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        href="products.html?category=men"
-        class="category-card"
+      <strong
+        data-i18n="exploreArrow"
       >
-
-        <img
-          src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1200&q=85"
-          alt="Men Fashion"
-          loading="lazy"
-        >
-
-        <div class="category-info">
-
-          <span>
-            COLLECTION 02
-          </span>
-
-          <h3>
-            Men
-          </h3>
-
-          <strong>
-            EXPLORE →
-          </strong>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        href="products.html?category=shoes"
-        class="category-card"
-      >
-
-        <img
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
-          alt="Shoes Collection"
-          loading="lazy"
-        >
-
-        <div class="category-info">
-
-          <span>
-            COLLECTION 03
-          </span>
-
-          <h3>
-            Shoes
-          </h3>
-
-          <strong>
-            EXPLORE →
-          </strong>
-
-        </div>
-
-      </a>
-
+        EXPLORE →
+      </strong>
 
     </div>
+
+  </a>
+
+
+
+  <!-- SHOES -->
+
+  <a
+    href="products.html?category=shoes"
+    class="category-card"
+  >
+
+    <img
+      src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
+      alt="Shoes Collection - HACK STORE"
+      loading="lazy"
+    >
+
+    <div class="category-info">
+
+      <span>
+        COLLECTION 03
+      </span>
+
+      <h3
+        data-i18n="shoes"
+      >
+        Shoes
+      </h3>
+
+      <strong
+        data-i18n="exploreArrow"
+      >
+        EXPLORE →
+      </strong>
+
+    </div>
+
+  </a>
+
+
+</div>
+```
 
   </section>
-
-
 
   <!-- =====================================================
        ABOUT
@@ -1349,31 +1779,34 @@
     id="about"
   >
 
-    <div class="about-inner">
+```
+<div class="about-inner">
 
 
-      <div class="about-label">
-        THE IDEA BEHIND HAكـّ
-      </div>
+  <div
+    class="about-label"
+    data-i18n="idea"
+  >
+    THE IDEA BEHIND HACK STORE
+  </div>
 
 
-      <h2>
-        BREAK<br>
-        THROUGH<br>
-        REALITY
-      </h2>
+  <h2>
+    BREAK<br>
+    THROUGH<br>
+    REALITY
+  </h2>
 
 
-           <div class="about-slogan">
-        BREAK THROUGH REALITY
-      </div>
+  <div class="about-slogan">
+    BREAK THROUGH REALITY
+  </div>
 
 
-    </div>
+</div>
+```
 
   </section>
-
-
 
   <!-- =====================================================
        CONTACT
@@ -1383,24 +1816,31 @@
     id="contact"
   >
 
-    <div class="contact-label">
-      GET IN TOUCH
-    </div>
+```
+<div
+  class="contact-label"
+  data-i18n="getInTouch"
+>
+  GET IN TOUCH
+</div>
 
 
-    <h2>
-      تواصل معنا
-    </h2>
+<h2
+  data-i18n="contactTitle"
+>
+  Contact Us
+</h2>
 
 
-    <p>
-      عندك سؤال عن المنتجات أو الطلبات؟
-      تواصل معنا وسنكون معك.
-    </p>
+<p
+  data-i18n="contactText"
+>
+  Have a question about our products or orders?
+  Get in touch with us and we'll be happy to help.
+</p>
+```
 
   </section>
-
-
 
   <!-- =====================================================
        FOOTER
@@ -1408,29 +1848,452 @@
 
   <footer>
 
-    <div class="footer-logo">
-      HAكـّ
-    </div>
+```
+<div class="footer-logo">
+  HACK STORE
+</div>
 
 
-    <div class="footer-slogan">
-      BREAK THROUGH REALITY
-    </div>
+<div class="footer-slogan">
+  BREAK THROUGH REALITY
+</div>
 
 
-    <div class="copyright">
-      © 2026 HAكـّ — All Rights Reserved
-    </div>
+<div
+  class="copyright"
+  data-i18n="copyright"
+>
+  © 2026 HACK STORE — All Rights Reserved
+</div>
+```
 
   </footer>
 
-
-
   <!-- =====================================================
-       YOUTUBE API
+       LANGUAGE + WEBSITE SCRIPT
   ===================================================== -->
 
   <script>
+
+    /* =====================================================
+       TRANSLATIONS
+    ===================================================== */
+
+    const translations = {
+
+      en: {
+
+        home: "Home",
+
+        products: "Products",
+
+        about: "About Us",
+
+        contact: "Contact",
+
+        heroSmall: "BREAK THE ORDINARY",
+
+        heroDescription:
+          "Not just a style. A different way to see fashion, express yourself, and break the ordinary.",
+
+        discover:
+          "Discover the Collection",
+
+        explore:
+          "EXPLORE THE WORLD OF HACK STORE",
+
+        chooseStyle:
+          "Choose Your Style",
+
+        discoverPieces:
+          "Discover pieces designed to be different",
+
+        women:
+          "Women",
+
+        men:
+          "Men",
+
+        shoes:
+          "Shoes",
+
+        exploreArrow:
+          "EXPLORE →",
+
+        idea:
+          "THE IDEA BEHIND HACK STORE",
+
+        getInTouch:
+          "GET IN TOUCH",
+
+        contactTitle:
+          "Contact Us",
+
+        contactText:
+          "Have a question about our products or orders? Get in touch with us and we'll be happy to help.",
+
+        copyright:
+          "© 2026 HACK STORE — All Rights Reserved"
+
+      },
+
+
+      ar: {
+
+        home: "الرئيسية",
+
+        products: "المنتجات",
+
+        about: "من نحن",
+
+        contact: "تواصل معنا",
+
+        heroSmall:
+          "اكسر المألوف",
+
+        heroDescription:
+          "مش مجرد ستايل. طريقة مختلفة تشوف بيها الموضة، تعبر بيها عن نفسك، وتكسر بيها المألوف.",
+
+        discover:
+          "اكتشف المجموعة",
+
+        explore:
+          "اكتشف عالم HACK STORE",
+
+        chooseStyle:
+          "اختار ستايلك",
+
+        discoverPieces:
+          "اكتشف القطع المصممة لتكون مختلفة",
+
+        women:
+          "نساء",
+
+        men:
+          "رجال",
+
+        shoes:
+          "أحذية",
+
+        exploreArrow:
+          "استكشف ←",
+
+        idea:
+          "الفكرة وراء HACK STORE",
+
+        getInTouch:
+          "تواصل معنا",
+
+        contactTitle:
+          "تواصل معنا",
+
+        contactText:
+          "عندك سؤال عن المنتجات أو الطلبات؟ تواصل معنا وسنكون سعداء بمساعدتك.",
+
+        copyright:
+          "© 2026 HACK STORE — جميع الحقوق محفوظة"
+
+      }
+
+    };
+
+
+    /* =====================================================
+       LANGUAGE ELEMENTS
+    ===================================================== */
+
+    const languageSwitcher =
+      document.getElementById(
+        "languageSwitcher"
+      );
+
+    const languageButton =
+      document.getElementById(
+        "languageButton"
+      );
+
+    const currentFlag =
+      document.getElementById(
+        "currentFlag"
+      );
+
+    const currentLanguage =
+      document.getElementById(
+        "currentLanguage"
+      );
+
+    const languageOptions =
+      document.querySelectorAll(
+        ".language-option"
+      );
+
+
+    /* =====================================================
+       CHANGE LANGUAGE
+    ===================================================== */
+
+    function setLanguage(lang) {
+
+      const dictionary =
+        translations[lang] ||
+        translations.en;
+
+
+      /* Direction */
+
+      if (lang === "ar") {
+
+        document.documentElement.lang =
+          "ar";
+
+        document.documentElement.dir =
+          "rtl";
+
+        currentFlag.textContent =
+          "🇪🇬";
+
+        currentLanguage.textContent =
+          "العربية";
+
+        document.title =
+          "HACK STORE | اكسر المألوف";
+
+      }
+
+      else {
+
+        document.documentElement.lang =
+          "en";
+
+        document.documentElement.dir =
+          "ltr";
+
+        currentFlag.textContent =
+          "🇬🇧";
+
+        currentLanguage.textContent =
+          "English";
+
+        document.title =
+          "HACK STORE | BREAK THROUGH REALITY";
+
+      }
+
+
+      /* Translate elements */
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(function(element) {
+
+          const key =
+            element.getAttribute(
+              "data-i18n"
+            );
+
+          if (dictionary[key]) {
+
+            element.textContent =
+              dictionary[key];
+
+          }
+
+        });
+
+
+      /* SEO */
+
+      const metaDescription =
+        document.getElementById(
+          "metaDescription"
+        );
+
+      const ogDescription =
+        document.getElementById(
+          "ogDescription"
+        );
+
+      const twitterDescription =
+        document.getElementById(
+          "twitterDescription"
+        );
+
+      const ogLocale =
+        document.getElementById(
+          "ogLocale"
+        );
+
+
+      if (lang === "ar") {
+
+        metaDescription.setAttribute(
+          "content",
+          "HACK STORE — متجر أزياء أونلاين يقدم ستايل مختلف يكسر المألوف. اكتشف أحدث الملابس والأزياء والأحذية."
+        );
+
+        ogDescription.setAttribute(
+          "content",
+          "HACK STORE — تجربة أزياء مختلفة تكسر المألوف."
+        );
+
+        twitterDescription.setAttribute(
+          "content",
+          "HACK STORE — تجربة أزياء مختلفة تكسر المألوف."
+        );
+
+        ogLocale.setAttribute(
+          "content",
+          "ar_EG"
+        );
+
+      }
+
+      else {
+
+        metaDescription.setAttribute(
+          "content",
+          "HACK STORE — A different fashion experience that breaks the ordinary. Discover clothing, fashion and shoes online."
+        );
+
+        ogDescription.setAttribute(
+          "content",
+          "HACK STORE — A different fashion experience that breaks the ordinary."
+        );
+
+        twitterDescription.setAttribute(
+          "content",
+          "HACK STORE — A different fashion experience that breaks the ordinary."
+        );
+
+        ogLocale.setAttribute(
+          "content",
+          "en_US"
+        );
+
+      }
+
+
+      /* Active option */
+
+      languageOptions.forEach(
+        function(option) {
+
+          option.classList.toggle(
+            "active",
+            option.dataset.lang === lang
+          );
+
+        }
+      );
+
+
+      /* Save */
+
+      localStorage.setItem(
+        "hackStoreLanguage",
+        lang
+      );
+
+    }
+
+
+    /* =====================================================
+       LANGUAGE BUTTON
+    ===================================================== */
+
+    languageButton.addEventListener(
+      "click",
+      function(event) {
+
+        event.stopPropagation();
+
+        const isOpen =
+          languageSwitcher.classList.toggle(
+            "open"
+          );
+
+        languageButton.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false"
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       LANGUAGE OPTIONS
+    ===================================================== */
+
+    languageOptions.forEach(
+      function(option) {
+
+        option.addEventListener(
+          "click",
+          function() {
+
+            setLanguage(
+              option.dataset.lang
+            );
+
+            languageSwitcher.classList.remove(
+              "open"
+            );
+
+            languageButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       CLOSE LANGUAGE MENU
+    ===================================================== */
+
+    document.addEventListener(
+      "click",
+      function() {
+
+        languageSwitcher.classList.remove(
+          "open"
+        );
+
+        languageButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       INITIAL LANGUAGE
+    ===================================================== */
+
+    const savedLanguage =
+      localStorage.getItem(
+        "hackStoreLanguage"
+      );
+
+
+    setLanguage(
+      savedLanguage === "ar"
+        ? "ar"
+        : "en"
+    );
+
+
+
+    /* =====================================================
+       YOUTUBE PLAYER
+    ===================================================== */
 
     let player;
 
@@ -1439,44 +2302,48 @@
 
     function onYouTubeIframeAPIReady() {
 
-      player = new YT.Player(
-        "youtubePlayer",
-        {
+      player =
+        new YT.Player(
+          "youtubePlayer",
+          {
 
-          events: {
+            events: {
 
-            onReady: function(event) {
+              onReady:
+                function(event) {
 
-              event.target.mute();
+                  event.target.mute();
 
-              event.target.setVolume(0);
+                  event.target.setVolume(0);
 
-              event.target.playVideo();
+                  event.target.playVideo();
 
-              soundButton.disabled = false;
+                  soundButton.disabled =
+                    false;
 
-            },
+                },
 
 
-            onStateChange: function(event) {
+              onStateChange:
+                function(event) {
 
-              if (
-                event.data ===
-                YT.PlayerState.ENDED
-              ) {
+                  if (
+                    event.data ===
+                    YT.PlayerState.ENDED
+                  ) {
 
-                event.target.seekTo(0);
+                    event.target.seekTo(0);
 
-                event.target.playVideo();
+                    event.target.playVideo();
 
-              }
+                  }
+
+                }
 
             }
 
           }
-
-        }
-      );
+        );
 
     }
 
@@ -1498,9 +2365,12 @@
 
         if (
           !player ||
-          typeof player.unMute !== "function"
+          typeof player.unMute !==
+          "function"
         ) {
+
           return;
+
         }
 
 
@@ -1519,13 +2389,13 @@
 
           soundButton.setAttribute(
             "aria-label",
-            "كتم الصوت"
+            "Turn sound off"
           );
 
 
           soundButton.setAttribute(
             "title",
-            "كتم الصوت"
+            "Turn sound off"
           );
 
 
@@ -1546,13 +2416,13 @@
 
           soundButton.setAttribute(
             "aria-label",
-            "تشغيل الصوت"
+            "Turn sound on"
           );
 
 
           soundButton.setAttribute(
             "title",
-            "تشغيل الصوت"
+            "Turn sound on"
           );
 
 
@@ -1579,7 +2449,9 @@
 
             player.playVideo();
 
-          } catch (error) {}
+          }
+
+          catch (error) {}
 
         }
 
@@ -1664,8 +2536,6 @@
 
   </script>
 
-
-
   <!-- =====================================================
        YOUTUBE API
   ===================================================== -->
@@ -1674,6 +2544,6 @@
     src="https://www.youtube.com/iframe_api">
   </script>
 
-
 </body>
+
 </html>
